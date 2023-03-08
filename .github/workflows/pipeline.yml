@@ -9,7 +9,6 @@ permissions:
   contents: read
 jobs: 
   jest:
-    name: teststatuscheck
     runs-on: windows-latest 
     steps:
      - name: Setup Node.js environment
