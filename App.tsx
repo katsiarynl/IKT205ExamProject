@@ -7,8 +7,6 @@ import PUTBlog from "./utilities/PUTBlog";
 import { useEffect } from "react";
 import GETBlogs from "./utilities/GETBlogs";
 
-// const GETBlogs = fetch("http://10.0.0.9:5000/blogs");
-
 export default function App() {
   //GETBlogs("64066f663a00a4d8600624a7r");
   // useEffect(() => {
