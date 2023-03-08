@@ -45,7 +45,7 @@ async function Print(callback, disp) {
 
 type AppState = typeof initialState;
 const blog = { title: "test", content: "test", author: "test" };
-let TestValue = TestBranch;
+let TestValue = TestBranchL;
 
 export const StudentContext = createContext<{
   state: AppState;
