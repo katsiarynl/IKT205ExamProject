@@ -1,6 +1,6 @@
-function DELETEBlog() {
-  fetch("http://10.0.0.9:5000/blogs", {
-    method: "DELETE",
+function DELETEBlog(id) {
+  fetch("http://10.229.0.131:5000/blogs/" + id, {
+    method: "GET",
   })
     .then((response) => response.json())
     .then((data) => {
@@ -12,4 +12,5 @@ function DELETEBlog() {
       // Handle any errors here
     });
 }
+
 export default DELETEBlog;

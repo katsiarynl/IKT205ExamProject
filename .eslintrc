@@ -17,13 +17,16 @@
         "**/*.test.ts"
       ],
       "env": {
-        "jest": true
+        "jest": true,
+        "browser": true,
+        "node": true
       }
     }
   ],
   "rules": {
     // suppress errors for missing 'import React' in files
     "react/react-in-jsx-scope": "off",
+    "no-console": "off",
     // allow jsx syntax in js files (for next.js project)
     "react/jsx-filename-extension": "off" //should add ".ts" if typescript project
   }

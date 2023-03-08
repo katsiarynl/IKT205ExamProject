@@ -1,6 +1,6 @@
 function PUTBlog(id) {
   const data = {
-    title: "kaaaaaaaaaaaaaaaaaaaaatet!",
+    title: "KAte!",
     slug: "awesome-post",
     published: true,
     content: "HELLOL",

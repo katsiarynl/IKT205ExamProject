@@ -1,6 +1,10 @@
 import React, { useEffect, useReducer } from "react";
 
 import { createContext } from "react";
+import { View } from "react-native/Libraries/Components/View/View";
+
+import GETBlogs from "./utilities/GETBlogs";
+type ActionsType = { type: string; payload: any };
 
 //we were struggling to create a good context. therefore we asked the assistant for help during one of the ikt205 labs
 //
@@ -19,8 +23,7 @@ const reducer = (state, action) => {
       // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
       return {
         ...state,
-
-        stundets: action.payload,
+        dishes: action.payload,
       };
     //default is used  to return the state if no action is matched
     default:
@@ -29,10 +32,25 @@ const reducer = (state, action) => {
 };
 
 const initialState = {
-  stundets: [],
+  dishes: [],
 };
 
-export const StudentContext = createContext();
+async function Print(callback, disp) {
+  const b = await callback();
+  disp({
+    type: ACTIONS.ADD_STUDENT,
+    payload: b || [],
+  });
+}
+
+type AppState = typeof initialState;
+const blog = { title: "test", content: "test", author: "test" };
+let TestValue = TestBranch;
+
+export const StudentContext = createContext<{
+  state: AppState;
+  dispatch: React.Dispatch<ActionsType>;
+}>({ state: initialState, dispatch: () => undefined });
 
 function StudentProvider({ children }) {
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -40,21 +58,10 @@ function StudentProvider({ children }) {
   useEffect(() => {
     // Source: https://firebase.google.com/docs/database/web/read-and-write
 
-    // onValue is called every time data is changed at the specified database reference
+    Print(GETBlogs, dispatch);
+
     //Source: https://firebase.google.com/docs/database/web/read-and-write
-
-    // console.log("context stuff");
-
-    const GETBlogs = fetch("http://10.0.0.9:5000/blogs");
-    GETBlogs.then((response) => {
-      return response.json();
-    }).then((data) => {
-      console.log(data);
-    });
-    dispatch({
-      type: ACTIONS.ADD_STUDENT,
-      payload: GETBlogs || [],
-    });
+    //https://www.youtube.com/watch?v=5LrDIWkK_Bc&t=489s
   }, []);
 
   return (
