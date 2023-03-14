@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
 import { StudentContext } from "./context";
-import Dish from "./components/Dish";
+import Dish from "./components/shoppingcart/Dish";
 import { Pressable } from "react-native";
 import { openBrowserAsync } from "expo-web-browser";
 import GETBlogs from "./utilities/GETBlogs";

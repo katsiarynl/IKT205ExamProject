@@ -1,7 +1,7 @@
 import { View, Text } from "react-native";
 import React from "react";
-import StudentProvider, { StudentContext } from "../context";
-
+import StudentProvider, { StudentContext } from "../../context";
+import CartItemPreviewComponent from "./CartItemPreviewComponent";
 function Dish() {
   const { state } = React.useContext(StudentContext);
 
@@ -13,6 +13,7 @@ function Dish() {
           return <Text key={index}>{item["author"]}</Text>;
         })}
       </View>
+      <CartItemPreviewComponent />
     </StudentProvider>
   );
 }
