@@ -11,6 +11,7 @@ import HomeComponent from "../home/HomeComponent";
 import CartComponent from "../shoppingcart/CartComponent";
 import FavoritesCompoenent from "../favorites/FavoritesComponent";
 import ProfileComponent from "../profile/ProfileComponent";
+//navigator
 export default function NavigatorBarComponent() {
   const [color, setColor] = useState("green");
   return (
