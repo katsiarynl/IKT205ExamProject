@@ -13,7 +13,6 @@ function Dish() {
           return <Text key={index}>{item["author"]}</Text>;
         })}
       </View>
-      <CartItemPreviewComponent />
     </StudentProvider>
   );
 }
