@@ -4,12 +4,15 @@ import cartstyle from "../../styles/cartstyles";
 import { Image } from "react-native";
 import QuantityComponent from "./QuantityComponent";
 import CartItemPreviewComponent from "./CartItemPreviewComponent";
-import { getDownloadURL, ref } from "firebase/storage";
+import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { storage } from "../../firebase";
 
 export default function CartItemComponent() {
   const [avatare, setAvatar] = useState("");
+  const storageRef = ref(storage, "some-child");
 
+  // 'file' comes from the Blob or File API
+  const mountainsRef = ref(storage, "jpegburgeer.png");
   (function getImg() {
     getDownloadURL(
       ref(storage, "gs://studentfirebase-8c937.appspot.com/jpegburgeeer.png")

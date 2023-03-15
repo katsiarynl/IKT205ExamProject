@@ -11,13 +11,21 @@ import Main from "./Main";
 
 import CartComponent from "./components/shoppingcart/CartComponent";
 
+import StackNavigatorComponent from "./components/stacknavigator/StackNavigatorComponent";
+import NavigatorBarComponent from "./components/stacknavigator/NavigationBarComponent";
+import { NavigationContainer } from "@react-navigation/native";
+
 
 export default function App() {
   return (
-    <StudentProvider>
-      {/* <CartComponent /> */}
-      {/* <Main /> */}
-    </StudentProvider>
+    <NavigationContainer>
+      <StudentProvider>
+        <StackNavigatorComponent />
+        {/* <NavigatorBarComponent /> */}
+        {/* <Main /> */}
+        {/* <CartComponent /> */}
+      </StudentProvider>
+    </NavigationContainer>
   );
 }
 
