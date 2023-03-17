@@ -7,9 +7,9 @@ export default function ScrollCategoriesComponent(
   props: ScrollCategoriesComponentType
 ) {
   console.log(props["menu"][0]["meals"]);
-  const { Products, setProducts } = useState<any>(true);
+
   const func = (val) => {
-    setProducts(val);
+    console.log(val);
   };
   return (
     <View style={products.productcategories}>
