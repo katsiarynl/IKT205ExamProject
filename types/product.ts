@@ -4,18 +4,22 @@ export type Product = {
   description: string;
   _id: string;
 };
-export type Category = {
+export type CategorizedProducts = {
   category: string;
   allmeals: Product[];
 };
 
 export type ProductCategoryComponentType = {
   category: string;
-  setProducts: React.Dispatch<string>;
+  setProducts: React.Dispatch<any>;
   products: string;
-  allmeals: Product[];
+  allmeals: CategorizedProducts[];
 };
 
-export type ScrollCategoriesComponent = {
-  menu: Category[];
+export type ScrollCategoriesComponentType = {
+  menu: CategorizedProducts[];
+};
+
+export type ProductItemComponentType = {
+  productobject: Product[];
 };

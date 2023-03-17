@@ -1,18 +1,16 @@
-import React from "react";
-import { Card } from "react-native-paper";
-import { restaurantStyle } from "../../styles/restaurantsStyle";
-import { Text } from "react-native-paper";
-import { View, FlatList, Pressable, ScrollView } from "react-native";
-import { SvgXml } from "react-native-svg";
-import star from "../../assets/star";
+import React, { useState } from "react";
+import { ScrollView, View } from "react-native";
 import products from "../../styles/products";
+import { ScrollCategoriesComponentType } from "../../types/product";
 import ProductCategoryComponent from "./ProductCategoryComponent";
-import ProductItemComponent from "./ProductItemComponent";
-import { ScrollCategoriesComponent } from "../../types/product";
 export default function ScrollCategoriesComponent(
-  props: ScrollCategoriesComponent
+  props: ScrollCategoriesComponentType
 ) {
   console.log(props["menu"][0]["meals"]);
+  const { Products, setProducts } = useState<any>(true);
+  const func = (val) => {
+    setProducts(val);
+  };
   return (
     <View style={products.productcategories}>
       <ScrollView
@@ -24,6 +22,7 @@ export default function ScrollCategoriesComponent(
           return (
             <ProductCategoryComponent
               key={index}
+              setProducts={func}
               category={props["menu"][index]["category"]}
               products={props["menu"][index]["meals"]}
               allmeals={props["menu"]}

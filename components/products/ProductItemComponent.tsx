@@ -1,12 +1,11 @@
-import { View, Text } from "react-native";
 import React from "react";
+import { Image, Text, View } from "react-native";
 import { Card } from "react-native-paper";
 import products from "../../styles/products";
+import { ProductItemComponentType } from "../../types/product";
 import AddToCartButton from "./AddToCartButton";
-import { Image } from "react-native";
 import PriceTagComponent from "./PriceTagComponent";
-
-export default function ProductItemComponent(props) {
+export default function ProductItemComponent(props: ProductItemComponentType) {
   return (
     <View>
       <Card style={products.productitem}>
@@ -19,9 +18,7 @@ export default function ProductItemComponent(props) {
                 borderTopLeftRadius: 15,
                 borderBottomLeftRadius: 15,
               }}
-              src={
-                "https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg?cs=srgb&dl=pexels-ash-376464.jpg&fm=jpg"
-              }
+              src="https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg?cs=srgb&dl=pexels-ash-376464.jpg&fm=jpg"
             />
           </View>
           <View
@@ -39,7 +36,7 @@ export default function ProductItemComponent(props) {
             </View>
             <View style={{ flex: 2 }}>
               <Text style={{ fontWeight: "bold" }}> Ingredients: </Text>
-              <Text>{props.productobject.description}</Text>
+              <Text>{props.productobject[0].description}</Text>
             </View>
             <View
               style={{

@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import { View, Text } from "react-native";
-import products from "../../styles/products";
-import ScrollCategoriesComponent from "./ScrollCategoriesComponent";
-import ProductItemComponent from "./ProductItemComponent";
+import React from "react";
+import { View } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
+import products from "../../styles/products";
+import ProductItemComponent from "./ProductItemComponent";
+import ScrollCategoriesComponent from "./ScrollCategoriesComponent";
 export default function ProductListComponent({ route, navigation }) {
   const { item } = route.params;
   // console.log(item["menu"][1]["category"]);
