@@ -1,6 +1,6 @@
-import { View, Text } from "react-native";
 import React from "react";
 
+import { View, Image, StyleSheet, Text } from "react-native";
 export default function ProfileComponent() {
   return (
     <View
@@ -10,7 +10,12 @@ export default function ProfileComponent() {
         alignItems: "center",
       }}
     >
-      <Text>ProfileComponent</Text>
+      <Image
+        style={{ width: "100%", height: "100%" }}
+        src={
+          "https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg?cs=srgb&dl=pexels-ash-376464.jpg&fm=jpg"
+        }
+      />
     </View>
   );
 }
