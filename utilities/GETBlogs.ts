@@ -3,7 +3,7 @@ import axios from "axios";
 import { ActionsType } from "../context";
 
 async function GETBlogs(dispatch: React.Dispatch<ActionsType>) {
-  const response = await axios.get("https://cook2go.herokuapp.com/blogs/");
+  const response = await axios.get("https://cook2go.herokuapp.com/restraunts");
 
   dispatch(
     (() => {

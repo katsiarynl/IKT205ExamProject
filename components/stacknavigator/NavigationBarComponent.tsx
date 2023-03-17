@@ -11,9 +11,12 @@ import HomeComponent from "../home/HomeComponent";
 import CartComponent from "../shoppingcart/CartComponent";
 import FavoritesCompoenent from "../favorites/FavoritesComponent";
 import ProfileComponent from "../profile/ProfileComponent";
+import ProductListComponent from "../products/ProductListComponent";
 //navigator
-export default function NavigatorBarComponent() {
+import RestrauntItemComponent from "../restaurants/RestrauntItemComponent";
+export default function NavigatorBarComponent(props) {
   const [color, setColor] = useState("green");
+
   return (
     <Tab.Navigator screenOptions={{ headerShown: false }}>
       <Tab.Screen
@@ -28,7 +31,7 @@ export default function NavigatorBarComponent() {
       />
       <Tab.Screen
         name="Favorites"
-        component={FavoritesCompoenent}
+        component={ProductListComponent}
         options={{
           tabBarLabel: "Favorites",
           tabBarIcon: ({ color, size }) => (
@@ -50,7 +53,7 @@ export default function NavigatorBarComponent() {
 
       <Tab.Screen
         name="Profile"
-        component={ProfileComponent}
+        component={Main}
         options={{
           tabBarLabel: "Profile",
           tabBarIcon: ({ color, size }) => (
