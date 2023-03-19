@@ -16,6 +16,7 @@ const products = StyleSheet.create({
     height: windowHeight * 0.038,
     justifyContent: "center",
     alignItems: "right",
+    backgroundColor: "white",
   },
   productlist: {
     marginHorizontal: windowWidth * 0.04,

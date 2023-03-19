@@ -1,21 +1,12 @@
-import {
-  ScrollView,
-  SafeAreaView,
-  Platform,
-  View,
-  Text,
-  Pressable,
-} from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import { StatusBar as ExpoStatusBar } from "expo-status-bar";
 import React, { useContext } from "react";
+import { Pressable, SafeAreaView, ScrollView, View } from "react-native";
 import { homesStyle } from "../../styles/homestyles";
-import { Search } from "../search/Search";
-import { RestaurantsInfo } from "../restaurants/restaurants-info";
-import { useNavigation } from "@react-navigation/native";
-import { StudentContext } from "/Users/Kate/IKT205Project/IKT205FinalProject/context";
 import RestrauntItemComponent from "../restaurants/RestrauntItemComponent";
-import GETBlogs from "../../utilities/GETBlogs";
-import ProductListComponent from "../products/ProductListComponent";
+import { Search } from "../search/Search";
+import { StudentContext } from "/Users/Kate/IKT205Project/IKT205FinalProject/context";
+import { RestrauntItemComponentType } from "../../types/restraunt";
 export default function HomeComponent() {
   const navigator = useNavigation();
   const { dispatch, state } = useContext(StudentContext);
@@ -28,7 +19,7 @@ export default function HomeComponent() {
           <Search />
         </View>
         <ScrollView style={homesStyle.restaurantList}>
-          {state.dishes.map((item, id) => {
+          {state.dishes.map((item: RestrauntItemComponentType, id) => {
             return (
               <Pressable
                 onPress={() => navigator.navigate("products", { item })}
@@ -36,7 +27,7 @@ export default function HomeComponent() {
                 <RestrauntItemComponent
                   key={id}
                   name={item.name}
-                  image={item.photos}
+                  photos={item.photos}
                   address={item.address}
                   rating={item.rating}
                 />
