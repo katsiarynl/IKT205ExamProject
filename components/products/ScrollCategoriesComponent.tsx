@@ -8,8 +8,8 @@ export default function ScrollCategoriesComponent(
 ) {
   console.log(props["menu"][0]["meals"]);
 
-  const func = (val) => {
-    console.log(val);
+  const func = () => {
+    console.log("val");
   };
   return (
     <View style={products.productcategories}>
