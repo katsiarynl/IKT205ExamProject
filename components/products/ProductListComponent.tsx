@@ -1,10 +1,11 @@
 import React, { useState, useRef } from "react";
-import { View } from "react-native";
+import { View, SafeAreaView } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import products from "../../styles/products";
 import ProductItemComponent from "./ProductItemComponent";
 import ScrollCategoriesComponent from "./ScrollCategoriesComponent";
 import { Product } from "../../types/product";
+import RestrauntComponent from "../restrauntdetails/RestrauntComponent";
 //! the warning is also here
 export default function ProductListComponent({ route, navigation }) {
   const { item } = route.params;
@@ -16,8 +17,10 @@ export default function ProductListComponent({ route, navigation }) {
   const count = useRef(0);
 
   return (
-    <View>
+    <View style={{ flexDirection: "column" }}>
+      <RestrauntComponent />
       <ScrollCategoriesComponent menu={item.menu} setCategory={setCategory} />
+
       <ScrollView style={products.scrollproducts}>
         <View style={products.productlist}>
           {item["menu"].map((item) => {

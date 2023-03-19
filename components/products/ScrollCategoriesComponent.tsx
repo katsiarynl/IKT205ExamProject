@@ -11,11 +11,7 @@ export default function ScrollCategoriesComponent(
   const cat = "all";
   return (
     <View style={products.productcategories}>
-      <ScrollView
-        horizontal={true}
-        showsHorizontalScrollIndicator={false}
-        pagingEnabled={false}
-      >
+      <ScrollView horizontal={true}>
         {props["menu"].map((item, index) => {
           return (
             <ProductCategoryComponent
