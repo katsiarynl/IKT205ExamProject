@@ -48,7 +48,7 @@ type InitialStateType = {
 };
 const initialState: InitialStateType = {
   dishes: [],
-  cartItema: [],
+  cartItems: [],
   cartQuantity: 0,
 };
 
