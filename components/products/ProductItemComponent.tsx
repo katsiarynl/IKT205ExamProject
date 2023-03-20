@@ -45,7 +45,12 @@ export default function ProductItemComponent(props: Product) {
                 justifyContent: "center",
               }}
             >
-              <AddToCartButton />
+              <AddToCartButton
+                id={props.id}
+                product_name={props.name}
+                product_description={props.name}
+                product_price={props.price}
+              />
             </View>
           </View>
         </View>

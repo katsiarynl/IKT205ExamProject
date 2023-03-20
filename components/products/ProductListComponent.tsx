@@ -37,6 +37,8 @@ export default function ProductListComponent({ route, navigation }) {
                       name={item1.name}
                       price={item1.price}
                       description={item1.description}
+                      id={item1["_id"]}
+                      product_object={item1}
                     />
                   );
                 })}
