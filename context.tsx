@@ -20,7 +20,6 @@ const reducer = (state: AppState, action: ActionsType): AppState => {
   console.log("REDUCER STARTED");
   if (action.type == ACTIONS.ADD_CART_ITEM) {
     console.log("THE ID IS");
-    console.log(action.payload["name"]);
   }
   switch (action.type) {
     case ACTIONS.ADD_STUDENT:
@@ -49,7 +48,7 @@ type InitialStateType = {
 };
 const initialState: InitialStateType = {
   dishes: [],
-  cartItem: [],
+  cartItema: [],
   cartQuantity: 0,
 };
 

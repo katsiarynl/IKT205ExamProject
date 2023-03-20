@@ -22,11 +22,10 @@ export default function AddToCartButton(props) {
       <Pressable
         onPress={() => {
           console.log("pressed");
-          fundisp(dispatch, lol);
           console.log(lol);
+          fundisp(dispatch, lol);
 
-          fundisp(dispatch, "here");
-          console.log("the quantity is :" + state.cartQuantity);
+          // console.log("the quantity is :" + state.cartQuantity);
         }}
         //https://www.youtube.com/watch?v=ooEFRONfq_s
         style={({ pressed }) => pressed && { opacity: 0.4 }}
