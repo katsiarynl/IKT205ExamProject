@@ -31,7 +31,6 @@ export default class TotalOrdersComponent extends Component {
               backgroundColor: "transparent",
             }}
           >
-            {" "}
             Total: 1000
           </Text>
         </View>

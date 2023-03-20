@@ -7,7 +7,7 @@ import CartItemPreviewComponent from "./CartItemPreviewComponent";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { storage } from "../../firebase";
 
-export default function CartItemComponent() {
+export default function CartItemComponent(props) {
   const [avatare, setAvatar] = useState("");
   const storageRef = ref(storage, "some-child");
 
@@ -33,7 +33,15 @@ export default function CartItemComponent() {
           margin: "5%",
         }}
       ></Image>
-      <CartItemPreviewComponent />
+
+      <CartItemPreviewComponent
+        id={props.id}
+        name={props["name"]}
+        description={props["description"]}
+        address={props["description"]}
+        price={props["price"]}
+        quantity={props["quantity"]}
+      />
     </View>
   );
 }

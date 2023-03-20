@@ -16,15 +16,18 @@ export default function CartComponent() {
       <SafeAreaView>
         <ScrollView style={cartstyle.scrollStyle}>
           {state.cartItems.map((item, index) => {
-            console.log("run app tsx");
             // return <Text key={index}>{item["author"]}</Text>;
-            return <Text key={index}>{item["name"]}</Text>;
+            return (
+              <CartItemComponent
+                id={item["id"]}
+                name={item["name"]}
+                description={item["description"]}
+                address={item["description"]}
+                price={item["price"]}
+                quantity={item["cartQuantity"]}
+              />
+            );
           })}
-          <CartItemComponent />
-          <CartItemComponent />
-          <CartItemComponent />
-          <CartItemComponent />
-          <CartItemComponent />
         </ScrollView>
       </SafeAreaView>
       <ProceedViewComponent />
