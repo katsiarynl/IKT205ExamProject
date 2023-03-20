@@ -13,11 +13,15 @@ type AppState = typeof initialState;
 
 const ACTIONS = {
   ADD_STUDENT: "ADD",
+  ADD_CART_ITEM: "PLACE_ORDER",
 };
 
 const reducer = (state: AppState, action: ActionsType): AppState => {
   console.log("REDUCER STARTED");
-
+  if (action.type == ACTIONS.ADD_CART_ITEM) {
+    console.log("THE ID IS");
+    console.log(action.payload["name"]);
+  }
   switch (action.type) {
     case ACTIONS.ADD_STUDENT:
       // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
@@ -25,14 +29,28 @@ const reducer = (state: AppState, action: ActionsType): AppState => {
         ...state,
         dishes: action.payload,
       };
+    case ACTIONS.ADD_CART_ITEM:
+      return {
+        ...state,
+        cartItems: [...state.cartItems, action.payload],
+        cartQuantity: 6,
+      };
+
     //default is used  to return the state if no action is matched
     default:
       return state;
   }
 };
 
-const initialState = {
+type InitialStateType = {
+  dishes: [];
+  cartItem: [];
+  cartQuantity: number;
+};
+const initialState: InitialStateType = {
   dishes: [],
+  cartItem: [],
+  cartQuantity: 0,
 };
 
 export const StudentContext = createContext<{
