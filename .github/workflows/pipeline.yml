@@ -1,7 +1,7 @@
 name: CI
  
  #https://stackoverflow.com/questions/57699839/github-actions-how-to-target-all-branches-except-master
-on: [push, pull_request]
+on: [pull_request]
 env:
   GITHUB_TOKEN: ${{secrets.TOKEN}}
 permissions:
