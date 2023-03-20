@@ -18,9 +18,15 @@ const ACTIONS = {
 
 const reducer = (state: AppState, action: ActionsType): AppState => {
   console.log("REDUCER STARTED");
-  if (action.type == ACTIONS.ADD_CART_ITEM) {
-    console.log("THE ID IS");
-  }
+
+  //https://stackoverflow.com/questions/35948669/how-to-check-if-a-value-exists-in-an-object-using-javascript
+  let exists = false;
+  let entry_number: number;
+
+  Object(state.cartItems).map((item, index) => {
+    entry_number = action.payload["id"] == item["id"] ? index : undefined;
+  });
+
   switch (action.type) {
     case ACTIONS.ADD_STUDENT:
       // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
@@ -29,11 +35,19 @@ const reducer = (state: AppState, action: ActionsType): AppState => {
         dishes: action.payload,
       };
     case ACTIONS.ADD_CART_ITEM:
-      return {
-        ...state,
-        cartItems: [...state.cartItems, action.payload],
-        cartQuantity: 6,
-      };
+      if (entry_number != undefined) {
+        state.cartItems[entry_number]["cartQuantity"] =
+          state.cartItems[entry_number]["cartQuantity"] + 1;
+        console.log(state.cartItems[entry_number]);
+      } else {
+        return {
+          ...state,
+          cartItems: [
+            ...state.cartItems,
+            { ...action.payload, cartQuantity: 1 },
+          ],
+        };
+      }
 
     //default is used  to return the state if no action is matched
     default:
@@ -43,7 +57,7 @@ const reducer = (state: AppState, action: ActionsType): AppState => {
 
 type InitialStateType = {
   dishes: [];
-  cartItem: [];
+  cartItems: [];
   cartQuantity: number;
 };
 const initialState: InitialStateType = {
