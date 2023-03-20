@@ -2,7 +2,7 @@ export type Product = {
   name: string;
   price: number;
   description: string;
-  _id: string;
+  _id?: string;
 };
 export type CategorizedProducts = {
   category: string;
@@ -11,15 +11,20 @@ export type CategorizedProducts = {
 
 export type ProductCategoryComponentType = {
   category: string;
-  setProducts: React.Dispatch<any>;
-  products: string;
-  allmeals: CategorizedProducts[];
+  setCategory: React.Dispatch<any>;
+  // products: string;
+  // allmeals: CategorizedProducts[];
 };
 
 export type ScrollCategoriesComponentType = {
   menu: CategorizedProducts[];
+  setCategory: React.Dispatch<any>;
 };
 
 export type ProductItemComponentType = {
   productobject: Product[];
+};
+
+export type PriceTagType = {
+  price: number;
 };

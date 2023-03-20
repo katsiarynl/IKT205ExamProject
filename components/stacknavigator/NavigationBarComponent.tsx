@@ -31,7 +31,7 @@ export default function NavigatorBarComponent(props) {
       />
       <Tab.Screen
         name="Favorites"
-        component={ProductListComponent}
+        component={HomeComponent}
         options={{
           tabBarLabel: "Favorites",
           tabBarIcon: ({ color, size }) => (

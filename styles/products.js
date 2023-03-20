@@ -3,9 +3,9 @@ import { windowWidth, windowHeight } from "./dimensions";
 
 const products = StyleSheet.create({
   productcategories: {
-    backgroundColor: "blue",
-    height: "12%",
-    paddingTop: "15%",
+    backgroundColor: "#CDCDCD",
+    height: "7%",
+    paddingTop: "1%",
     paddingHorizontal: "5%",
     flexDirection: "row",
     justifyContent: "space-evenly",
@@ -16,17 +16,18 @@ const products = StyleSheet.create({
     height: windowHeight * 0.038,
     justifyContent: "center",
     alignItems: "right",
+    backgroundColor: "white",
   },
   productlist: {
     marginHorizontal: windowWidth * 0.04,
-    height: windowHeight,
   },
   productitem: {
     height: windowHeight * 0.25,
     marginBottom: "5%",
   },
   scrollproducts: {
-    height: windowHeight,
+    marginTop: "1%",
+    height: "50%",
   },
   coverStyleProductItem: {
     backgroundColor: "#D9D9D9",

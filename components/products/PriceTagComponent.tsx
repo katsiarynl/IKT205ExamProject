@@ -1,12 +1,11 @@
 import { View, Text } from "react-native";
 import React from "react";
 import products from "../../styles/products";
-export default function PriceTagComponent(props) {
+import { PriceTagType } from "../../types/product";
+export default function PriceTagComponent(props: PriceTagType) {
   return (
     <View style={products.pricetag}>
-      <Text style={{ fontWeight: "bold", fontSize: 20 }}>
-        {props["price"]}{" "}
-      </Text>
+      <Text style={{ fontWeight: "bold", fontSize: 20 }}>{props.price}</Text>
     </View>
   );
 }

@@ -5,10 +5,11 @@ import products from "../../styles/products";
 import { ProductItemComponentType } from "../../types/product";
 import AddToCartButton from "./AddToCartButton";
 import PriceTagComponent from "./PriceTagComponent";
-export default function ProductItemComponent(props: ProductItemComponentType) {
+import { Product } from "../../types/product";
+export default function ProductItemComponent(props: Product) {
   return (
     <View>
-      <Card style={products.productitem}>
+      <View style={products.productitem}>
         <View style={products.viewProductItem}>
           <View style={{ backgroundColor: "transparent", flex: 2 }}>
             <Image
@@ -23,20 +24,18 @@ export default function ProductItemComponent(props: ProductItemComponentType) {
           </View>
           <View
             style={{
-              backgroundColor: "grey",
+              backgroundColor: "white",
               flex: 3,
               flexDirection: "column",
             }}
           >
             <View style={{ flex: 1, flexDirection: "row" }}>
-              <Text style={{ flex: 1, fontSize: 20 }}>
-                {props["productobject"]["name"]}
-              </Text>
-              <PriceTagComponent price={props["productobject"]["price"]} />
+              <Text style={{ flex: 1, fontSize: 20 }}>{props.name}</Text>
+              <PriceTagComponent price={props.price} />
             </View>
             <View style={{ flex: 2 }}>
               <Text style={{ fontWeight: "bold" }}> Ingredients: </Text>
-              <Text>{props.productobject[0].description}</Text>
+              <Text>{props.description}</Text>
             </View>
             <View
               style={{
@@ -50,7 +49,7 @@ export default function ProductItemComponent(props: ProductItemComponentType) {
             </View>
           </View>
         </View>
-      </Card>
+      </View>
     </View>
   );
 }
