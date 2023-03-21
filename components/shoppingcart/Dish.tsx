@@ -9,7 +9,6 @@ function Dish() {
     <StudentProvider>
       <View>
         {state.dishes.map((item, index) => {
-          console.log("run app tsx");
           // return <Text key={index}>{item["author"]}</Text>;
           return <Text key={index}>{item["name"]}</Text>;
         })}

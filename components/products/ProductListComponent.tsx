@@ -24,7 +24,6 @@ export default function ProductListComponent({ route, navigation }) {
       <ScrollView style={products.scrollproducts}>
         <View style={products.productlist}>
           {item["menu"].map((item) => {
-            console.log(Category.includes(item["category"]));
             return Category.includes(item["category"]) ||
               Category.includes("all") ? (
               <View>

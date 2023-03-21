@@ -6,8 +6,6 @@ import ProductCategoryComponent from "./ProductCategoryComponent";
 export default function ScrollCategoriesComponent(
   props: ScrollCategoriesComponentType
 ) {
-  //console.log(props["menu"][0]["meals"]);
-
   const cat = "all";
   return (
     <View style={products.productcategories}>

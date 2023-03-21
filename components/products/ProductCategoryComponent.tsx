@@ -12,8 +12,6 @@ export default function ProductCategoryComponent(
       <Pressable
         style={{ padding: 10 }}
         onPress={() => {
-          console.log("here");
-          console.log(props.category);
           props.category == "all"
             ? props.setCategory(["all"])
             : props.setCategory([props.category]);

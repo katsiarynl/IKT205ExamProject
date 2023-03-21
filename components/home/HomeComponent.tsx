@@ -10,7 +10,6 @@ import { RestrauntItemComponentType } from "../../types/restraunt";
 export default function HomeComponent() {
   const navigator = useNavigation();
   const { dispatch, state } = useContext(StudentContext);
-  console.log(state);
 
   return (
     <>

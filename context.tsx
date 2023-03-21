@@ -21,7 +21,7 @@ const reducer = (state: AppState, action: ActionsType): AppState => {
   console.log("REDUCER STARTED");
 
   //https://stackoverflow.com/questions/35948669/how-to-check-if-a-value-exists-in-an-object-using-javascript
-  let exists = false;
+
   let entry_number: number = undefined;
 
   Object(state.cartItems).map((item, index) => {
