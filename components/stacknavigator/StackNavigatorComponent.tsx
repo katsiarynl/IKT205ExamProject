@@ -2,7 +2,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import React from "react";
 const Stack = createStackNavigator();
 import NavigatorBarComponent from "./NavigationBarComponent";
-import CartComponent from "../shoppingcart/CartComponent";
+
 import ProductListComponent from "../products/ProductListComponent";
 
 export default function StackNavigatorComponent() {

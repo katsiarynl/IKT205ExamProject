@@ -1,5 +1,6 @@
 import React, { useEffect, useReducer } from "react";
 import { createContext } from "react";
+import { Product } from "./types/product";
 import GETBlogs from "./utilities/GETBlogs";
 
 export type ActionsType = { type: string; payload: any };
@@ -24,17 +25,12 @@ const reducer = (state: AppState, action: ActionsType): AppState => {
 
   let entry_number: number = undefined;
 
-  Object(state.cartItems).map((item, index) => {
-    console.log(action.payload["id"] + "||" + item["id"] + "||" + entry_number);
+  Object(state.cartItems).map((item: Product, index: number) => {
     if (action.payload["id"] == item["id"]) {
       entry_number = index;
     }
   });
-  console.log("----------------");
-  console.log(action.payload["id"]);
-  console.log(state.cartItems);
-  console.log(entry_number);
-  console.log("----------------");
+
   switch (action.type) {
     case ACTIONS.ADD_STUDENT:
       // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
@@ -43,7 +39,10 @@ const reducer = (state: AppState, action: ActionsType): AppState => {
         dishes: action.payload,
       };
     case ACTIONS.ADD_CART_ITEM:
-      if (entry_number != undefined) {
+      if (
+        entry_number != undefined &&
+        state.cartItems[entry_number]["cartQuantity"] !== undefined
+      ) {
         state.cartItems[entry_number]["cartQuantity"] =
           state.cartItems[entry_number]["cartQuantity"] + 1;
 
@@ -68,6 +67,7 @@ const reducer = (state: AppState, action: ActionsType): AppState => {
 
         return { ...state };
       }
+      break;
     //default is used  to return the state if no action is matched
     default:
       return state;
@@ -75,14 +75,12 @@ const reducer = (state: AppState, action: ActionsType): AppState => {
 };
 
 type InitialStateType = {
-  dishes: [];
-  cartItems: [];
-  cartQuantity: number;
+  dishes: Product[];
+  cartItems: Product[];
 };
 const initialState: InitialStateType = {
   dishes: [],
   cartItems: [],
-  cartQuantity: 0,
 };
 
 export const StudentContext = createContext<{

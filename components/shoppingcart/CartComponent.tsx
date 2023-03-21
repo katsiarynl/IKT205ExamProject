@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
-import { View, Text } from "react-native";
+import { SafeAreaView, ScrollView, View } from "react-native";
 import { StudentContext } from "../../context";
-import { SafeAreaView, ScrollView } from "react-native";
 import cartstyle from "../../styles/cartstyles";
 import CartItemComponent from "./CartItemComponent";
 import HeadComponent from "./HeadComponent";
@@ -15,8 +14,7 @@ export default function CartComponent() {
       <HeadComponent />
       <SafeAreaView>
         <ScrollView style={cartstyle.scrollStyle}>
-          {state.cartItems.map((item, index) => {
-            // return <Text key={index}>{item["author"]}</Text>;
+          {state.cartItems.map((item) => {
             return (
               <CartItemComponent
                 id={item["id"]}

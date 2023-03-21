@@ -1,8 +1,8 @@
 import React from "react";
 import { Image, Text, View } from "react-native";
-import { Card } from "react-native-paper";
+
 import products from "../../styles/products";
-import { ProductItemComponentType } from "../../types/product";
+
 import AddToCartButton from "./AddToCartButton";
 import PriceTagComponent from "./PriceTagComponent";
 import { Product } from "../../types/product";

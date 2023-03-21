@@ -1,15 +1,11 @@
+import * as React from "react";
 
-import * as React from 'react';
+import { Searchbar } from "react-native-paper";
 
-import { Text,View,  } from 'react-native'
-import { Searchbar } from 'react-native-paper';
+export const Search = () => {
+  const [searchQuery, setSearchQuery] = React.useState("");
 
-
-
-export const Search = () =>{
-  const [searchQuery, setSearchQuery] = React.useState('');
-
-  const onChangeSearch = query => setSearchQuery(query);
+  const onChangeSearch = (query) => setSearchQuery(query);
 
   return (
     <Searchbar
@@ -18,4 +14,4 @@ export const Search = () =>{
       value={searchQuery}
     />
   );
-}
+};

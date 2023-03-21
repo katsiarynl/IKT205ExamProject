@@ -1,6 +1,6 @@
 import React from "react";
 
-import { View, Image, StyleSheet, Text } from "react-native";
+import { View, Image } from "react-native";
 export default function ProfileComponent() {
   return (
     <View

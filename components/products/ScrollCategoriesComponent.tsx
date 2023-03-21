@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { ScrollView, View } from "react-native";
 import products from "../../styles/products";
 import { ScrollCategoriesComponentType } from "../../types/product";

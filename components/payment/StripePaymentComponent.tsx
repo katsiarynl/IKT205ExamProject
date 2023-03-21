@@ -1,11 +1,14 @@
 import React, { useState, useRef } from "react";
 import { View, Text } from "react-native";
 import { WebView } from "react-native-webview";
+import { useNavigation } from "@react-navigation/native";
+import CartComponent from "../shoppingcart/CartComponent";
 export default function StripePaymentComponent() {
   const [canGoBack, setCanGoBack] = useState(false);
   const [canGoForward, setCanGoForward] = useState(false);
   const [currentUrl, setCurrentUrl] = useState("");
 
+  const navigator = useNavigation;
   const webviewRef = useRef(null);
   return (
     <WebView

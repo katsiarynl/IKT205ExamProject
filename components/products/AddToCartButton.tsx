@@ -3,7 +3,7 @@ import React, { useContext } from "react";
 import products from "../../styles/products";
 import { StudentContext } from "../../context";
 export default function AddToCartButton(props) {
-  const { dispatch, state } = useContext(StudentContext);
+  const { dispatch } = useContext(StudentContext);
 
   const lol = {
     id: props.id,

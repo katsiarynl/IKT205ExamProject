@@ -1,4 +1,4 @@
-import { View, Text, Pressable } from "react-native";
+import { Text, Pressable } from "react-native";
 import React, { useContext } from "react";
 import DecreaseQuantity from "../../utilities/DecreaseItemQuantity";
 import IncreaseQuantity from "../../utilities/IncreaseItemQuantity";

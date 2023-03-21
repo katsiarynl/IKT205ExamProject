@@ -1,13 +1,10 @@
-import React, { useState } from "react";
-import { Card } from "react-native-paper";
-import { restaurantStyle } from "../../styles/restaurantsStyle";
-import { Text } from "react-native-paper";
-import { View, FlatList, Pressable } from "react-native";
+import React from "react";
+import { View } from "react-native";
+import { Card, Text } from "react-native-paper";
 import { SvgXml } from "react-native-svg";
 import star from "../../assets/star";
-import GETBlogs from "../../utilities/GETBlogs";
+import { restaurantStyle } from "../../styles/restaurantsStyle";
 import { RestrauntItemComponentType } from "../../types/restraunt";
-import { useContext } from "react";
 export default function RestrauntItemComponent(
   props: RestrauntItemComponentType
 ) {

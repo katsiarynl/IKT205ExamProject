@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Pressable, View } from "react-native";
 import { Card, Text } from "react-native-paper";
 import products from "../../styles/products";
