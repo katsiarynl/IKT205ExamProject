@@ -1,7 +1,9 @@
 import { View, Text, Pressable } from "react-native";
 import React from "react";
+import { useNavigation } from "@react-navigation/native";
 import cartstyle from "../../styles/cartstyles";
 export default function CheckoutButtonComponent() {
+  const navigator = useNavigation();
   return (
     <View
       style={{
@@ -11,7 +13,10 @@ export default function CheckoutButtonComponent() {
         // backgroundColor: "white",
       }}
     >
-      <Pressable style={cartstyle.checkoutbutton}>
+      <Pressable
+        style={cartstyle.checkoutbutton}
+        onPress={() => navigator.navigate("stripenavigate")}
+      >
         <View style={{ backgroundColor: "white " }}>
           <Text
             style={{

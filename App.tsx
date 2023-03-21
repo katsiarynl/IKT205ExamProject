@@ -1,5 +1,5 @@
 import React from "react";
-
+import POSTStripe from "./utilities/POSTStripe";
 import StudentProvider from "./context";
 
 import { NavigationContainer } from "@react-navigation/native";
