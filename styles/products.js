@@ -15,7 +15,7 @@ const products = StyleSheet.create({
     width: windowWidth * 0.25,
     height: windowHeight * 0.038,
     justifyContent: "center",
-    alignItems: "right",
+
     backgroundColor: "white",
   },
   productlist: {
@@ -43,7 +43,7 @@ const products = StyleSheet.create({
     flex: 1,
   },
   addTocartButton: {
-    borderRadius: "15%",
+    borderRadius: 15,
     backgroundColor: "orange",
     justifyContent: "center",
     alignItems: "center",
@@ -51,6 +51,16 @@ const products = StyleSheet.create({
     height: windowHeight * 0.05,
   },
   pricetag: {},
+  imagestyle: {
+    width: "100%",
+    height: "100%",
+    borderTopLeftRadius: 15,
+    borderBottomLeftRadius: 15,
+  },
+  add_to_cart_position: {
+    flex: 1,
+    alignItems: "center",
+  },
 });
 
 export default products;

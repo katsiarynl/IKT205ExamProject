@@ -12,7 +12,7 @@ const cartstyle = StyleSheet.create({
     marginHorizontal: windowWidth * 0.05,
     height: windowHeight * 0.2,
     marginBottom: "5%",
-    borderRadius: "15%",
+    borderRadius: 15,
     flexDirection: "row",
   },
   totalorder: {
@@ -21,7 +21,7 @@ const cartstyle = StyleSheet.create({
     backgroundColor: "white",
     marginHorizontal: windowWidth * 0.05,
     height: windowHeight * 0.095,
-    borderRadius: "15%",
+    borderRadius: 15,
     flexDirection: "row",
   },
   header: {
@@ -40,8 +40,7 @@ const cartstyle = StyleSheet.create({
     alignItems: "center",
   },
   checkoutbutton: {
-    backgroundColor: "#FF7878",
-    borderRadius: "5% ",
+    borderRadius: 5,
     height: "65%",
     width: "92%",
     alignItems: "center",
@@ -53,7 +52,7 @@ const cartstyle = StyleSheet.create({
     height: "50%",
     alignItems: "center",
     justifyContent: "center",
-    borderRadius: "10%",
+    borderRadius: 10,
   },
 });
 
