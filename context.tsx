@@ -1,7 +1,8 @@
 import React, { useEffect, useReducer } from "react";
 import { createContext } from "react";
 import { Product } from "./types/product";
-import GETBlogs from "./utilities/GETBlogs";
+import { RestrauntItemComponentType } from "./types/restraunt";
+import GETRestaurants from "./utilities/GETRestaurants";
 
 export type ActionsType = { type: string; payload: any };
 
@@ -16,17 +17,16 @@ const ACTIONS = {
   ADD_STUDENT: "ADD",
   ADD_CART_ITEM: "PLACE_ORDER",
   DELETE_CART_ITEM: "REMOVE_ORDER",
+  EMPTY_CART: "REMOVE_ITEMS",
 };
 
 const reducer = (state: AppState, action: ActionsType): AppState => {
-  console.log("REDUCER STARTED");
-
   //https://stackoverflow.com/questions/35948669/how-to-check-if-a-value-exists-in-an-object-using-javascript
 
   let entry_number: number = undefined;
 
   Object(state.cartItems).map((item: Product, index: number) => {
-    if (action.payload["id"] == item["id"]) {
+    if (action.payload["_id"] == item["_id"]) {
       entry_number = index;
     }
   });
@@ -36,7 +36,7 @@ const reducer = (state: AppState, action: ActionsType): AppState => {
       // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
       return {
         ...state,
-        dishes: action.payload,
+        restraunts: action.payload,
       };
     case ACTIONS.ADD_CART_ITEM:
       if (
@@ -67,6 +67,7 @@ const reducer = (state: AppState, action: ActionsType): AppState => {
 
         return { ...state };
       }
+
       break;
     //default is used  to return the state if no action is matched
     default:
@@ -75,11 +76,11 @@ const reducer = (state: AppState, action: ActionsType): AppState => {
 };
 
 type InitialStateType = {
-  dishes: Product[];
+  restraunts: RestrauntItemComponentType[];
   cartItems: Product[];
 };
 const initialState: InitialStateType = {
-  dishes: [],
+  restraunts: [],
   cartItems: [],
 };
 
@@ -97,7 +98,7 @@ function StudentProvider({ children }) {
   //Source: https://firebase.google.com/docs/database/web/read-and-write
 
   useEffect(() => {
-    GETBlogs(dispatch);
+    GETRestaurants(dispatch);
   }, []);
 
   return (

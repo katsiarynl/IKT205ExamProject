@@ -15,7 +15,7 @@ export default function RestrauntItemComponent(
         <Card.Cover
           style={restaurantStyle.coverStyle}
           source={{
-            uri: props.photos,
+            uri: props.photo,
           }}
         />
         <Text style={restaurantStyle.title}>{props.name}</Text>

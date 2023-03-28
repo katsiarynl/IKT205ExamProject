@@ -6,7 +6,7 @@ import { StudentContext } from "../../context";
 // todo: add types
 export default function ChangeQuantityButton(props) {
   const { dispatch } = useContext(StudentContext);
-  const existing_product = { id: props.id };
+  const existing_product = { _id: props._id };
   return (
     <Pressable
       onPress={() =>
@@ -21,7 +21,7 @@ export default function ChangeQuantityButton(props) {
         height: "40%",
         justifyContent: "center",
         alignItems: "center",
-        borderRadius: "5%",
+        // borderRadius: "5%",
       }}
     >
       <Text style={{ fontWeight: "bold" }}> {props.sign}</Text>

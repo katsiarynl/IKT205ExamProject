@@ -37,7 +37,7 @@ export default function CartItemPreviewComponent(props) {
         <Text style={{ fontSize: 18 }}>{props.description} </Text>
       </View>
 
-      <QuantityComponent quantity={props.quantity} id={props.id} />
+      <QuantityComponent quantity={props.quantity} _id={props._id} />
     </View>
   );
 }

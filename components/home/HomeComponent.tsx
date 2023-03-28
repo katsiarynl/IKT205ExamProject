@@ -7,8 +7,9 @@ import RestrauntItemComponent from "../restaurants/RestrauntItemComponent";
 import { Search } from "../search/Search";
 import { StudentContext } from "../../context";
 import { RestrauntItemComponentType } from "../../types/restraunt";
+import { NavigatorProductParam } from "../../types/navigationTypes";
 export default function HomeComponent() {
-  const navigator = useNavigation();
+  const { navigate } = useNavigation<NavigatorProductParam>();
   const { state } = useContext(StudentContext);
 
   return (
@@ -18,21 +19,21 @@ export default function HomeComponent() {
           <Search />
         </View>
         <ScrollView style={homesStyle.restaurantList}>
-          {state.dishes.map((item: RestrauntItemComponentType, id) => {
-            return (
-              <Pressable
-                onPress={() => navigator.navigate("products", { item })}
-              >
-                <RestrauntItemComponent
-                  key={id}
-                  name={item.name}
-                  photos={item.photos}
-                  address={item.address}
-                  rating={item.rating}
-                />
-              </Pressable>
-            );
-          })}
+          {state.restraunts.map(
+            (restaurant: RestrauntItemComponentType, id) => {
+              return (
+                <Pressable onPress={() => navigate("products", { restaurant })}>
+                  <RestrauntItemComponent
+                    key={id}
+                    name={restaurant.name}
+                    photo={restaurant.photo}
+                    address={restaurant.address}
+                    rating={restaurant.rating}
+                  />
+                </Pressable>
+              );
+            }
+          )}
         </ScrollView>
       </SafeAreaView>
       <ExpoStatusBar style="auto" />

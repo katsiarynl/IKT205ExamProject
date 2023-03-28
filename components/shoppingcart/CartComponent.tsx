@@ -8,7 +8,6 @@ import ProceedViewComponent from "./ProceedViewComponent";
 export default function CartComponent() {
   const { state } = useContext(StudentContext);
 
-  console.log(state.cartItems);
   return (
     <View style={{ backgroundColor: "#E6E6EA" }}>
       <HeadComponent />
@@ -17,7 +16,7 @@ export default function CartComponent() {
           {state.cartItems.map((item) => {
             return (
               <CartItemComponent
-                id={item["id"]}
+                _id={item["_id"]}
                 name={item["name"]}
                 description={item["description"]}
                 address={item["description"]}

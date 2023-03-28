@@ -6,9 +6,9 @@ import { Product } from "../../types/product";
 import RestrauntComponent from "../restrauntdetails/RestrauntComponent";
 import ProductItemComponent from "./ProductItemComponent";
 import ScrollCategoriesComponent from "./ScrollCategoriesComponent";
-//! the warning is also here
-export default function ProductListComponent({ route, navigation }) {
-  const { item } = route.params;
+
+export default function ProductListComponent({ route }) {
+  const { restaurant } = route.params;
   // console.log(item["menu"][1]["category"]);
   //https://blog.logrocket.com/using-react-usestate-object/
 
@@ -17,25 +17,24 @@ export default function ProductListComponent({ route, navigation }) {
   return (
     <View style={{ flexDirection: "column" }}>
       <RestrauntComponent />
-      <ScrollCategoriesComponent menu={item.menu} setCategory={setCategory} />
+      <ScrollCategoriesComponent
+        menu={restaurant.menu}
+        setCategory={setCategory}
+      />
 
       <ScrollView style={products.scrollproducts}>
         <View style={products.productlist}>
-          {item["menu"].map((item) => {
-            return Category.includes(item["category"]) ||
+          {restaurant.menu.map((category) => {
+            return Category.includes(category["category"]) ||
               Category.includes("all") ? (
               <View>
-                {item["meals"].map((item1: Product) => {
-                  {
-                    console.log("------------");
-                  }
+                {category["meals"].map((product: Product) => {
                   return (
                     <ProductItemComponent
-                      name={item1.name}
-                      price={item1.price}
-                      description={item1.description}
-                      id={item1["_id"]}
-                      product_object={item1}
+                      name={product.name}
+                      price={product.price}
+                      description={product.description}
+                      _id={product["_id"]}
                     />
                   );
                 })}

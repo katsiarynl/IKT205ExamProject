@@ -3,7 +3,7 @@ import { Pressable, View } from "react-native";
 import { Card, Text } from "react-native-paper";
 import products from "../../styles/products";
 import { ProductCategoryComponentType } from "../../types/product";
-// !100% the root of the problem
+
 export default function ProductCategoryComponent(
   props: ProductCategoryComponentType
 ) {
@@ -18,7 +18,7 @@ export default function ProductCategoryComponent(
         }}
       >
         <Card style={products.categoryitem}>
-          <Text style={{ fontWeight: "bold" }}>{props["category"]}</Text>
+          <Text style={{ fontWeight: "bold" }}>{props.category}</Text>
         </Card>
       </Pressable>
     </View>
