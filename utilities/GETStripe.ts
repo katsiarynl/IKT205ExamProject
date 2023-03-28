@@ -5,7 +5,7 @@ async function GETStripe() {
     "http://10.0.0.9:5000/create-checkout-session/"
   );
   const values = await response.data;
-  // console.log(values);
+
   const greeting: string = values;
 
   return greeting;

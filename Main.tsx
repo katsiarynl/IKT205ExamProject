@@ -15,7 +15,6 @@ export default function Main() {
       <Dish />
       <Pressable
         onPress={() => {
-          console.log("clicked");
           GETBlogs(dispatch);
         }}
       >

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Pressable, View } from "react-native";
 import { Card, Text } from "react-native-paper";
 import products from "../../styles/products";
@@ -12,8 +12,6 @@ export default function ProductCategoryComponent(
       <Pressable
         style={{ padding: 10 }}
         onPress={() => {
-          console.log("here");
-          console.log(props.category);
           props.category == "all"
             ? props.setCategory(["all"])
             : props.setCategory([props.category]);

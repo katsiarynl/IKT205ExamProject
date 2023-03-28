@@ -1,22 +1,16 @@
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { AntDesign } from "@expo/vector-icons";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 //https://stackoverflow.com/questions/50436313/tab-navigator-icons-in-react-navigation
-import React, { useState } from "react";
-import Ionicons from "react-native-vector-icons/Ionicons";
-import TouchableOpacity, { Pressable } from "react-native";
-const Tab = createBottomTabNavigator();
-import Main from "../../Main";
 import { Feather } from "@expo/vector-icons";
+import React from "react";
+import Main from "../../Main";
 import HomeComponent from "../home/HomeComponent";
 import CartComponent from "../shoppingcart/CartComponent";
-import FavoritesCompoenent from "../favorites/FavoritesComponent";
-import ProfileComponent from "../profile/ProfileComponent";
-import ProductListComponent from "../products/ProductListComponent";
+import StripePaymentComponent from "../payment/StripePaymentComponent";
+import StripeNavigate from "../payment/StripeNavigate";
+const Tab = createBottomTabNavigator();
 //navigator
-import RestrauntItemComponent from "../restaurants/RestrauntItemComponent";
 export default function NavigatorBarComponent(props) {
-  const [color, setColor] = useState("green");
-
   return (
     <Tab.Navigator screenOptions={{ headerShown: false }}>
       <Tab.Screen
@@ -24,17 +18,17 @@ export default function NavigatorBarComponent(props) {
         component={HomeComponent}
         options={{
           tabBarLabel: "Home",
-          tabBarIcon: ({ color, size }) => (
+          tabBarIcon: ({ color }) => (
             <Feather name="home" size={24} color={color} />
           ),
         }}
       />
       <Tab.Screen
         name="Favorites"
-        component={HomeComponent}
+        component={StripeNavigate}
         options={{
           tabBarLabel: "Favorites",
-          tabBarIcon: ({ color, size }) => (
+          tabBarIcon: ({ color }) => (
             <AntDesign name="hearto" size={24} color={color} />
           ),
         }}
@@ -45,7 +39,7 @@ export default function NavigatorBarComponent(props) {
         component={CartComponent}
         options={{
           tabBarLabel: "Cart",
-          tabBarIcon: ({ color, size }) => (
+          tabBarIcon: ({ color }) => (
             <AntDesign name="shoppingcart" size={24} color={color} />
           ),
         }}
@@ -56,7 +50,7 @@ export default function NavigatorBarComponent(props) {
         component={Main}
         options={{
           tabBarLabel: "Profile",
-          tabBarIcon: ({ color, size }) => (
+          tabBarIcon: ({ color }) => (
             <AntDesign name="user" size={24} color={color} />
           ),
         }}

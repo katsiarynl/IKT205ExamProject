@@ -1,23 +1,31 @@
-import { View, Text, Pressable } from "react-native";
-import React from "react";
-
-import { StyleSheet, SafeAreaView, ScrollView, StatusBar } from "react-native";
-import CartItemComponent from "./CartItemComponent";
+import React, { useContext } from "react";
+import { SafeAreaView, ScrollView, View } from "react-native";
+import { StudentContext } from "../../context";
 import cartstyle from "../../styles/cartstyles";
-import CheckoutButtonComponent from "./CheckoutButtonComponent";
+import CartItemComponent from "./CartItemComponent";
 import HeadComponent from "./HeadComponent";
 import ProceedViewComponent from "./ProceedViewComponent";
 export default function CartComponent() {
+  const { state } = useContext(StudentContext);
+
+  console.log(state.cartItems);
   return (
     <View style={{ backgroundColor: "#E6E6EA" }}>
       <HeadComponent />
       <SafeAreaView>
         <ScrollView style={cartstyle.scrollStyle}>
-          <CartItemComponent />
-          <CartItemComponent />
-          <CartItemComponent />
-          <CartItemComponent />
-          <CartItemComponent />
+          {state.cartItems.map((item) => {
+            return (
+              <CartItemComponent
+                id={item["id"]}
+                name={item["name"]}
+                description={item["description"]}
+                address={item["description"]}
+                price={item["price"]}
+                quantity={item["cartQuantity"]}
+              />
+            );
+          })}
         </ScrollView>
       </SafeAreaView>
       <ProceedViewComponent />

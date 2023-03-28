@@ -1,20 +1,9 @@
-import React, { useContext } from "react";
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import React from "react";
+import POSTStripe from "./utilities/POSTStripe";
+import StudentProvider from "./context";
 
-import StudentProvider, { StudentContext } from "./context";
-import Dish from "./components/shoppingcart/Dish";
-import { Pressable } from "react-native";
-import { openBrowserAsync } from "expo-web-browser";
-import GETBlogs from "./utilities/GETBlogs";
-import Main from "./Main";
-
-import CartComponent from "./components/shoppingcart/CartComponent";
-
-import StackNavigatorComponent from "./components/stacknavigator/StackNavigatorComponent";
-import NavigatorBarComponent from "./components/stacknavigator/NavigationBarComponent";
 import { NavigationContainer } from "@react-navigation/native";
-
+import StackNavigatorComponent from "./components/stacknavigator/StackNavigatorComponent";
 
 export default function App() {
   return (
@@ -28,12 +17,3 @@ export default function App() {
     </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});

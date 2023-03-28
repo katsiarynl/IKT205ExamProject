@@ -1,14 +1,15 @@
-import { View, Text } from "react-native";
 import React from "react";
-import { Feather, AntDesign } from "@expo/vector-icons";
+import { Text, View } from "react-native";
 import cartstyle from "../../styles/cartstyles";
-
-export default function QuantityComponent() {
+import ChangeQuantityButton from "./ChangeQuantityButton";
+export default function QuantityComponent(props) {
   return (
     <View style={cartstyle.quantitystyle}>
-      <Feather name="minus-circle" size={30} color="black" />
-      <Text style={{ fontSize: 30, marginHorizontal: "5%" }}>05</Text>
-      <AntDesign name="pluscircleo" size={30} color="black" />
+      <ChangeQuantityButton sign="-" id={props.id} />
+      <Text style={{ fontSize: 30, marginHorizontal: "5%" }}>
+        {props.quantity}
+      </Text>
+      <ChangeQuantityButton sign="+" id={props.id} />
     </View>
   );
 }

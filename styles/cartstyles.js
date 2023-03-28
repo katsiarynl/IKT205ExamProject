@@ -47,6 +47,14 @@ const cartstyle = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
+  changequantitybutton: {
+    backgroundColor: "orange",
+    width: "35%",
+    height: "50%",
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: "10%",
+  },
 });
 
 export default cartstyle;
