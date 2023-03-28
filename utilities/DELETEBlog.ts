@@ -4,7 +4,6 @@ function DELETEBlog(id) {
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
       // Handle the returned data here
     })
     .catch((error) => {

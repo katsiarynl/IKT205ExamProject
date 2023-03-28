@@ -2,7 +2,7 @@ import axios from "axios";
 
 async function POSTStripe(cartdata) {
   const { data } = await axios.post(
-    "http://10.0.0.9:5000/create-checkout-session",
+    "https://cook2go.herokuapp.com/create-checkout-session",
     cartdata,
     {
       headers: {
