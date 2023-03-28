@@ -2,14 +2,15 @@ import { View, Text, Pressable } from "react-native";
 import React, { useContext } from "react";
 import products from "../../styles/products";
 import { StudentContext } from "../../context";
-export default function AddToCartButton(props) {
+import { Product } from "../../types/product";
+export default function AddToCartButton(props: Product) {
   const { dispatch } = useContext(StudentContext);
 
-  const lol = {
-    id: props.id,
-    name: props.product_name,
-    description: props.product_description,
-    price: props.product_price,
+  const new_product = {
+    _id: props._id,
+    name: props.name,
+    description: props.description,
+    price: props.price,
   };
   const fundisp = (dispatch, cartitem) => {
     dispatch(
@@ -22,17 +23,13 @@ export default function AddToCartButton(props) {
     <View>
       <Pressable
         onPress={() => {
-          console.log("pressed");
-          console.log(lol);
-          fundisp(dispatch, lol);
-
-          // console.log("the quantity is :" + state.cartQuantity);
+          fundisp(dispatch, new_product);
         }}
         //https://www.youtube.com/watch?v=ooEFRONfq_s
         style={({ pressed }) => pressed && { opacity: 0.4 }}
       >
         <View style={products.addTocartButton}>
-          <Text style={{ fontSize: 18, fontWeight: "bold" }}>Add To Cart </Text>
+          <Text style={{ fontSize: 18, fontWeight: "bold" }}>Add To Cart</Text>
         </View>
       </Pressable>
     </View>

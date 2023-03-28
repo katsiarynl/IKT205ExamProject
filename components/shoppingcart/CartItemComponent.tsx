@@ -13,7 +13,7 @@ export default function CartItemComponent(props) {
       ref(storage, "gs://studentfirebase-8c937.appspot.com/jpegburgeeer.png")
     )
       .then((url) => setAvatar(url))
-      .catch((error) => console.log(error));
+      .catch((error) => console.error(error));
   })();
 
   return (
@@ -30,12 +30,11 @@ export default function CartItemComponent(props) {
       ></Image>
 
       <CartItemPreviewComponent
-        id={props.id}
-        name={props["name"]}
-        description={props["description"]}
-        address={props["description"]}
-        price={props["price"]}
-        quantity={props["quantity"]}
+        _id={props._id}
+        name={props.name}
+        description={props.description}
+        price={props.price}
+        quantity={props.quantity}
       />
     </View>
   );

@@ -7,7 +7,7 @@ function Dish() {
   return (
     <StudentProvider>
       <View>
-        {state.dishes.map((item, index) => {
+        {state.restraunts.map((item, index) => {
           // return <Text key={index}>{item["author"]}</Text>;
           return <Text key={index}>{item["name"]}</Text>;
         })}
