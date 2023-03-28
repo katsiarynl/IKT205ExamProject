@@ -1,6 +1,9 @@
+import { Product } from "./product";
 export type RestrauntItemComponentType = {
+  key: number;
   name: string;
   address: string;
   rating: number;
-  photos: string;
+  photo: string;
+  // products: Product[];
 };
