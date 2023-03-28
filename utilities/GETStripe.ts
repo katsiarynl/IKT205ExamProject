@@ -2,7 +2,7 @@ import axios from "axios";
 
 async function GETStripe() {
   const response = await axios.get(
-    "http://10.0.0.9:5000/create-checkout-session/"
+    "https://cook2go.herokuapp.com/create-checkout-session"
   );
   const values = await response.data;
 

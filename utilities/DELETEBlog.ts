@@ -3,10 +3,7 @@ function DELETEBlog(id) {
     method: "GET",
   })
     .then((response) => response.json())
-    .then((data) => {
-      console.log(data);
-      // Handle the returned data here
-    })
+
     .catch((error) => {
       console.error(error);
       // Handle any errors here

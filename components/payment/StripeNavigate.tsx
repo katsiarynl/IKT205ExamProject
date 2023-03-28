@@ -6,8 +6,7 @@ import POSTStripe from "../../utilities/POSTStripe";
 import { StudentContext } from "../../context";
 async function testCallback(callback, callback2, callback3) {
   const link = await callback;
-  console.log("callback");
-  console.log(link);
+
   callback2(link);
   callback3("stripe", { link });
   return link;
