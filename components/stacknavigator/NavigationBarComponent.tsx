@@ -6,8 +6,7 @@ import React from "react";
 import Main from "../../Main";
 import HomeComponent from "../home/HomeComponent";
 import CartComponent from "../shoppingcart/CartComponent";
-import StripePaymentComponent from "../payment/StripePaymentComponent";
-import StripeNavigate from "../payment/StripeNavigate";
+
 const Tab = createBottomTabNavigator();
 //navigator
 export default function NavigatorBarComponent(props) {
@@ -25,7 +24,7 @@ export default function NavigatorBarComponent(props) {
       />
       <Tab.Screen
         name="Favorites"
-        component={StripeNavigate}
+        component={HomeComponent}
         options={{
           tabBarLabel: "Favorites",
           tabBarIcon: ({ color }) => (
