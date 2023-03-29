@@ -3,7 +3,7 @@ import { AntDesign } from "@expo/vector-icons";
 //https://stackoverflow.com/questions/50436313/tab-navigator-icons-in-react-navigation
 import React, { useState } from "react";
 import Ionicons from "react-native-vector-icons/Ionicons";
-import TouchableOpacity, { Pressable } from "react-native";
+import TouchableOpacity, { Pressable, View } from "react-native";
 const Tab = createBottomTabNavigator();
 import Main from "../../Main";
 import { Feather } from "@expo/vector-icons";
@@ -13,6 +13,7 @@ import FavoritesCompoenent from "../favorites/FavoritesComponent";
 import ProfileComponent from "../profile/ProfileComponent";
 import ProductListComponent from "../products/ProductListComponent";
 //navigator
+
 import RestrauntItemComponent from "../restaurants/RestrauntItemComponent";
 export default function NavigatorBarComponent(props) {
   const [color, setColor] = useState("green");
@@ -31,7 +32,7 @@ export default function NavigatorBarComponent(props) {
       />
       <Tab.Screen
         name="Favorites"
-        component={HomeComponent}
+        component={FavoritesCompoenent}
         options={{
           tabBarLabel: "Favorites",
           tabBarIcon: ({ color, size }) => (
@@ -39,7 +40,6 @@ export default function NavigatorBarComponent(props) {
           ),
         }}
       />
-
       <Tab.Screen
         name="Cart"
         component={CartComponent}
@@ -50,7 +50,6 @@ export default function NavigatorBarComponent(props) {
           ),
         }}
       />
-
       <Tab.Screen
         name="Profile"
         component={Main}
