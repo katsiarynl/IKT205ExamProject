@@ -3,6 +3,7 @@ export type Product = {
   price: number;
   description: string;
   _id?: string;
+  cartQuantity?: number;
 };
 export type CategorizedProducts = {
   category: string;

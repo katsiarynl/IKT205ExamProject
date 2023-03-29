@@ -1,6 +1,8 @@
 import React, { useEffect, useReducer } from "react";
 import { createContext } from "react";
-import GETBlogs from "./utilities/GETBlogs";
+import { Product } from "./types/product";
+import { RestrauntItemComponentType } from "./types/restraunt";
+import GETRestaurants from "./utilities/GETRestaurants";
 
 export type ActionsType = { type: string; payload: any };
 
@@ -14,27 +16,59 @@ type AppState = typeof initialState;
 const ACTIONS = {
   ADD_STUDENT: "ADD",
   ADD_CART_ITEM: "PLACE_ORDER",
+  DELETE_CART_ITEM: "REMOVE_ORDER",
+  EMPTY_CART: "REMOVE_ITEMS",
 };
 
 const reducer = (state: AppState, action: ActionsType): AppState => {
-  console.log("REDUCER STARTED");
-  if (action.type == ACTIONS.ADD_CART_ITEM) {
-    console.log("THE ID IS");
-  }
+  //https://stackoverflow.com/questions/35948669/how-to-check-if-a-value-exists-in-an-object-using-javascript
+
+  let entry_number: number = undefined;
+
+  Object(state.cartItems).map((item: Product, index: number) => {
+    if (action.payload["_id"] == item["_id"]) {
+      entry_number = index;
+    }
+  });
+
   switch (action.type) {
     case ACTIONS.ADD_STUDENT:
       // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
       return {
         ...state,
-        dishes: action.payload,
+        restraunts: action.payload,
       };
     case ACTIONS.ADD_CART_ITEM:
-      return {
-        ...state,
-        cartItems: [...state.cartItems, action.payload],
-        cartQuantity: 6,
-      };
+      if (
+        entry_number != undefined &&
+        state.cartItems[entry_number]["cartQuantity"] !== undefined
+      ) {
+        state.cartItems[entry_number]["cartQuantity"] =
+          state.cartItems[entry_number]["cartQuantity"] + 1;
 
+        return { ...state };
+      } else {
+        return {
+          ...state,
+          cartItems: [
+            ...state.cartItems,
+            { ...action.payload, cartQuantity: 1 },
+          ],
+        };
+      }
+    case ACTIONS.DELETE_CART_ITEM:
+      if (entry_number != undefined) {
+        if (state.cartItems[entry_number]["cartQuantity"] == 1) {
+          state.cartItems.splice(entry_number, 1);
+        } else {
+          state.cartItems[entry_number]["cartQuantity"] =
+            state.cartItems[entry_number]["cartQuantity"] - 1;
+        }
+
+        return { ...state };
+      }
+
+      break;
     //default is used  to return the state if no action is matched
     default:
       return state;
@@ -42,14 +76,12 @@ const reducer = (state: AppState, action: ActionsType): AppState => {
 };
 
 type InitialStateType = {
-  dishes: [];
-  cartItem: [];
-  cartQuantity: number;
+  restraunts: RestrauntItemComponentType[];
+  cartItems: Product[];
 };
 const initialState: InitialStateType = {
-  dishes: [],
+  restraunts: [],
   cartItems: [],
-  cartQuantity: 0,
 };
 
 export const StudentContext = createContext<{
@@ -66,7 +98,7 @@ function StudentProvider({ children }) {
   //Source: https://firebase.google.com/docs/database/web/read-and-write
 
   useEffect(() => {
-    GETBlogs(dispatch);
+    GETRestaurants(dispatch);
   }, []);
 
   return (

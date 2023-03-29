@@ -1,7 +1,7 @@
 import { View, Text } from "react-native";
 import React from "react";
 import QuantityComponent from "./QuantityComponent";
-export default function CartItemPreviewComponent() {
+export default function CartItemPreviewComponent(props) {
   return (
     <View
       style={{
@@ -18,7 +18,7 @@ export default function CartItemPreviewComponent() {
         }}
       >
         <View style={{ backgroundColor: "transparent", flex: 4 }}>
-          <Text style={{ fontSize: 30 }}> Item</Text>
+          <Text style={{ fontSize: 30 }}> {props.name}</Text>
         </View>
         <View
           style={{
@@ -28,14 +28,16 @@ export default function CartItemPreviewComponent() {
             justifyContent: "center",
           }}
         >
-          <Text style={{ fontSize: 20, fontWeight: "bold" }}> 110 kr</Text>
+          <Text style={{ fontSize: 20, fontWeight: "bold" }}>
+            {props.price}
+          </Text>
         </View>
       </View>
       <View style={{ flex: 3, backgroundColor: "#F4F4F8" }}>
-        <Text style={{ fontSize: 18 }}>Description </Text>
+        <Text style={{ fontSize: 18 }}>{props.description} </Text>
       </View>
 
-      <QuantityComponent />
+      <QuantityComponent quantity={props.quantity} _id={props._id} />
     </View>
   );
 }

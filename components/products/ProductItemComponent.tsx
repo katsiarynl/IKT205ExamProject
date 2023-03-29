@@ -1,8 +1,8 @@
 import React from "react";
 import { Image, Text, View } from "react-native";
-import { Card } from "react-native-paper";
+
 import products from "../../styles/products";
-import { ProductItemComponentType } from "../../types/product";
+
 import AddToCartButton from "./AddToCartButton";
 import PriceTagComponent from "./PriceTagComponent";
 import { Product } from "../../types/product";
@@ -13,13 +13,8 @@ export default function ProductItemComponent(props: Product) {
         <View style={products.viewProductItem}>
           <View style={{ backgroundColor: "transparent", flex: 2 }}>
             <Image
-              style={{
-                width: "100%",
-                height: "100%",
-                borderTopLeftRadius: 15,
-                borderBottomLeftRadius: 15,
-              }}
-              src="https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg?cs=srgb&dl=pexels-ash-376464.jpg&fm=jpg"
+              style={products.imagestyle}
+              src="https://images.pexels.com/photo/376464/pexels-photo-376464.jpeg?cs=srgb&dl=pexels-ash-376464.jpg&fm=jpg"
             />
           </View>
           <View
@@ -37,19 +32,12 @@ export default function ProductItemComponent(props: Product) {
               <Text style={{ fontWeight: "bold" }}> Ingredients: </Text>
               <Text>{props.description}</Text>
             </View>
-            <View
-              style={{
-                flex: 1,
-                alignContent: "center",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
+            <View style={products.add_to_cart_position}>
               <AddToCartButton
-                id={props.id}
-                product_name={props.name}
-                product_description={props.name}
-                product_price={props.price}
+                _id={props._id}
+                name={props.name}
+                description={props.name}
+                price={props.price}
               />
             </View>
           </View>

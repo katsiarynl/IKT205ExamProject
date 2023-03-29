@@ -4,8 +4,8 @@ import { StyleSheet, Text, View } from "react-native";
 import { StudentContext } from "./context";
 import Dish from "./components/shoppingcart/Dish";
 import { Pressable } from "react-native";
-import { openBrowserAsync } from "expo-web-browser";
-import GETBlogs from "./utilities/GETBlogs";
+
+import GETRestaurants from "./utilities/GETRestaurants";
 
 export default function Main() {
   const { dispatch } = useContext(StudentContext);
@@ -15,8 +15,7 @@ export default function Main() {
       <Dish />
       <Pressable
         onPress={() => {
-          console.log("clicked");
-          GETBlogs(dispatch);
+          GETRestaurants(dispatch);
         }}
       >
         <View style={{ backgroundColor: "grey", width: 200, height: 80 }}>
