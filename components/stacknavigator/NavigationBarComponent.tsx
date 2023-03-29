@@ -1,6 +1,13 @@
 import { AntDesign } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 //https://stackoverflow.com/questions/50436313/tab-navigator-icons-in-react-navigation
+
+import React, { useState } from "react";
+import Ionicons from "react-native-vector-icons/Ionicons";
+import TouchableOpacity, { Pressable, View } from "react-native";
+const Tab = createBottomTabNavigator();
+import Main from "../../Main";
+
 import { Feather } from "@expo/vector-icons";
 import React from "react";
 import Main from "../../Main";
@@ -9,6 +16,10 @@ import CartComponent from "../shoppingcart/CartComponent";
 
 const Tab = createBottomTabNavigator();
 //navigator
+
+
+import RestrauntItemComponent from "../restaurants/RestrauntItemComponent";
+
 export default function NavigatorBarComponent(props) {
   return (
     <Tab.Navigator screenOptions={{ headerShown: false }}>
@@ -24,7 +35,7 @@ export default function NavigatorBarComponent(props) {
       />
       <Tab.Screen
         name="Favorites"
-        component={HomeComponent}
+        component={FavoritesCompoenent}
         options={{
           tabBarLabel: "Favorites",
           tabBarIcon: ({ color }) => (
@@ -32,7 +43,6 @@ export default function NavigatorBarComponent(props) {
           ),
         }}
       />
-
       <Tab.Screen
         name="Cart"
         component={CartComponent}
@@ -43,7 +53,6 @@ export default function NavigatorBarComponent(props) {
           ),
         }}
       />
-
       <Tab.Screen
         name="Profile"
         component={Main}

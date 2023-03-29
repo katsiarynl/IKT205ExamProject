@@ -6,8 +6,10 @@ import { homesStyle } from "../../styles/homestyles";
 import RestrauntItemComponent from "../restaurants/RestrauntItemComponent";
 import { Search } from "../search/Search";
 import { StudentContext } from "../../context";
+
 import { RestrauntItemComponentType } from "../../types/restraunt";
 import { NavigatorProductParam } from "../../types/navigationTypes";
+
 export default function HomeComponent() {
   const { navigate } = useNavigation<NavigatorProductParam>();
   const { state } = useContext(StudentContext);
