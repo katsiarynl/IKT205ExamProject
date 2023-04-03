@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { View } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import products from "../../styles/products";
-import { Product } from "../../types/product";
+import { Product } from "../../types/productTypes";
 import RestrauntComponent from "../restrauntdetails/RestrauntComponent";
 import ProductItemComponent from "./ProductItemComponent";
 import ScrollCategoriesComponent from "./ScrollCategoriesComponent";

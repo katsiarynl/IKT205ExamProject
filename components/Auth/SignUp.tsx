@@ -44,7 +44,7 @@ export const SignUp = ({ Navigation: any }) => {
   };
 
   const handlesubmit = () => {
-    console.log("ist pressed!");
+    // console.log("ist pressed!");
   };
 
   return (

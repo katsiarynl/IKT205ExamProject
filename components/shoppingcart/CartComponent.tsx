@@ -5,6 +5,7 @@ import cartstyle from "../../styles/cartstyles";
 import CartItemComponent from "./CartItemComponent";
 import HeadComponent from "./HeadComponent";
 import ProceedViewComponent from "./ProceedViewComponent";
+
 export default function CartComponent() {
   const { state } = useContext(StudentContext);
 
@@ -19,7 +20,6 @@ export default function CartComponent() {
                 _id={item["_id"]}
                 name={item["name"]}
                 description={item["description"]}
-                address={item["description"]}
                 price={item["price"]}
                 quantity={item["cartQuantity"]}
               />

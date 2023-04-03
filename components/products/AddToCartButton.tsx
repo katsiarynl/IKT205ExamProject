@@ -2,7 +2,7 @@ import { View, Text, Pressable } from "react-native";
 import React, { useContext } from "react";
 import products from "../../styles/products";
 import { StudentContext } from "../../context";
-import { Product } from "../../types/product";
+import { Product } from "../../types/productTypes";
 export default function AddToCartButton(props: Product) {
   const { dispatch } = useContext(StudentContext);
 
@@ -19,6 +19,7 @@ export default function AddToCartButton(props: Product) {
       })()
     );
   };
+
   return (
     <View>
       <Pressable
