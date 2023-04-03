@@ -19,6 +19,7 @@ export default function AddToCartButton(props: Product) {
       })()
     );
   };
+
   return (
     <View>
       <Pressable

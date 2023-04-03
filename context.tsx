@@ -25,13 +25,18 @@ const reducer = (state: AppState, action: ActionsType): AppState => {
 
   let entry_number: number = undefined;
 
-  Object(state.cartItems).map((item: Product, index: number) => {
-    if (action.payload["_id"] == item["_id"]) {
-      entry_number = index;
-    }
-  });
+  if (action.type != ACTIONS.EMPTY_CART) {
+    Object(state.cartItems).map((item: Product, index: number) => {
+      if (action.payload["_id"] == item["_id"]) {
+        entry_number = index;
+      }
+    });
+  }
 
   switch (action.type) {
+    case ACTIONS.EMPTY_CART:
+      state.cartItems.splice(0, state.cartItems.length);
+      return { ...state };
     case ACTIONS.ADD_STUDENT:
       // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
       return {
