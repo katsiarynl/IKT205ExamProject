@@ -7,7 +7,7 @@ import RestrauntItemComponent from "../restaurants/RestrauntItemComponent";
 import { Search } from "../search/Search";
 import { StudentContext } from "../../context";
 
-import { RestrauntItemComponentType } from "../../types/restraunt";
+import { RestrauntItemComponentType } from "../../types/restrauntTypes";
 import { NavigatorProductParam } from "../../types/navigationTypes";
 
 export default function HomeComponent() {

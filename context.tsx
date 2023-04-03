@@ -1,7 +1,7 @@
 import React, { useEffect, useReducer } from "react";
 import { createContext } from "react";
-import { Product } from "./types/product";
-import { RestrauntItemComponentType } from "./types/restraunt";
+import { Product } from "./types/productTypes";
+import { RestrauntItemComponentType } from "./types/restrauntTypes";
 import GETRestaurants from "./utilities/GETRestaurants";
 
 export type ActionsType = { type: string; payload: any };

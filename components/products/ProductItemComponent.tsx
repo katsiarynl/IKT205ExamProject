@@ -5,7 +5,7 @@ import products from "../../styles/products";
 
 import AddToCartButton from "./AddToCartButton";
 import PriceTagComponent from "./PriceTagComponent";
-import { Product } from "../../types/product";
+import { Product } from "../../types/productTypes";
 export default function ProductItemComponent(props: Product) {
   return (
     <View>
