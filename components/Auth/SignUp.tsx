@@ -41,12 +41,12 @@ export const SignUp = ({ Navigation: any }) => {
           password: password,
         }
       );
-      console.log(response.data);
+      //console.log(response.data);
       // clearing After submitted
       setEmail("");
       setPassword("");
     } catch (error) {
-      console.log(error.response.data);
+      //console.log(error.response.data);
     }
   };
 
