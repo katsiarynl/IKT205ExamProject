@@ -9,9 +9,9 @@ import {
   TextInput,
 } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
-import { Button } from "react-native-paper";
-import { SignUp } from "./SignUp";
+
 import { useNavigation } from "@react-navigation/native";
+import axios from "axios";
 
 // email Validation
 const EmailsValidation = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
@@ -19,7 +19,7 @@ const EmailsValidation = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
 const PasswordValidation =
   /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
 
-export const SignIn = ({ Navigation: any }) => {
+export const SignIn = ({ Navigation }) => {
   const navigation = useNavigation();
 
   const [email, setEmail] = useState("");
@@ -43,9 +43,25 @@ export const SignIn = ({ Navigation: any }) => {
     setIsValidPassword(PasswordValidation.test(password));
   };
 
-  const handlesubmit = () => {
-    //console.log("ist pressed!");
-  };
+
+  const handleSignIn = async () => {
+    try {
+      const response = await axios.post(
+        "https://cook2go.herokuapp.com/signIn",
+        {
+          email: email,
+          password: password,
+        }
+      );
+      console.log(response.data);
+
+      setEmail("");
+      setPassword("");
+    } catch (err) {
+      console.log(err.response.data);
+    }
+
+ 
 
   return (
     <View style={signInStyle.container}>
@@ -90,8 +106,6 @@ export const SignIn = ({ Navigation: any }) => {
             placeholder="Enter Password"
             autoCapitalize="none"
             textContentType="password"
-            numberOfLines={4}
-            multiline={true}
             autoCorrect={false}
             secureTextEntry={true}
             value={password}
@@ -109,9 +123,9 @@ export const SignIn = ({ Navigation: any }) => {
           )}
         </View>
 
-        <TouchableOpacity style={signInStyle.button} onPress={handlesubmit}>
+        <TouchableOpacity style={signInStyle.button} onPress={handleSignIn}>
           <Text style={{ fontWeight: "bold", color: "#fff", fontSize: 19 }}>
-            Login{" "}
+            Sign In{" "}
           </Text>
         </TouchableOpacity>
         <Text style={signInStyle.orTextStyle}>----------Or-----------</Text>
