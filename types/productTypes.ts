@@ -1,10 +1,12 @@
 export type Product = {
+  _id: string;
   name: string;
-  price: number;
   description: string;
-  _id?: string;
-  cartQuantity?: number;
+  price: number;
 };
+
+//https://stackoverflow.com/questions/41385059/possible-to-extend-types-in-typescript
+
 export type CategorizedProducts = {
   category: string;
   allmeals: Product[];

@@ -4,7 +4,7 @@ import { Card, Text } from "react-native-paper";
 import { SvgXml } from "react-native-svg";
 import star from "../../assets/star";
 import { restaurantStyle } from "../../styles/restaurantsStyle";
-import { RestrauntItemComponentType } from "../../types/restraunt";
+import { RestrauntItemComponentType } from "../../types/restrauntTypes";
 export default function RestrauntItemComponent(
   props: RestrauntItemComponentType
 ) {

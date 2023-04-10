@@ -1,5 +1,5 @@
 import type { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import type { RestrauntItemComponentType } from "./restraunt";
+import type { RestrauntItemComponentType } from "./restrauntTypes";
 export type RootStackParamList = {
   navbar: undefined;
   products: {

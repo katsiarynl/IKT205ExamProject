@@ -3,8 +3,9 @@ import React, { useContext } from "react";
 import DecreaseQuantity from "../../utilities/DecreaseItemQuantity";
 import IncreaseQuantity from "../../utilities/IncreaseItemQuantity";
 import { StudentContext } from "../../context";
+import { ChangeQuantityButtonType } from "../../types/cartTypes";
 // todo: add types
-export default function ChangeQuantityButton(props) {
+export default function ChangeQuantityButton(props: ChangeQuantityButtonType) {
   const { dispatch } = useContext(StudentContext);
   const existing_product = { _id: props._id };
   return (

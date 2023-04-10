@@ -2,7 +2,12 @@ import { AntDesign } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 //https://stackoverflow.com/questions/50436313/tab-navigator-icons-in-react-navigation
 
+
 import { Feather } from "@expo/vector-icons";
+
+
+import React, { useState } from "react";
+
 
 import HomeComponent from "../home/HomeComponent";
 import CartComponent from "../shoppingcart/CartComponent";
@@ -11,7 +16,9 @@ import ProfileComponent from "../profile/ProfileComponent";
 
 const Tab = createBottomTabNavigator();
 
+
 export default function NavigatorBarComponent(props) {
+
   return (
     <Tab.Navigator screenOptions={{ headerShown: false }}>
       <Tab.Screen

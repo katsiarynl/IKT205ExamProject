@@ -62,6 +62,7 @@ export const SignUp = ({ Navigation }) => {
     setIsValidPassword(PasswordValidation.test(password));
   };
 
+
   return (
     <View style={signInStyle.container}>
       <SafeAreaView style={signInStyle.form}>

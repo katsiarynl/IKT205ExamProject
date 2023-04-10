@@ -43,6 +43,7 @@ export const SignIn = ({ Navigation }) => {
     setIsValidPassword(PasswordValidation.test(password));
   };
 
+
   const handleSignIn = async () => {
     try {
       const response = await axios.post(
@@ -52,14 +53,15 @@ export const SignIn = ({ Navigation }) => {
           password: password,
         }
       );
-      console.log(response.data);
+      //console.log(response.data);
 
       setEmail("");
       setPassword("");
     } catch (err) {
-      console.log(err.response.data);
+      //console.log(err.response.data);
     }
-  };
+
+ 
 
   return (
     <View style={signInStyle.container}>
