@@ -9,11 +9,8 @@ import {
   TextInput,
 } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
-import { Button } from "react-native-paper";
-import { SignIn } from "./SignIn";
 import { useNavigation } from "@react-navigation/native";
 import axios from "axios";
-import { async } from "@firebase/util";
 
 // email Validation
 const EmailsValidation = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
@@ -21,7 +18,7 @@ const EmailsValidation = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
 const PasswordValidation =
   /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
 
-export const SignUp = ({ Navigation: any }) => {
+export const SignUp = ({ Navigation }) => {
   const navigation = useNavigation();
 
   const [email, setEmail] = useState("");
@@ -63,10 +60,6 @@ export const SignUp = ({ Navigation: any }) => {
 
   const handlePasswordBlur = () => {
     setIsValidPassword(PasswordValidation.test(password));
-  };
-
-  const handlesubmit = () => {
-    console.log("ist pressed!");
   };
 
   return (

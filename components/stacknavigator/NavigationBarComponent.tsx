@@ -2,22 +2,14 @@ import { AntDesign } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 //https://stackoverflow.com/questions/50436313/tab-navigator-icons-in-react-navigation
 
-import React, { useState } from "react";
-import Ionicons from "react-native-vector-icons/Ionicons";
-import TouchableOpacity, { Pressable, View } from "react-native";
-
 import { Feather } from "@expo/vector-icons";
 
-import Main from "../../Main";
 import HomeComponent from "../home/HomeComponent";
 import CartComponent from "../shoppingcart/CartComponent";
 import FavoritesComponent from "../favorites/FavoritesComponent";
 import ProfileComponent from "../profile/ProfileComponent";
 
 const Tab = createBottomTabNavigator();
-//navigator
-
-import RestrauntItemComponent from "../restaurants/RestrauntItemComponent";
 
 export default function NavigatorBarComponent(props) {
   return (

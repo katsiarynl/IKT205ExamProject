@@ -9,11 +9,9 @@ import {
   TextInput,
 } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
-import { Button } from "react-native-paper";
-import { SignUp } from "./SignUp";
+
 import { useNavigation } from "@react-navigation/native";
 import axios from "axios";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 
 // email Validation
 const EmailsValidation = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
