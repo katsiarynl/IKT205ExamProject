@@ -32,9 +32,7 @@ export default function NavigatorBarComponent() {
       />
       <Tab.Screen
         name="Favorites"
-
         component={SignUp}
-
         options={{
           tabBarLabel: "Favorites",
           tabBarIcon: ({ color }) => (
