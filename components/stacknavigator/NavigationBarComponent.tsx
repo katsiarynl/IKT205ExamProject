@@ -11,7 +11,8 @@ import { Feather } from "@expo/vector-icons";
 import Main from "../../Main";
 import HomeComponent from "../home/HomeComponent";
 import CartComponent from "../shoppingcart/CartComponent";
-
+import { SignIn } from "../Auth/SignIn";
+import { SignUp } from "../Auth/SignUp";
 const Tab = createBottomTabNavigator();
 //navigator
 
@@ -32,7 +33,7 @@ export default function NavigatorBarComponent(props) {
       />
       <Tab.Screen
         name="Favorites"
-        component={HomeComponent}
+        component={SignUp}
         options={{
           tabBarLabel: "Favorites",
           tabBarIcon: ({ color }) => (
