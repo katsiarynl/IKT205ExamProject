@@ -4,8 +4,8 @@ import { Image, View } from "react-native";
 import { storage } from "../../firebase";
 import cartstyle from "../../styles/cartstyles";
 import CartItemPreviewComponent from "./CartItemPreviewComponent";
-
-export default function CartItemComponent(props) {
+import { CartComponentType } from "../../types/cartTypes";
+export default function CartItemComponent(props: CartComponentType) {
   const [avatare, setAvatar] = useState("");
 
   (function getImg() {

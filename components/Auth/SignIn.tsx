@@ -45,6 +45,7 @@ export const SignIn = ({ Navigation }) => {
     setIsValidPassword(PasswordValidation.test(password));
   };
 
+
   const handleSignIn = async () => {
     try {
       const response = await axios.post(
@@ -61,7 +62,7 @@ export const SignIn = ({ Navigation }) => {
     } catch (err) {
       console.log(err.response.data);
     }
-  };
+
 
   return (
     <View style={signInStyle.container}>
