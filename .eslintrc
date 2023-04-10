@@ -27,7 +27,7 @@
     "no-console": [
       "error",
       {
-        "allow": ["warn", "dir", "timeLog", "table", "error", "context", "log"]
+        "allow": ["warn", "dir", "timeLog", "table", "error", "context"]
       }
     ],
     // suppress errors for missing 'import React' in files

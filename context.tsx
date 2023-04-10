@@ -1,7 +1,7 @@
 import React, { useEffect, useReducer } from "react";
 import { createContext } from "react";
-import { Product } from "./types/product";
-import { RestrauntItemComponentType } from "./types/restraunt";
+import { Product } from "./types/productTypes";
+import { RestrauntItemComponentType } from "./types/restrauntTypes";
 import GETRestaurants from "./utilities/GETRestaurants";
 
 export type ActionsType = { type: string; payload: any };
@@ -25,13 +25,18 @@ const reducer = (state: AppState, action: ActionsType): AppState => {
 
   let entry_number: number = undefined;
 
-  Object(state.cartItems).map((item: Product, index: number) => {
-    if (action.payload["_id"] == item["_id"]) {
-      entry_number = index;
-    }
-  });
+  if (action.type != ACTIONS.EMPTY_CART) {
+    Object(state.cartItems).map((item: Product, index: number) => {
+      if (action.payload["_id"] == item["_id"]) {
+        entry_number = index;
+      }
+    });
+  }
 
   switch (action.type) {
+    case ACTIONS.EMPTY_CART:
+      state.cartItems.splice(0, state.cartItems.length);
+      return { ...state };
     case ACTIONS.ADD_STUDENT:
       // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
       return {

@@ -2,7 +2,7 @@ import React from "react";
 import { Pressable, View } from "react-native";
 import { Card, Text } from "react-native-paper";
 import products from "../../styles/products";
-import { ProductCategoryComponentType } from "../../types/product";
+import { ProductCategoryComponentType } from "../../types/productTypes";
 
 export default function ProductCategoryComponent(
   props: ProductCategoryComponentType
