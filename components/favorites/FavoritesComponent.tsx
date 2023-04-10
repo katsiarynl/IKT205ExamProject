@@ -13,7 +13,7 @@ export default function FavoritesComponent() {
         alignItems: "center",
       }}
     >
-      <SignUp Navigation="tatial" />
+      <SignIn Navigation="tatial" />
     </View>
   );
 }
