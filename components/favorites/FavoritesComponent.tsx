@@ -1,8 +1,6 @@
-import { View, Text } from "react-native";
+import { View } from "react-native";
 import React from "react";
 import { SignIn } from "../Auth/SignIn";
-
-import { SignUp } from "../Auth/SignUp";
 
 export default function FavoritesComponent() {
   return (

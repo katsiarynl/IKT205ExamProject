@@ -1,7 +1,7 @@
 import { View, Text } from "react-native";
 import React, { useState, useContext, useEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
-import StripePaymentComponent from "./StripePaymentComponent";
+
 import POSTStripe from "../../utilities/POSTStripe";
 import { StudentContext } from "../../context";
 async function testCallback(callback, callback2, callback3) {
