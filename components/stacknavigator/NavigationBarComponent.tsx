@@ -7,6 +7,10 @@ import React, { useState } from "react";
 import { Feather } from "@expo/vector-icons";
 import HomeComponent from "../home/HomeComponent";
 import CartComponent from "../shoppingcart/CartComponent";
+
+import { SignIn } from "../Auth/SignIn";
+import { SignUp } from "../Auth/SignUp";
+
 import FavoritesComponent from "../favorites/FavoritesComponent";
 import ProfileComponent from "../profile/ProfileComponent";
 
@@ -28,7 +32,9 @@ export default function NavigatorBarComponent() {
       />
       <Tab.Screen
         name="Favorites"
-        component={FavoritesComponent}
+
+        component={SignUp}
+
         options={{
           tabBarLabel: "Favorites",
           tabBarIcon: ({ color }) => (
