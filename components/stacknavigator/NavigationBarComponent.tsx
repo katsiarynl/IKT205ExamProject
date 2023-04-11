@@ -7,7 +7,7 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 import TouchableOpacity, { Pressable, View } from "react-native";
 
 import { Feather } from "@expo/vector-icons";
-//test
+//test2
 import Main from "../../Main";
 import HomeComponent from "../home/HomeComponent";
 import CartComponent from "../shoppingcart/CartComponent";
