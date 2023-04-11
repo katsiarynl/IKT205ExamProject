@@ -9,16 +9,17 @@ import {
   TextInput,
 } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
-
+import { Button } from "react-native-paper";
+import { SignUp } from "./SignUp";
 import { useNavigation } from "@react-navigation/native";
-import axios from "axios";
+//folder
 // email Validation
 const EmailsValidation = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
 // password validation
 const PasswordValidation =
   /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
 
-export const SignIn = ({ Navigation }) => {
+export const SignIn = ({ Navigation: any }) => {
   const navigation = useNavigation();
 
   const [email, setEmail] = useState("");
@@ -42,22 +43,8 @@ export const SignIn = ({ Navigation }) => {
     setIsValidPassword(PasswordValidation.test(password));
   };
 
-  const handleSignIn = async () => {
-    try {
-      const response = await axios.post(
-        "https://cook2go.herokuapp.com/signIn",
-        {
-          email: email,
-          password: password,
-        }
-      );
-      //  console.log(response.data);
-
-      setEmail("");
-      setPassword("");
-    } catch (err) {
-      //console.log(err.response.data);
-    }
+  const handlesubmit = () => {
+    //console.log("ist pressed!");
   };
 
   return (
@@ -103,6 +90,8 @@ export const SignIn = ({ Navigation }) => {
             placeholder="Enter Password"
             autoCapitalize="none"
             textContentType="password"
+            numberOfLines={4}
+            multiline={true}
             autoCorrect={false}
             secureTextEntry={true}
             value={password}
@@ -120,9 +109,9 @@ export const SignIn = ({ Navigation }) => {
           )}
         </View>
 
-        <TouchableOpacity style={signInStyle.button} onPress={handleSignIn}>
+        <TouchableOpacity style={signInStyle.button} onPress={handlesubmit}>
           <Text style={{ fontWeight: "bold", color: "#fff", fontSize: 19 }}>
-            Sign In{" "}
+            Login{" "}
           </Text>
         </TouchableOpacity>
         <Text style={signInStyle.orTextStyle}>----------Or-----------</Text>
