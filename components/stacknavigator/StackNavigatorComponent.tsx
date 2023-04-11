@@ -6,6 +6,8 @@ import ProductListComponent from "../products/ProductListComponent";
 import StripePaymentComponent from "../payment/StripePaymentComponent";
 import { RootStackParamList } from "../../types/navigationTypes";
 
+import { SignIn } from "../Auth/SignIn";
+import { SignUp } from "../Auth/SignUp";
 const Stack = createStackNavigator<RootStackParamList>();
 
 export default function StackNavigatorComponent() {
@@ -15,6 +17,8 @@ export default function StackNavigatorComponent() {
       <Stack.Screen name="products" component={ProductListComponent} />
       <Stack.Screen name="test" component={CartComponent} />
       <Stack.Screen name="stripe" component={StripePaymentComponent} />
+      <Stack.Screen name="SignIn" component={SignIn} />
+      <Stack.Screen name="SignUp" component={SignUp} />
     </Stack.Navigator>
   );
 }
