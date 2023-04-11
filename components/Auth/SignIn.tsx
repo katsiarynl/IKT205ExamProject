@@ -12,7 +12,7 @@ import Icon from "react-native-vector-icons/FontAwesome";
 import { Button } from "react-native-paper";
 import { SignUp } from "./SignUp";
 import { useNavigation } from "@react-navigation/native";
-
+//folder
 // email Validation
 const EmailsValidation = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
 // password validation
