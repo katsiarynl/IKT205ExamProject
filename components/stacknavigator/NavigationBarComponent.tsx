@@ -5,6 +5,9 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import React, { useState } from "react";
 
 import { Feather } from "@expo/vector-icons";
+
+import Main from "../../Main";
+
 import HomeComponent from "../home/HomeComponent";
 import CartComponent from "../shoppingcart/CartComponent";
 
@@ -32,9 +35,7 @@ export default function NavigatorBarComponent() {
       />
       <Tab.Screen
         name="Favorites"
-
         component={SignUp}
-
         options={{
           tabBarLabel: "Favorites",
           tabBarIcon: ({ color }) => (
