@@ -11,6 +11,7 @@ export default function AddToCartButton(props: Product) {
     name: props.name,
     description: props.description,
     price: props.price,
+    image: props.image,
   };
   const fundisp = (dispatch, cartitem) => {
     dispatch(

@@ -1,6 +1,6 @@
 import { useNavigation } from "@react-navigation/native";
 import { StatusBar as ExpoStatusBar } from "expo-status-bar";
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Pressable, SafeAreaView, ScrollView, View } from "react-native";
 import { homesStyle } from "../../styles/homestyles";
 import RestrauntItemComponent from "../restaurants/RestrauntItemComponent";
@@ -28,7 +28,7 @@ export default function HomeComponent() {
                   <RestrauntItemComponent
                     key={id}
                     name={restaurant.name}
-                    photo={restaurant.photo}
+                    image={restaurant.image}
                     address={restaurant.address}
                     rating={restaurant.rating}
                   />

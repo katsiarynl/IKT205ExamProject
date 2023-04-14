@@ -1,4 +1,4 @@
-import { Text, Pressable } from "react-native";
+import { Text, Pressable, View } from "react-native";
 import React, { useContext } from "react";
 import DecreaseQuantity from "../../utilities/DecreaseItemQuantity";
 import IncreaseQuantity from "../../utilities/IncreaseItemQuantity";
@@ -17,15 +17,24 @@ export default function ChangeQuantityButton(props: ChangeQuantityButtonType) {
       }
       style={{
         // todo: fix styling
-        backgroundColor: "orange",
-        width: "30%",
-        height: "40%",
-        justifyContent: "center",
+        backgroundColor: "green",
+        width: "35%",
+        height: "60%",
+        // borderRadius: "10%",
+        alignContent: "center",
         alignItems: "center",
+
         // borderRadius: "5%",
       }}
     >
-      <Text style={{ fontWeight: "bold" }}> {props.sign}</Text>
+      <Text
+        style={{
+          fontWeight: "bold",
+          fontSize: 30,
+        }}
+      >
+        {props.sign}
+      </Text>
     </Pressable>
   );
 }

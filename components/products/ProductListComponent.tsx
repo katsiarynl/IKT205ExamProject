@@ -16,7 +16,7 @@ export default function ProductListComponent({ route }) {
 
   return (
     <View style={{ flexDirection: "column" }}>
-      <RestrauntComponent />
+      <RestrauntComponent image={restaurant.image} />
       <ScrollCategoriesComponent
         menu={restaurant.menu}
         setCategory={setCategory}
@@ -35,6 +35,7 @@ export default function ProductListComponent({ route }) {
                       price={product.price}
                       description={product.description}
                       _id={product["_id"]}
+                      image={product.image}
                     />
                   );
                 })}

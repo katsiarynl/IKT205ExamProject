@@ -4,6 +4,7 @@ import { Pressable, Text, View } from "react-native";
 import { StudentContext } from "../../context";
 import cartstyle from "../../styles/cartstyles";
 import POSTStripe from "../../utilities/POSTStripe";
+import { UserContext } from "../Auth/userContext";
 
 async function testCallback(callback, navigate) {
   const link = await callback;
@@ -15,6 +16,15 @@ export default function CheckoutButtonComponent() {
   const navigator = useNavigation();
   const { state } = useContext(StudentContext);
 
+  const { isloggedIn } = useContext(UserContext);
+
+  const handleCheout = async () => {
+    if (isloggedIn) {
+      await testCallback(POSTStripe(state.cartItems), navigator.navigate);
+    } else {
+      navigator.navigate("SignIn");
+    }
+  };
   return (
     <View
       style={{
@@ -30,10 +40,8 @@ export default function CheckoutButtonComponent() {
             ? { backgroundColor: "#FF7878", ...(pressed && { opacity: 0.4 }) }
             : { backgroundColor: "gray" },
         ]}
-        disabled={state.cartItems.length == 0}
-        onPress={() =>
-          testCallback(POSTStripe(state.cartItems), navigator.navigate)
-        }
+        disabled={state.cartItems.length === 0}
+        onPress={handleCheout}
       >
         <View style={{ backgroundColor: "white " }}>
           <Text

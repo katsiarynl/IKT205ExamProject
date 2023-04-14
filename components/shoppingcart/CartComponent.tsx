@@ -17,11 +17,12 @@ export default function CartComponent() {
           {state.cartItems.map((item) => {
             return (
               <CartItemComponent
-                _id={item["_id"]}
-                name={item["name"]}
-                description={item["description"]}
-                price={item["price"]}
-                quantity={item["cartQuantity"]}
+                _id={item._id}
+                name={item.name}
+                image={item.image}
+                description={item.description}
+                price={item.price}
+                quantity={item.cartQuantity}
               />
             );
           })}

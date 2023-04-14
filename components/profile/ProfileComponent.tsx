@@ -1,6 +1,7 @@
 import React from "react";
 
-import { Text, View, Image } from "react-native";
+import { View } from "react-native";
+import { SignOut } from "../Auth/SignOut";
 export default function ProfileComponent() {
   return (
     <View
@@ -10,7 +11,7 @@ export default function ProfileComponent() {
         alignItems: "center",
       }}
     >
-      <Text>Test</Text>
+      <SignOut />
     </View>
   );
 }
