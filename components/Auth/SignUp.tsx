@@ -48,10 +48,8 @@ export const SignUp = ({ Navigation: any }) => {
         "https://cook2go.herokuapp.com/signUp",
         { email: email, password: password }
       );
-      console.log(response.data);
 
       // clear the textInputs After submits.
-
       setEmail("");
       setPassword("");
       navigation.navigate("SignIn");

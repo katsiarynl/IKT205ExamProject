@@ -15,11 +15,11 @@ export const SignOut = () => {
         "https://cook2go.herokuapp.com/singOut"
       );
       await AsyncStorage.removeItem("AccessToken");
-      console.log(response.data);
+
       setIsloggedIn(false);
       navigator.navigate("Home");
     } catch (error) {
-      console.log(error.response.data);
+      /* empty */
     }
   };
 
