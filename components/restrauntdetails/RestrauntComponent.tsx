@@ -1,9 +1,14 @@
 import { View, Image } from "react-native";
-import React from "react";
+import React, { useState } from "react";
+import { storage } from "../../firebase";
 import restrauntInfoStyles from "../../styles/restrauntinfostyles";
 import RestrauntDescriptionComponent from "./RestrauntDescriptionComponent";
-
-export default function RestrauntComponent() {
+import { getDownloadURL, ref } from "firebase/storage";
+import GETImage from "../../utilities/GETImage";
+import fetchImage from "../../utilities/FetchImage";
+export default function RestrauntComponent(props) {
+  const [avatare, setAvatar] = useState("");
+  fetchImage(GETImage, setAvatar, props.image);
   return (
     <View style={restrauntInfoStyles.restrauntview}>
       <Image
@@ -13,7 +18,9 @@ export default function RestrauntComponent() {
           marginBottom: "-5%",
           flex: 2,
         }}
-        src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+        source={{
+          uri: avatare,
+        }}
       />
       <RestrauntDescriptionComponent />
     </View>

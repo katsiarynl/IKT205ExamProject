@@ -4,6 +4,6 @@ export type RestrauntItemComponentType = {
   name: string;
   address: string;
   rating: number;
-  photo: string;
+  image: string;
   // products: Product[];
 };

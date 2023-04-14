@@ -3,6 +3,7 @@ export type Product = {
   name: string;
   description: string;
   price: number;
+  image: string;
 };
 
 //https://stackoverflow.com/questions/41385059/possible-to-extend-types-in-typescript

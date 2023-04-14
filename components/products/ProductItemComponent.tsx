@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { Image, Text, View } from "react-native";
-
+import fetchImage from "../../utilities/FetchImage";
 import products from "../../styles/products";
-
+import GETImage from "../../utilities/GETImage";
 import AddToCartButton from "./AddToCartButton";
 import PriceTagComponent from "./PriceTagComponent";
 import { Product } from "../../types/productTypes";
 export default function ProductItemComponent(props: Product) {
+  const [image, setImage] = useState("");
+  fetchImage(GETImage, setImage, props.image);
   return (
     <View>
       <View style={products.productitem}>
@@ -14,7 +16,9 @@ export default function ProductItemComponent(props: Product) {
           <View style={{ backgroundColor: "transparent", flex: 2 }}>
             <Image
               style={products.imagestyle}
-              src="https://images.pexels.com/photo/376464/pexels-photo-376464.jpeg?cs=srgb&dl=pexels-ash-376464.jpg&fm=jpg"
+              source={{
+                uri: image,
+              }}
             />
           </View>
           <View
@@ -38,6 +42,7 @@ export default function ProductItemComponent(props: Product) {
                 name={props.name}
                 description={props.name}
                 price={props.price}
+                image={props.image}
               />
             </View>
           </View>

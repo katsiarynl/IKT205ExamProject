@@ -28,7 +28,7 @@ export default function HomeComponent() {
                   <RestrauntItemComponent
                     key={id}
                     name={restaurant.name}
-                    photo={restaurant.photo}
+                    image={restaurant.image}
                     address={restaurant.address}
                     rating={restaurant.rating}
                   />

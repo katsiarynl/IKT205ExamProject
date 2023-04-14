@@ -3,10 +3,13 @@ import React, { useState, useContext } from "react";
 import { View } from "react-native";
 import { WebView } from "react-native-webview";
 import { NavigatorStripeParam } from "../../types/navigationTypes";
+import POSTMail from "../../utilities/ConfirmPayment";
 import { StudentContext } from "../../context";
 import stripestyle from "../../styles/stripestyles";
+
 export default function StripePaymentComponent({ route }) {
-  const { link } = route.params;
+  const { state } = useContext(StudentContext);
+  const { link, ordered_dishes } = route.params;
   const { dispatch } = useContext(StudentContext);
   const [canGoBack, setCanGoBack] = useState(false);
   const [canGoForward, setCanGoForward] = useState<boolean>(false);
@@ -36,6 +39,7 @@ export default function StripePaymentComponent({ route }) {
           if (navState.url == "http://localhost:5000/success") {
             navigate("navbar");
             navState.url = "http://localhost:5000/success";
+            POSTMail(ordered_dishes);
             empty_cart(dispatch);
           }
         }}

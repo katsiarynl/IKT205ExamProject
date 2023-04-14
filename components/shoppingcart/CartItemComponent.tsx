@@ -5,16 +5,12 @@ import { storage } from "../../firebase";
 import cartstyle from "../../styles/cartstyles";
 import CartItemPreviewComponent from "./CartItemPreviewComponent";
 import { CartComponentType } from "../../types/cartTypes";
+import GETImage from "../../utilities/GETImage";
+import fetchImage from "../../utilities/FetchImage";
 export default function CartItemComponent(props: CartComponentType) {
   const [avatare, setAvatar] = useState("");
 
-  (function getImg() {
-    getDownloadURL(
-      ref(storage, "gs://studentfirebase-8c937.appspot.com/jpegburgeeer.png")
-    )
-      .then((url) => setAvatar(url))
-      .catch((error) => console.error(error));
-  })();
+  fetchImage(GETImage, setAvatar, props.image);
 
   return (
     <View style={cartstyle.cartItem}>
