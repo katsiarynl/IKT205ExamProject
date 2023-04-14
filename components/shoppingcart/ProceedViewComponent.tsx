@@ -7,6 +7,7 @@ export default function ProceedViewComponent() {
   return (
     <View style={cartstyle.totalorder}>
       <TotalOrdersComponent />
+
       <CheckoutButtonComponent />
     </View>
   );

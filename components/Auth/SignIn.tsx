@@ -1,5 +1,5 @@
-import React from "react";
-import { useState } from "react";
+import React, { useEffect } from "react";
+import { useContext, useState } from "react";
 import { signInStyle } from "../../styles/signIn";
 import {
   TouchableOpacity,
@@ -9,10 +9,13 @@ import {
   TextInput,
 } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
-import { Button } from "react-native-paper";
-import { SignUp } from "./SignUp";
+
 import { useNavigation } from "@react-navigation/native";
-//folder
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
+import axios from "axios";
+
+import { UserContext } from "./userContext";
 // email Validation
 const EmailsValidation = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
 // password validation
@@ -21,30 +24,46 @@ const PasswordValidation =
 
 export const SignIn = ({ Navigation: any }) => {
   const navigation = useNavigation();
-
+  const { isloggedIn, setIsloggedIn } = useContext(UserContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passWordVisible, setPassWordVisible] = useState(true);
   const [isValidEmail, setisValidEmail] = useState(true);
   const [isValidPassword, setIsValidPassword] = useState(true);
 
-  // the function for email validation
   const handleEmailchange = (text) => {
     setEmail(text);
   };
-  // Handle Email Blur if the Email is Valid.
 
   const handleEmailBlur = () => {
     setisValidEmail(EmailsValidation.test(email));
   };
-  // handle Password Blur if a password not valid
-
   const handlePasswordBlur = () => {
     setIsValidPassword(PasswordValidation.test(password));
   };
 
-  const handlesubmit = () => {
-    //console.log("ist pressed!");
+  const handleSignIn = async () => {
+    try {
+      const response = await axios.post(
+        "https://cook2go.herokuapp.com/signIn",
+        {
+          email: email,
+          password: password,
+        }
+      );
+
+      if (response.data.accessToken) {
+        await AsyncStorage.setItem("AccessToken", response.data.accessToken);
+      }
+
+      setEmail("");
+      setPassword("");
+      setIsloggedIn(true);
+      navigation.navigate("Home");
+    } catch (err: any) {
+      // eslint-disable-next-line no-console
+      console.log(err.response.data);
+    }
   };
 
   return (
@@ -90,8 +109,6 @@ export const SignIn = ({ Navigation: any }) => {
             placeholder="Enter Password"
             autoCapitalize="none"
             textContentType="password"
-            numberOfLines={4}
-            multiline={true}
             autoCorrect={false}
             secureTextEntry={true}
             value={password}
@@ -109,7 +126,7 @@ export const SignIn = ({ Navigation: any }) => {
           )}
         </View>
 
-        <TouchableOpacity style={signInStyle.button} onPress={handlesubmit}>
+        <TouchableOpacity style={signInStyle.button} onPress={handleSignIn}>
           <Text style={{ fontWeight: "bold", color: "#fff", fontSize: 19 }}>
             Login{" "}
           </Text>
