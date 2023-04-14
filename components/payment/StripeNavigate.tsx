@@ -4,11 +4,11 @@ import { useNavigation } from "@react-navigation/native";
 
 import POSTStripe from "../../utilities/POSTStripe";
 import { StudentContext } from "../../context";
-async function testCallback(callback, callback2, callback3) {
+async function testCallback(callback, callback2, callback3, ordered_dishes) {
   const link = await callback;
 
   callback2(link);
-  callback3("stripe", { link });
+  callback3("stripe", { link, ordered_dishes });
   return link;
 }
 export default function StripeNavigate() {
@@ -19,7 +19,8 @@ export default function StripeNavigate() {
     const thelink = testCallback(
       POSTStripe(state.cartItems),
       setLink,
-      navigator.navigate
+      navigator.navigate,
+      state.cartItems
     );
   }, []);
 
