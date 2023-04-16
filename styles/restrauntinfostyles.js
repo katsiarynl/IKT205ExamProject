@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { windowWidth, windowHeight } from "./dimensions";
+import { windowHeight } from "./dimensions";
 const restrauntInfoStyles = StyleSheet.create({
   restrauntview: {
     paddingTop: "13%",

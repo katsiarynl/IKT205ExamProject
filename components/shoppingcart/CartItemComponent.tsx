@@ -1,7 +1,6 @@
-import { getDownloadURL, ref } from "firebase/storage";
 import React, { useState } from "react";
 import { Image, View } from "react-native";
-import { storage } from "../../firebase";
+
 import cartstyle from "../../styles/cartstyles";
 import CartItemPreviewComponent from "./CartItemPreviewComponent";
 import { CartComponentType } from "../../types/cartTypes";

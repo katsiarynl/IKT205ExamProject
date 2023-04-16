@@ -5,6 +5,7 @@ import { StudentContext } from "../../context";
 import cartstyle from "../../styles/cartstyles";
 import POSTStripe from "../../utilities/POSTStripe";
 import { UserContext } from "../Auth/userContext";
+import { NavigationSignIn } from "../../types/navigationTypes";
 
 async function testCallback(callback, navigate) {
   const link = await callback;
@@ -14,6 +15,7 @@ async function testCallback(callback, navigate) {
 }
 export default function CheckoutButtonComponent() {
   const navigator = useNavigation();
+  const NavigatorHome = useNavigation<NavigationSignIn>();
   const { state } = useContext(StudentContext);
 
   const { isloggedIn } = useContext(UserContext);
@@ -22,7 +24,7 @@ export default function CheckoutButtonComponent() {
     if (isloggedIn) {
       await testCallback(POSTStripe(state.cartItems), navigator.navigate);
     } else {
-      navigator.navigate("SignIn");
+      NavigatorHome.navigate("SignIn");
     }
   };
   return (
