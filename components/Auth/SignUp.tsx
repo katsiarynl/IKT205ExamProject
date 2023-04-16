@@ -2,30 +2,32 @@ import React from "react";
 import { useState } from "react";
 import { signInStyle } from "../../styles/signIn";
 import {
+  Alert,
   TouchableOpacity,
   View,
   Text,
   SafeAreaView,
-  TextInput,
 } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { useNavigation } from "@react-navigation/native";
 import axios from "axios";
-
+import { NavigationSignOut } from "../../types/navigationTypes";
+import { TextInput } from "react-native-paper";
 // email Validation
 const EmailsValidation = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
 // password validation
 const PasswordValidation =
   /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
 
-export const SignUp = ({ Navigation: any }) => {
-  const navigation = useNavigation();
+export const SignUp = () => {
+  const navigation = useNavigation<NavigationSignOut>();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passWordVisible, setPassWordVisible] = useState(true);
   const [isValidEmail, setisValidEmail] = useState(true);
   const [isValidPassword, setIsValidPassword] = useState(true);
+  const [secureTextEntry, SetsecureTextEntry] = useState(true);
 
   // the function for email validation
   const handleEmailchange = (text) => {
@@ -43,39 +45,44 @@ export const SignUp = ({ Navigation: any }) => {
   };
 
   const handleSignUp = async () => {
-    try {
-      const response = await axios.post(
-        "https://cook2go.herokuapp.com/signUp",
-        { email: email, password: password }
-      );
+    if (isValidEmail && isValidPassword) {
+      try {
+        await axios.post("https://cook2go.herokuapp.com/signUp", {
+          email: email,
+          password: password,
+        });
 
-      // clear the textInputs After submits.
-      setEmail("");
-      setPassword("");
-      navigation.navigate("SignIn");
-    } catch (error: any) {
-      // eslint-disable-next-line no-console
+        // clear the textInputs After submits.
+        setEmail("");
+        setPassword("");
+        navigation.navigate("SignIn");
+      } catch (error: any) {
+        Alert.alert(
+          "Invalid Email or Password",
+          "Please make your your Email password is right!"
+        );
+      }
+    } else {
+      Alert.alert(
+        "Invalid Email or Password",
+        "Please make sure Email and password is right!"
+      );
     }
   };
   return (
     <View style={signInStyle.container}>
       <SafeAreaView style={signInStyle.form}>
         <Text style={signInStyle.title}>Sign up</Text>
-        <View style={signInStyle.inputs}>
-          <Icon
-            style={signInStyle.emailICon}
-            name="envelope"
-            size={20}
-            color="black"
-          />
-
+        <View>
           <TextInput
-            placeholder="Enter Email"
-            autoCapitalize="none"
+            label="Email"
             keyboardType="email-address"
-            textContentType="emailAddress"
-            autoFocus={false}
+            mode="outlined"
+            autoCapitalize="none"
             value={email}
+            theme={{ roundness: 10 }}
+            style={{ backgroundColor: "#ffff" }}
+            left={<TextInput.Icon icon={"email-outline"} color="#fffd" />}
             onChangeText={handleEmailchange}
             onBlur={handleEmailBlur}
           />
@@ -85,24 +92,29 @@ export const SignUp = ({ Navigation: any }) => {
             <Text style={{ color: "red" }}>Invalid Email!</Text>
           )}
         </View>
-        <View style={signInStyle.inputs2}>
+        <View>
           <TouchableOpacity
             onPress={() => setPassWordVisible(!passWordVisible)}
-          >
-            <Icon
-              style={signInStyle.emailICon}
-              name={passWordVisible ? "eye-slash" : "eye"}
-              size={20}
-              color="black"
-            />
-          </TouchableOpacity>
+          ></TouchableOpacity>
           <TextInput
-            placeholder="Enter Password"
+            label="Password"
+            keyboardType="email-address"
+            mode="outlined"
             autoCapitalize="none"
-            textContentType="password"
-            autoCorrect={false}
-            secureTextEntry={true}
+            secureTextEntry={secureTextEntry}
             value={password}
+            theme={{ roundness: 10 }}
+            style={{ backgroundColor: "#ffff" }}
+            right={
+              <TextInput.Icon
+                icon={"eye"}
+                color="#fffd"
+                onPress={() => {
+                  SetsecureTextEntry(!secureTextEntry);
+                  return false;
+                }}
+              />
+            }
             onChangeText={(text) => setPassword(text)}
             onBlur={handlePasswordBlur}
           />
@@ -122,7 +134,7 @@ export const SignUp = ({ Navigation: any }) => {
             Sign up{" "}
           </Text>
         </TouchableOpacity>
-        <Text style={signInStyle.orTextStyle}>----------Or-----------</Text>
+        <Text style={signInStyle.orTextStyle}>………………………or………………………</Text>
         <View style={signInStyle.buttonSocial}>
           <Icon.Button
             name="facebook"

@@ -41,8 +41,7 @@ export const signInStyle = StyleSheet.create({
     borderRadius: 10,
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 40,
-    marginBottom: 69,
+    marginTop: 30,
   },
   buttonSocial: {
     height: 58,

@@ -8,7 +8,9 @@ import { RootStackParamList } from "../../types/navigationTypes";
 
 import { SignIn } from "../Auth/SignIn";
 import { SignUp } from "../Auth/SignUp";
+
 const Stack = createStackNavigator<RootStackParamList>();
+import { ForgetPass } from "../Auth/ForgetPass";
 
 export default function StackNavigatorComponent() {
   return (
@@ -19,6 +21,7 @@ export default function StackNavigatorComponent() {
       <Stack.Screen name="stripe" component={StripePaymentComponent} />
       <Stack.Screen name="SignIn" component={SignIn} />
       <Stack.Screen name="SignUp" component={SignUp} />
+      <Stack.Screen name="ForgetPass" component={ForgetPass} />
     </Stack.Navigator>
   );
 }

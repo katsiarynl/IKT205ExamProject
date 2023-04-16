@@ -4,16 +4,15 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
 import { useNavigation } from "@react-navigation/native";
 import { UserContext } from "./userContext";
+import { NavigationHome } from "../../types/navigationTypes";
 
 export const SignOut = () => {
-  const navigator = useNavigation();
+  const navigator = useNavigation<NavigationHome>();
   const { sloggedIn, setIsloggedIn } = useContext(UserContext);
 
   const handleSignOut = async () => {
     try {
-      const response = await axios.post(
-        "https://cook2go.herokuapp.com/singOut"
-      );
+      await axios.post("https://cook2go.herokuapp.com/singOut");
       await AsyncStorage.removeItem("AccessToken");
 
       setIsloggedIn(false);

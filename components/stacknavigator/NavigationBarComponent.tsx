@@ -12,7 +12,6 @@ import { SignIn } from "../Auth/SignIn";
 import ProfileComponent from "../profile/ProfileComponent";
 
 const Tab = createBottomTabNavigator();
-//navigator
 
 export default function NavigatorBarComponent() {
   return (
