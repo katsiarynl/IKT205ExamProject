@@ -2,12 +2,12 @@ import axios from "axios";
 
 async function POSTMail(cartdata) {
   const { data } = await axios.post(
-    "http://10.0.0.9:5000/nodemailer",
-    cartdata,
+    "https://cook2go.herokuapp.com/nodemailer",
     {
       headers: {
-        "Content-Type": "application/json",
+        Accept: "application/json",
       },
+      data: cartdata,
     }
   );
 

@@ -6,5 +6,4 @@ export type ChangeQuantityButtonType = {
 
 export interface CartComponentType extends Product {
   quantity: number;
-  image: string;
 }

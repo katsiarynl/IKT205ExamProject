@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import { Image, Text, View } from "react-native";
 import fetchImage from "../../utilities/FetchImage";
 import products from "../../styles/products";
-import GETImage from "../../utilities/GETImage";
+
+import GETPath from "../../utilities/GETPath";
 import AddToCartButton from "./AddToCartButton";
 import PriceTagComponent from "./PriceTagComponent";
 import { Product } from "../../types/productTypes";
 export default function ProductItemComponent(props: Product) {
   const [image, setImage] = useState("");
-  fetchImage(GETImage, setImage, props.image);
+  fetchImage(GETPath, setImage, props.image);
   return (
     <View>
       <View style={products.productitem}>
