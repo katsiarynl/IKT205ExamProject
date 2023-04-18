@@ -16,8 +16,7 @@ import { TextInput } from "react-native-paper";
 // email Validation
 const EmailsValidation = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
 // password validation
-const PasswordValidation =
-  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
+const PasswordValidation = /^(?=.*[a-z])(?=.*[a-z]).{6,}$/;
 
 export const SignUp = () => {
   const navigation = useNavigation<NavigationSignOut>();
@@ -45,28 +44,32 @@ export const SignUp = () => {
   };
 
   const handleSignUp = async () => {
-    if (isValidEmail && isValidPassword) {
-      try {
-        await axios.post("https://cook2go.herokuapp.com/signUp", {
-          email: email,
-          password: password,
-        });
+    if (email && password) {
+      if (isValidEmail && isValidPassword) {
+        try {
+          await axios.post("https://cook2go.herokuapp.com/signUp", {
+            email: email,
+            password: password,
+          });
 
-        // clear the textInputs After submits.
-        setEmail("");
-        setPassword("");
-        navigation.navigate("SignIn");
-      } catch (error: any) {
+          // clear the textInputs After submits.
+          setEmail("");
+          setPassword("");
+          navigation.navigate("SignIn");
+        } catch (error: any) {
+          Alert.alert(
+            "Invalid Email or Password",
+            "Please make your your Email password is right!"
+          );
+        }
+      } else {
         Alert.alert(
           "Invalid Email or Password",
-          "Please make your your Email password is right!"
+          "Please make sure Email and password is right!"
         );
       }
     } else {
-      Alert.alert(
-        "Invalid Email or Password",
-        "Please make sure Email and password is right!"
-      );
+      return false;
     }
   };
   return (
@@ -122,9 +125,8 @@ export const SignUp = () => {
         <View>
           {!isValidPassword && (
             <Text style={{ color: "red" }}>
-              Invalid Password! (must contain at least 8 characters, including
-              at least one uppercase letter, one lowercase letter, and one
-              number)
+              Invalid Password! (must contain at least 6 characters, including
+              lowercase letter, and one number)
             </Text>
           )}
         </View>

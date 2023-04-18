@@ -20,9 +20,7 @@ import { UserContext } from "./userContext";
 // email Validation
 const EmailsValidation = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
 // password validation
-const PasswordValidation =
-  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
-
+const PasswordValidation = /^(?=.*[a-z])(?=.*[a-z]).{6,}$/;
 export const SignIn = () => {
   const navigation = useNavigation<NavigationSignOut>();
 
@@ -75,6 +73,26 @@ export const SignIn = () => {
         "Invalid Email or Password",
         "Please make sure Email and password is right!"
       );
+    }
+  };
+
+  const handleSigningGoogel = async (token) => {
+    try {
+      const responseData = await axios.post(
+        "http://localhost:5000/loginWithGoogle",
+        { token: token }
+      );
+
+      const Aceestoken = responseData.data.accessToken;
+
+      const userEmail = responseData.data.email;
+      const message = responseData.data.message;
+      console.log("user Email", userEmail);
+      console.log("message", message);
+
+      await AsyncStorage.setItem("AccessToken", Aceestoken);
+    } catch (error) {
+      console.error("Erorr with signing Google account!", error);
     }
   };
 
@@ -131,9 +149,7 @@ export const SignIn = () => {
         <View>
           {!isValidPassword && (
             <Text style={{ color: "red" }}>
-              Invalid Password! (must contain at least 8 characters, including
-              at least one uppercase letter, one lowercase letter, and one
-              number)
+              Invalid Password! (must contain at least 6 characters,)
             </Text>
           )}
         </View>
@@ -167,7 +183,7 @@ export const SignIn = () => {
           <Icon.Button
             name="google"
             backgroundColor="#900603"
-            onPress={() => alert("Login with Facebook")}
+            onPress={handleSigningGoogel}
           >
             Login with Facebook
           </Icon.Button>
