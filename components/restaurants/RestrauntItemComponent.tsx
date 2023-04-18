@@ -6,16 +6,16 @@ import star from "../../assets/star";
 
 import { restaurantStyle } from "../../styles/restaurantsStyle";
 import { RestrauntItemComponentType } from "../../types/restrauntTypes";
-
+import GETPath from "../../utilities/GETPath";
 import fetchImage from "../../utilities/FetchImage";
-import GETImage from "../../utilities/GETImage";
+
 export default function RestrauntItemComponent(
   props: RestrauntItemComponentType
 ) {
   const ratingArray = Array.from({ length: Math.floor(props["rating"]) });
   const [avatare, setAvatar] = useState("");
 
-  fetchImage(GETImage, setAvatar, props.image);
+  fetchImage(GETPath, setAvatar, props.image);
   return (
     <View>
       <Card elevation={5} style={restaurantStyle.cardStyle}>

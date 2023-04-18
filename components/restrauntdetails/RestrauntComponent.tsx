@@ -4,11 +4,11 @@ import React, { useState } from "react";
 import restrauntInfoStyles from "../../styles/restrauntinfostyles";
 import RestrauntDescriptionComponent from "./RestrauntDescriptionComponent";
 
-import GETImage from "../../utilities/GETImage";
 import fetchImage from "../../utilities/FetchImage";
+import GETPath from "../../utilities/GETPath";
 export default function RestrauntComponent(props) {
   const [avatare, setAvatar] = useState("");
-  fetchImage(GETImage, setAvatar, props.image);
+  fetchImage(GETPath, setAvatar, props.image);
   return (
     <View style={restrauntInfoStyles.restrauntview}>
       <Image

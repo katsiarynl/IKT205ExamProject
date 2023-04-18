@@ -4,12 +4,13 @@ import { Image, View } from "react-native";
 import cartstyle from "../../styles/cartstyles";
 import CartItemPreviewComponent from "./CartItemPreviewComponent";
 import { CartComponentType } from "../../types/cartTypes";
-import GETImage from "../../utilities/GETImage";
+
 import fetchImage from "../../utilities/FetchImage";
+import GETPath from "../../utilities/GETPath";
 export default function CartItemComponent(props: CartComponentType) {
   const [avatare, setAvatar] = useState("");
 
-  fetchImage(GETImage, setAvatar, props.image);
+  fetchImage(GETPath, setAvatar, props.image);
 
   return (
     <View style={cartstyle.cartItem}>
