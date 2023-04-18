@@ -82,14 +82,7 @@ export const SignIn = () => {
         "http://localhost:5000/loginWithGoogle",
         { token: token }
       );
-
       const Aceestoken = responseData.data.accessToken;
-
-      const userEmail = responseData.data.email;
-      const message = responseData.data.message;
-      console.log("user Email", userEmail);
-      console.log("message", message);
-
       await AsyncStorage.setItem("AccessToken", Aceestoken);
     } catch (error) {
       console.error("Erorr with signing Google account!", error);
