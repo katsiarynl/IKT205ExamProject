@@ -1,11 +1,13 @@
-export type Product = {
+export type GeneralProduct = {
   _id: string;
   name: string;
   description: string;
   price: number;
-  image?: string;
 };
 
+export interface Product extends GeneralProduct {
+  image: string;
+}
 //https://stackoverflow.com/questions/41385059/possible-to-extend-types-in-typescript
 
 export type CategorizedProducts = {
