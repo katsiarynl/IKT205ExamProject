@@ -9,26 +9,24 @@ import ScrollCategoriesComponent from "./ScrollCategoriesComponent";
 import { useContext } from "react";
 import { StudentContext } from "../../context";
 import GETRestaurants from "../../utilities/GETRestaurants";
-
 export default function ProductListComponent({ route }) {
-  const { restaurant } = route.params;
-  const { dispatch, state } = useContext(StudentContext);
-  const { restraunts } = state;
+  let { restaurant } = route.params;
+  const { dispatch } = useContext(StudentContext);
   // console.log(item["menu"][1]["category"]);
   //https://blog.logrocket.com/using-react-usestate-object/
 
   const [Category, setCategory] = useState<string[]>(["String1", "all"]);
   const [refreshing, setRefreshing] = React.useState(false);
 
+  //https://reactnative.dev/docs/refreshcontrol
   const onRefresh = React.useCallback(() => {
     setRefreshing(true);
     setTimeout(() => {
       setRefreshing(false);
       GETRestaurants(dispatch);
-      console.log(restraunts);
+      restaurant = route.params;
     }, 2000);
   }, []);
-  //https://reactnative.dev/docs/refreshcontrol
 
   return (
     <View style={{ flexDirection: "column" }}>
