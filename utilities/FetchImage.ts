@@ -7,6 +7,7 @@ async function fetchImage(
 ) {
   const image = await GETPath(url);
   setImage(image);
+
   return image;
 }
 
