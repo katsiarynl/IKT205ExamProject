@@ -15,7 +15,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
 import { forgetPassStyle } from "../../styles/forgetPasswor";
 import { NavigationSignOut } from "../../types/navigationTypes";
-
+import ValidateEmail from "../../utilities/EmailValidation";
 import { UserContext } from "./userContext";
 // email Validation
 import { EmailsValidation } from "../../utilities/EmailValidation";
@@ -24,7 +24,7 @@ const PasswordValidation = /^(?=.*[a-z])(?=.*[a-z]).{6,}$/;
 export const SignIn = () => {
   const navigation = useNavigation<NavigationSignOut>();
 
-  const { isloggedIn, setIsloggedIn } = useContext(UserContext);
+  const [isloggedIn, setIsloggedIn] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passWordVisible, setPassWordVisible] = useState(true);
@@ -37,7 +37,7 @@ export const SignIn = () => {
   };
 
   const handleEmailBlur = () => {
-    setisValidEmail(EmailsValidation.test(email));
+    setisValidEmail(ValidateEmail(email));
   };
   const handlePasswordBlur = () => {
     setIsValidPassword(PasswordValidation.test(password));

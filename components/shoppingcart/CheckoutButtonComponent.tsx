@@ -44,6 +44,7 @@ export default function CheckoutButtonComponent() {
         ]}
         disabled={state.cartItems.length === 0}
         onPress={handleCheout}
+        testID="CheckoutNavigate"
       >
         <View style={{ backgroundColor: "white " }}>
           <Text
