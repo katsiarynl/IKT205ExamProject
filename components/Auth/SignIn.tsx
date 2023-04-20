@@ -18,7 +18,7 @@ import { NavigationSignOut } from "../../types/navigationTypes";
 
 import { UserContext } from "./userContext";
 // email Validation
-const EmailsValidation = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+import { EmailsValidation } from "../../utilities/EmailValidation";
 // password validation
 const PasswordValidation = /^(?=.*[a-z])(?=.*[a-z]).{6,}$/;
 export const SignIn = () => {
