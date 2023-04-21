@@ -14,6 +14,7 @@ import axios from "axios";
 import { NavigationSignOut } from "../../types/navigationTypes";
 import { TextInput } from "react-native-paper";
 import SignInButtonComponent from "./SignInButtonComponent";
+import ValidateEmail from "../../utilities/EmailValidation";
 // email Validation
 const EmailsValidation = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
 // password validation

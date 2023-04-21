@@ -11,12 +11,14 @@
     {
       "files": [
         "**/*.spec.js",
-        "**/__mocks__/**, **/__tests__/**",
+        "./**/__mocks__/**",
+        "**/__tests__/**",
         "**/*.test.js",
         "**/*.spec.ts",
         "**/*.test.ts",
         "**/*.test.jsx",
-        "**/*.test.tsx"
+        "**/*.test.tsx",
+        "./jest.setup.js"
       ],
       "env": {
         "jest": true,
@@ -32,6 +34,7 @@
         "allow": ["warn", "dir", "timeLog", "table", "error", "context"]
       }
     ],
+    "@typescript-eslint/ban-ts-comment": "off",
     // suppress errors for missing 'import React' in files
     "react/react-in-jsx-scope": "off",
     // allow jsx syntax in js files (for next.js project)

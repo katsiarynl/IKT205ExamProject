@@ -21,12 +21,13 @@ import { UserContext } from "./userContext";
 import { EmailsValidation } from "../../utilities/EmailValidation";
 import ForgetPassowrdButtonComponent from "./ForgetPassowrdButtonComponent";
 import SignUpButtonComponent from "./SignUpButtonComponent";
+import { Use } from "react-native-svg";
 // password validation
 const PasswordValidation = /^(?=.*[a-z])(?=.*[a-z]).{6,}$/;
 export const SignIn = () => {
   const navigation = useNavigation<NavigationSignOut>();
+  const { setIsloggedIn } = useContext(UserContext);
 
-  const [isloggedIn, setIsloggedIn] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passWordVisible, setPassWordVisible] = useState(true);
