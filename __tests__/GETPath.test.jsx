@@ -1,6 +1,6 @@
 import GETPath from "../utilities/GETPath";
 //https://jestjs.io/docs/expect
-import useContext from "react";
+
 describe("<App />", () => {
   test("resolves to lemon", async () => {
     // make sure to add a return statement

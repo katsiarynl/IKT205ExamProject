@@ -39,7 +39,8 @@
       "src"
     ],
     "setupFiles": [
-      "./node_modules/react-native/jest/setup.js"
+      "./node_modules/react-native/jest/setup.js",
+      "./node_modules/react-native-gesture-handler/jestSetup.js"
     ]
   },
   "dependencies": {
