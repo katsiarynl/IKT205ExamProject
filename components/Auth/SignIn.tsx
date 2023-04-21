@@ -15,16 +15,19 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
 import { forgetPassStyle } from "../../styles/forgetPasswor";
 import { NavigationSignOut } from "../../types/navigationTypes";
-
+import ValidateEmail from "../../utilities/EmailValidation";
 import { UserContext } from "./userContext";
 // email Validation
 import { EmailsValidation } from "../../utilities/EmailValidation";
+import ForgetPassowrdButtonComponent from "./ForgetPassowrdButtonComponent";
+import SignUpButtonComponent from "./SignUpButtonComponent";
+import { Use } from "react-native-svg";
 // password validation
 const PasswordValidation = /^(?=.*[a-z])(?=.*[a-z]).{6,}$/;
 export const SignIn = () => {
   const navigation = useNavigation<NavigationSignOut>();
+  const { setIsloggedIn } = useContext(UserContext);
 
-  const { isloggedIn, setIsloggedIn } = useContext(UserContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passWordVisible, setPassWordVisible] = useState(true);
@@ -37,7 +40,7 @@ export const SignIn = () => {
   };
 
   const handleEmailBlur = () => {
-    setisValidEmail(EmailsValidation.test(email));
+    setisValidEmail(ValidateEmail(email));
   };
   const handlePasswordBlur = () => {
     setIsValidPassword(PasswordValidation.test(password));
@@ -152,15 +155,7 @@ export const SignIn = () => {
             Login{" "}
           </Text>
         </TouchableOpacity>
-        <View style={forgetPassStyle.container}>
-          <TouchableOpacity onPress={() => navigation.navigate("ForgetPass")}>
-            <Text
-              style={{ fontWeight: "bold", color: "#7E3B14", fontSize: 19 }}
-            >
-              Forget Password?{" "}
-            </Text>
-          </TouchableOpacity>
-        </View>
+        <ForgetPassowrdButtonComponent />
 
         <Text style={signInStyle.orTextStyle}>………………………or………………………</Text>
         <View style={signInStyle.buttonSocial}>
@@ -181,16 +176,7 @@ export const SignIn = () => {
             Login with Facebook
           </Icon.Button>
         </View>
-        <View style={signInStyle.singUpContainer}>
-          <Text style={signInStyle.textSingUp}>Don't have an account? </Text>
-          <TouchableOpacity onPress={() => navigation.navigate("SignUp")}>
-            <Text
-              style={{ fontWeight: "bold", color: "#7E3B14", fontSize: 19 }}
-            >
-              Sing Up{" "}
-            </Text>
-          </TouchableOpacity>
-        </View>
+        <SignUpButtonComponent />
       </SafeAreaView>
     </View>
   );

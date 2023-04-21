@@ -62,7 +62,7 @@ export const ForgetPass = () => {
           onPress={handleForgetPassword}
         >
           <Text style={{ fontWeight: "bold", color: "#fff", fontSize: 19 }}>
-            Submit{" "}
+            Submit
           </Text>
         </TouchableOpacity>
       </SafeAreaView>

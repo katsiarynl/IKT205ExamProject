@@ -11,7 +11,7 @@ async function POSTStripe(cartdata) {
     }
   );
 
-  return await data;
+  return data;
 }
 
 //curl http://localhost:5000/users/ --include

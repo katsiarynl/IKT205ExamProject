@@ -20,9 +20,10 @@ const ACTIONS = {
   EMPTY_CART: "REMOVE_ITEMS",
 };
 
-const reducer = (state: AppState, action: ActionsType): AppState => {
+const reducer = (state: AppState, action: ActionsType) => {
   //https://stackoverflow.com/questions/35948669/how-to-check-if-a-value-exists-in-an-object-using-javascript
 
+  // @ts-ignore
   let entry_number: number = undefined;
 
   if (action.type != ACTIONS.EMPTY_CART) {
@@ -95,6 +96,7 @@ export const StudentContext = createContext<{
 }>({ state: initialState, dispatch: () => undefined });
 
 function StudentProvider({ children }) {
+  // @ts-ignore
   const [state, dispatch] = useReducer(reducer, initialState);
 
   // Source: https://firebase.google.com/docs/database/web/read-and-write

@@ -5,6 +5,6 @@
 describe("<App />", () => {
   test("resolves to lemon", () => {
     // make sure to add a return statement
-    return expect(true).toBe(true);
+    expect(true).toBe(true);
   });
 });
