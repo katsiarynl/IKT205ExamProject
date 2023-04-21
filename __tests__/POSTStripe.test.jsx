@@ -11,6 +11,6 @@ describe("<App />", () => {
         price: 24,
       },
     ]);
-    expect(path).toHaveReturned;
+    return expect(path).toHaveReturned;
   });
 });
