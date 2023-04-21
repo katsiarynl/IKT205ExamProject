@@ -7,7 +7,7 @@ import POSTStripe from "../../utilities/POSTStripe";
 import { UserContext } from "../Auth/userContext";
 import { NavigationSignIn } from "../../types/navigationTypes";
 
-async function testCallback(callback, navigate) {
+async function NavitagateToStripe(callback, navigate) {
   const link = await callback;
 
   navigate("stripe", { link });
@@ -22,7 +22,7 @@ export default function CheckoutButtonComponent() {
 
   const handleCheout = async () => {
     if (isloggedIn) {
-      await testCallback(POSTStripe(state.cartItems), navigator.navigate);
+      await NavitagateToStripe(POSTStripe(state.cartItems), navigator.navigate);
     } else {
       NavigatorHome.navigate("SignIn");
     }

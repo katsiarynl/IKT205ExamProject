@@ -1,11 +1,19 @@
 import React, { createContext, useState, useEffect } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-export const UserContext = createContext();
+type InitialStateType = {
+  isloggedIn: boolean;
+  setIsloggedIn: React.Dispatch<React.SetStateAction<boolean>>;
+};
+const initialState: InitialStateType = {
+  isloggedIn: false,
+  setIsloggedIn: () => undefined,
+};
+
+export const UserContext = createContext(initialState);
 
 export const UserProvider = ({ children }) => {
-  const [isloggedIn, setIsloggedIn]: [isloggedIn: any, setIsloggedIn] =
-    useState<boolean>(false);
+  const [isloggedIn, setIsloggedIn] = useState<boolean>(false);
 
   useEffect(() => {
     const checkUserLoggedIn = async () => {

@@ -14,7 +14,9 @@
         "**/__mocks__/**, **/__tests__/**",
         "**/*.test.js",
         "**/*.spec.ts",
-        "**/*.test.ts"
+        "**/*.test.ts",
+        "**/*.test.jsx",
+        "**/*.test.tsx"
       ],
       "env": {
         "jest": true,
