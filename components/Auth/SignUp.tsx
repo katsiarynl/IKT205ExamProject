@@ -13,6 +13,7 @@ import { useNavigation } from "@react-navigation/native";
 import axios from "axios";
 import { NavigationSignOut } from "../../types/navigationTypes";
 import { TextInput } from "react-native-paper";
+import SignInButtonComponent from "./SignInButtonComponent";
 // email Validation
 const EmailsValidation = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
 // password validation
@@ -155,16 +156,7 @@ export const SignUp = () => {
             Sign up with google
           </Icon.Button>
         </View>
-        <View style={signInStyle.singUpContainer}>
-          <Text style={signInStyle.textSingUp}>Already have an account? </Text>
-          <TouchableOpacity onPress={() => navigation.navigate("SignIn")}>
-            <Text
-              style={{ fontWeight: "bold", color: "#7E3B14", fontSize: 19 }}
-            >
-              Sign In{" "}
-            </Text>
-          </TouchableOpacity>
-        </View>
+        <SignInButtonComponent />
       </SafeAreaView>
     </View>
   );
