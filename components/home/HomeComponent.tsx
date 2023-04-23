@@ -1,6 +1,6 @@
 import { useNavigation } from "@react-navigation/native";
 import { StatusBar as ExpoStatusBar } from "expo-status-bar";
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import {
   Pressable,
   SafeAreaView,
