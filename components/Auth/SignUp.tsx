@@ -7,6 +7,7 @@ import {
   View,
   Text,
   SafeAreaView,
+  ScrollView,
 } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { useNavigation } from "@react-navigation/native";
@@ -14,7 +15,7 @@ import axios from "axios";
 import { NavigationSignOut } from "../../types/navigationTypes";
 import { TextInput } from "react-native-paper";
 import SignInButtonComponent from "./SignInButtonComponent";
-import ValidateEmail from "../../utilities/EmailValidation";
+
 // email Validation
 const EmailsValidation = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
 // password validation
@@ -25,7 +26,6 @@ export const SignUp = () => {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [passWordVisible, setPassWordVisible] = useState(true);
   const [isValidEmail, setisValidEmail] = useState(true);
   const [isValidPassword, setIsValidPassword] = useState(true);
   const [secureTextEntry, SetsecureTextEntry] = useState(true);
@@ -77,87 +77,85 @@ export const SignUp = () => {
   return (
     <View style={signInStyle.container}>
       <SafeAreaView style={signInStyle.form}>
-        <Text style={signInStyle.title}>Sign up</Text>
-        <View>
-          <TextInput
-            label="Email"
-            keyboardType="email-address"
-            mode="outlined"
-            autoCapitalize="none"
-            value={email}
-            theme={{ roundness: 10 }}
-            style={{ backgroundColor: "#ffff" }}
-            left={<TextInput.Icon icon={"email-outline"} color="#fffd" />}
-            onChangeText={handleEmailchange}
-            onBlur={handleEmailBlur}
-          />
-        </View>
-        <View>
-          {!isValidEmail && (
-            <Text style={{ color: "red" }}>Invalid Email!</Text>
-          )}
-        </View>
-        <View>
-          <TouchableOpacity
-            onPress={() => setPassWordVisible(!passWordVisible)}
-          ></TouchableOpacity>
-          <TextInput
-            label="Password"
-            keyboardType="email-address"
-            mode="outlined"
-            autoCapitalize="none"
-            secureTextEntry={secureTextEntry}
-            value={password}
-            theme={{ roundness: 10 }}
-            style={{ backgroundColor: "#ffff" }}
-            right={
-              <TextInput.Icon
-                icon={"eye"}
-                color="#fffd"
-                onPress={() => {
-                  SetsecureTextEntry(!secureTextEntry);
-                  return false;
-                }}
-              />
-            }
-            onChangeText={(text) => setPassword(text)}
-            onBlur={handlePasswordBlur}
-          />
-        </View>
-        <View>
-          {!isValidPassword && (
-            <Text style={{ color: "red" }}>
-              Invalid Password! (must contain at least 6 characters, including
-              lowercase letter, and one number)
-            </Text>
-          )}
-        </View>
+        <ScrollView>
+          <Text style={signInStyle.title}>Sign up</Text>
+          <View>
+            <TextInput
+              label="Email"
+              keyboardType="email-address"
+              mode="outlined"
+              autoCapitalize="none"
+              value={email}
+              theme={{ roundness: 10 }}
+              style={{ backgroundColor: "#ffff" }}
+              left={<TextInput.Icon icon={"email-outline"} color="#fffd" />}
+              onChangeText={handleEmailchange}
+              onBlur={handleEmailBlur}
+            />
+          </View>
+          <View>
+            {!isValidEmail && (
+              <Text style={{ color: "red" }}>Invalid Email!</Text>
+            )}
+          </View>
+          <View>
+            <TextInput
+              label="Password"
+              mode="outlined"
+              autoCapitalize="none"
+              secureTextEntry={secureTextEntry}
+              value={password}
+              theme={{ roundness: 10 }}
+              style={{ backgroundColor: "#ffff" }}
+              right={
+                <TextInput.Icon
+                  icon={"eye"}
+                  color="#fffd"
+                  onPress={() => {
+                    SetsecureTextEntry(!secureTextEntry);
+                    return false;
+                  }}
+                />
+              }
+              onChangeText={(text) => setPassword(text)}
+              onBlur={handlePasswordBlur}
+            />
+          </View>
+          <View>
+            {!isValidPassword && (
+              <Text style={{ color: "red" }}>
+                Invalid Password! (must contain at least 6 characters, including
+                lowercase letter, and one number)
+              </Text>
+            )}
+          </View>
 
-        <TouchableOpacity style={signInStyle.button} onPress={handleSignUp}>
-          <Text style={{ fontWeight: "bold", color: "#fff", fontSize: 19 }}>
-            Sign up{" "}
-          </Text>
-        </TouchableOpacity>
-        <Text style={signInStyle.orTextStyle}>………………………or………………………</Text>
-        <View style={signInStyle.buttonSocial}>
-          <Icon.Button
-            name="facebook"
-            backgroundColor="#3b5998"
-            onPress={() => alert("Sign up with Facebook")}
-          >
-            Sign up with Facebook
-          </Icon.Button>
-        </View>
-        <View style={signInStyle.googleStyle}>
-          <Icon.Button
-            name="google"
-            backgroundColor="#900603"
-            onPress={() => alert("Sign up with Facebook")}
-          >
-            Sign up with google
-          </Icon.Button>
-        </View>
-        <SignInButtonComponent />
+          <TouchableOpacity style={signInStyle.button} onPress={handleSignUp}>
+            <Text style={{ fontWeight: "bold", color: "#fff", fontSize: 19 }}>
+              Sign up{" "}
+            </Text>
+          </TouchableOpacity>
+          <Text style={signInStyle.orTextStyle}>………………………or………………………</Text>
+          <View style={signInStyle.buttonSocial}>
+            <Icon.Button
+              name="facebook"
+              backgroundColor="#3b5998"
+              onPress={() => alert("Sign up with Facebook")}
+            >
+              Sign up with Facebook
+            </Icon.Button>
+          </View>
+          <View style={signInStyle.googleStyle}>
+            <Icon.Button
+              name="google"
+              backgroundColor="#900603"
+              onPress={() => alert("Sign up with Facebook")}
+            >
+              Sign up with google
+            </Icon.Button>
+          </View>
+          <SignInButtonComponent />
+        </ScrollView>
       </SafeAreaView>
     </View>
   );

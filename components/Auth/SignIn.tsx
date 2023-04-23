@@ -15,19 +15,17 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
 import { forgetPassStyle } from "../../styles/forgetPasswor";
 import { NavigationSignOut } from "../../types/navigationTypes";
-import ValidateEmail from "../../utilities/EmailValidation";
+import { ScrollView } from "react-native";
+
 import { UserContext } from "./userContext";
 // email Validation
-import { EmailsValidation } from "../../utilities/EmailValidation";
-import ForgetPassowrdButtonComponent from "./ForgetPassowrdButtonComponent";
-import SignUpButtonComponent from "./SignUpButtonComponent";
-import { Use } from "react-native-svg";
+const EmailsValidation = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
 // password validation
 const PasswordValidation = /^(?=.*[a-z])(?=.*[a-z]).{6,}$/;
 export const SignIn = () => {
   const navigation = useNavigation<NavigationSignOut>();
-  const { setIsloggedIn } = useContext(UserContext);
 
+  const { isloggedIn, setIsloggedIn } = useContext(UserContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passWordVisible, setPassWordVisible] = useState(true);
@@ -40,7 +38,7 @@ export const SignIn = () => {
   };
 
   const handleEmailBlur = () => {
-    setisValidEmail(ValidateEmail(email));
+    setisValidEmail(EmailsValidation.test(email));
   };
   const handlePasswordBlur = () => {
     setIsValidPassword(PasswordValidation.test(password));
@@ -79,104 +77,106 @@ export const SignIn = () => {
     }
   };
 
-  const handleSigningGoogel = async (token) => {
-    try {
-      const responseData = await axios.post(
-        "http://localhost:5000/loginWithGoogle",
-        { token: token }
-      );
-      const Aceestoken = responseData.data.accessToken;
-      await AsyncStorage.setItem("AccessToken", Aceestoken);
-    } catch (error) {
-      console.error("Erorr with signing Google account!", error);
-    }
-  };
-
   return (
     <View style={signInStyle.container}>
       <SafeAreaView style={signInStyle.form}>
-        <Text style={signInStyle.title}>Login</Text>
-        <View>
-          <TextInput
-            label="Email"
-            keyboardType="email-address"
-            mode="outlined"
-            autoCapitalize="none"
-            value={email}
-            theme={{ roundness: 10 }}
-            style={{ backgroundColor: "#ffff" }}
-            left={<TextInput.Icon icon={"email-outline"} color="#fffd" />}
-            onChangeText={handleEmailchange}
-            onBlur={handleEmailBlur}
-          />
-        </View>
-        <View>
-          {!isValidEmail && (
-            <Text style={{ color: "red" }}>Invalid Email!</Text>
-          )}
-        </View>
-        <View>
-          <TouchableOpacity
-            onPress={() => setPassWordVisible(!passWordVisible)}
-          ></TouchableOpacity>
-          <TextInput
-            label="Password"
-            keyboardType="email-address"
-            mode="outlined"
-            autoCapitalize="none"
-            secureTextEntry={secureTextEntry}
-            value={password}
-            theme={{ roundness: 10 }}
-            style={{ backgroundColor: "#ffff" }}
-            right={
-              <TextInput.Icon
-                icon={"eye"}
-                color="#fffd"
-                onPress={() => {
-                  SetsecureTextEntry(!secureTextEntry);
-                  return false;
-                }}
-              />
-            }
-            onChangeText={(text) => setPassword(text)}
-            onBlur={handlePasswordBlur}
-          />
-        </View>
-        <View>
-          {!isValidPassword && (
-            <Text style={{ color: "red" }}>
-              Invalid Password! (must contain at least 6 characters,)
+        <ScrollView>
+          <Text style={signInStyle.title}>Login</Text>
+          <View>
+            <TextInput
+              label="Email"
+              keyboardType="email-address"
+              mode="outlined"
+              autoCapitalize="none"
+              value={email}
+              theme={{ roundness: 10 }}
+              style={{ backgroundColor: "#ffff" }}
+              left={<TextInput.Icon icon={"email-outline"} color="#fffd" />}
+              onChangeText={handleEmailchange}
+              onBlur={handleEmailBlur}
+            />
+          </View>
+          <View>
+            {!isValidEmail && (
+              <Text style={{ color: "red" }}>Invalid Email!</Text>
+            )}
+          </View>
+          <View>
+            <TextInput
+              label="Password"
+              mode="outlined"
+              autoCapitalize="none"
+              secureTextEntry={secureTextEntry}
+              value={password}
+              theme={{ roundness: 10 }}
+              style={{ backgroundColor: "#ffff" }}
+              right={
+                <TextInput.Icon
+                  icon={"eye"}
+                  color="#fffd"
+                  onPress={() => {
+                    SetsecureTextEntry(!secureTextEntry);
+                    return false;
+                  }}
+                />
+              }
+              onChangeText={(text) => setPassword(text)}
+              onBlur={handlePasswordBlur}
+            />
+          </View>
+          <View>
+            {!isValidPassword && (
+              <Text style={{ color: "red" }}>
+                Invalid Password! (must contain at least 6 characters,)
+              </Text>
+            )}
+          </View>
+
+          <TouchableOpacity style={signInStyle.button} onPress={handleSignIn}>
+            <Text style={{ fontWeight: "bold", color: "#fff", fontSize: 19 }}>
+              Login{" "}
             </Text>
-          )}
-        </View>
+          </TouchableOpacity>
+          <View style={forgetPassStyle.container}>
+            <TouchableOpacity onPress={() => navigation.navigate("ForgetPass")}>
+              <Text
+                style={{ fontWeight: "bold", color: "#7E3B14", fontSize: 19 }}
+              >
+                Forget Password?{" "}
+              </Text>
+            </TouchableOpacity>
+          </View>
 
-        <TouchableOpacity style={signInStyle.button} onPress={handleSignIn}>
-          <Text style={{ fontWeight: "bold", color: "#fff", fontSize: 19 }}>
-            Login{" "}
-          </Text>
-        </TouchableOpacity>
-        <ForgetPassowrdButtonComponent />
-
-        <Text style={signInStyle.orTextStyle}>………………………or………………………</Text>
-        <View style={signInStyle.buttonSocial}>
-          <Icon.Button
-            name="facebook"
-            backgroundColor="#3b5998"
-            onPress={() => alert("Login with Facebook")}
-          >
-            Login with Facebook
-          </Icon.Button>
-        </View>
-        <View style={signInStyle.googleStyle}>
-          <Icon.Button
-            name="google"
-            backgroundColor="#900603"
-            onPress={handleSigningGoogel}
-          >
-            Login with Facebook
-          </Icon.Button>
-        </View>
-        <SignUpButtonComponent />
+          <Text style={signInStyle.orTextStyle}>………………………or………………………</Text>
+          <View style={signInStyle.buttonSocial}>
+            <Icon.Button
+              name="facebook"
+              backgroundColor="#3b5998"
+              onPress={() => alert("Login with Facebook")}
+            >
+              Login with Facebook
+            </Icon.Button>
+          </View>
+          <View style={signInStyle.googleStyle}>
+            <Icon.Button
+              name="google"
+              backgroundColor="#900603"
+              onPress={() => alert("Login with Google!")}
+            >
+              Login with Facebook
+            </Icon.Button>
+          </View>
+          <View style={signInStyle.singUpContainer}>
+            <Text style={signInStyle.textSingUp}>Don't have an account? </Text>
+            <TouchableOpacity onPress={() => navigation.navigate("SignUp")}>
+              <Text
+                style={{ fontWeight: "bold", color: "#7E3B14", fontSize: 19 }}
+              >
+                Sing Up{" "}
+              </Text>
+            </TouchableOpacity>
+          </View>
+        </ScrollView>
       </SafeAreaView>
     </View>
   );
