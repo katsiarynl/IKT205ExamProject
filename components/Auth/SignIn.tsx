@@ -18,10 +18,9 @@ import { NavigationSignOut } from "../../types/navigationTypes";
 import ValidateEmail from "../../utilities/EmailValidation";
 import { UserContext } from "./userContext";
 // email Validation
-import { EmailsValidation } from "../../utilities/EmailValidation";
 import ForgetPassowrdButtonComponent from "./ForgetPassowrdButtonComponent";
 import SignUpButtonComponent from "./SignUpButtonComponent";
-import { Use } from "react-native-svg";
+
 // password validation
 const PasswordValidation = /^(?=.*[a-z])(?=.*[a-z]).{6,}$/;
 export const SignIn = () => {
@@ -56,9 +55,10 @@ export const SignIn = () => {
             password: password,
           }
         );
-
-        if (response.data.accessToken) {
+        const { userEmail } = response.data;
+        if (response.data.accessToken && response.data.userEmail) {
           await AsyncStorage.setItem("AccessToken", response.data.accessToken);
+          await AsyncStorage.setItem("userEmail", userEmail);
         }
 
         setEmail("");
