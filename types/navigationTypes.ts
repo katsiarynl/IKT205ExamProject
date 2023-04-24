@@ -1,5 +1,5 @@
 import type { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { type } from "os";
+
 import type { RestrauntItemComponentType } from "./restrauntTypes";
 export type RootStackParamList = {
   navbar: undefined;
@@ -12,6 +12,7 @@ export type RootStackParamList = {
   SignUp: undefined;
   Home: undefined;
   ForgetPass: undefined;
+  SignOut: undefined;
 };
 
 export type NavigatorStripeParam = NativeStackNavigationProp<
@@ -42,4 +43,8 @@ export type NavigationHome = NativeStackNavigationProp<
 export type NavigationForgetPass = NativeStackNavigationProp<
   RootStackParamList,
   "ForgetPass"
+>;
+export type NavigationProfileSignOut = NativeStackNavigationProp<
+  RootStackParamList,
+  "SignOut"
 >;
