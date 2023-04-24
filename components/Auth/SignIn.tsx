@@ -54,9 +54,11 @@ export const SignIn = () => {
             password: password,
           }
         );
+        const { userEmail } = response.data.userEmail;
 
-        if (response.data.accessToken) {
+        if (response.data.accessToken && userEmail) {
           await AsyncStorage.setItem("AccessToken", response.data.accessToken);
+          await AsyncStorage.setItem("userEmail", userEmail);
         }
 
         setEmail("");
