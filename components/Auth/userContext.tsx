@@ -19,8 +19,9 @@ export const UserProvider = ({ children }) => {
     const checkUserLoggedIn = async () => {
       try {
         const token = await AsyncStorage.getItem("AccessToken");
+        const userEmail = await AsyncStorage.getItem("userEmail");
 
-        if (token) {
+        if (token || userEmail) {
           setIsloggedIn(true);
         } else {
           setIsloggedIn(false);
