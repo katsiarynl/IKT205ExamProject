@@ -8,7 +8,10 @@ const Drawer = createDrawerNavigator();
 
 export const DrawerNavigation = () => {
   return (
-    <Drawer.Navigator drawerContent={(props) => <Drawercontent {...props} />}>
+    <Drawer.Navigator
+      screenOptions={{ headerShown: false }}
+      drawerContent={(props) => <Drawercontent {...props} />}
+    >
       <Drawer.Screen name="Home" component={HomeComponent} />
     </Drawer.Navigator>
   );
