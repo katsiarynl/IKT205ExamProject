@@ -12,6 +12,7 @@ import { SignOut } from "../Auth/SignOut";
 
 const Stack = createStackNavigator<RootStackParamList>();
 import { ForgetPass } from "../Auth/ForgetPass";
+import { Drawercontent } from "../stacknavigator/Drawercontent";
 
 export default function StackNavigatorComponent() {
   return (
@@ -24,6 +25,7 @@ export default function StackNavigatorComponent() {
       <Stack.Screen name="SignUp" component={SignUp} />
       <Stack.Screen name="SignOut" component={SignOut} />
       <Stack.Screen name="ForgetPass" component={ForgetPass} />
+      <Stack.Screen name="ItemProfile" component={Drawercontent} />
     </Stack.Navigator>
   );
 }
