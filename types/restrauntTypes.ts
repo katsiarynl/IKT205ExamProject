@@ -1,4 +1,3 @@
-import { Product } from "./productTypes";
 export type RestrauntItemComponentType = {
   key: number;
   name: string;

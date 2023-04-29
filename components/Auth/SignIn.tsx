@@ -25,7 +25,8 @@ const PasswordValidation = /^(?=.*[a-z])(?=.*[a-z]).{6,}$/;
 export const SignIn = () => {
   const navigation = useNavigation<NavigationSignOut>();
 
-  const { isloggedIn, setIsloggedIn } = useContext(UserContext);
+  const { isloggedIn, setIsloggedIn, setIsuserEmail } = useContext(UserContext);
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passWordVisible, setPassWordVisible] = useState(true);
@@ -54,16 +55,16 @@ export const SignIn = () => {
             password: password,
           }
         );
-        const { userEmail } = response.data.userEmail;
 
-        if (response.data.accessToken && userEmail) {
+        if (response.data.accessToken) {
           await AsyncStorage.setItem("AccessToken", response.data.accessToken);
-          await AsyncStorage.setItem("userEmail", userEmail);
+          await AsyncStorage.setItem("userEmail", response.data.userEmail);
         }
 
         setEmail("");
         setPassword("");
         setIsloggedIn(true);
+        setIsuserEmail(true);
         navigation.navigate("Home");
       } catch (err: any) {
         Alert.alert(
