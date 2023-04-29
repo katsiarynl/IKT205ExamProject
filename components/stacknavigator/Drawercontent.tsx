@@ -18,6 +18,10 @@ export const Drawercontent = (props) => {
   const HomeNavigator = () => {
     navigation.navigate("Home");
   };
+
+  const SignInNavigator = () => {
+    navigation.navigate("SignIn");
+  };
   const testhandles = () => {
     console.error("is Pressed!  just test");
   };
@@ -49,10 +53,10 @@ export const Drawercontent = (props) => {
           />
           <DrawerItem
             icon={() => {
-              return <Feather name="user" color={"blue"} size={25} />;
+              return <Feather name="log-in" color={"blue"} size={25} />;
             }}
-            label="Profile "
-            onPress={testhandles}
+            label="Sign In "
+            onPress={SignInNavigator}
           />
           <DrawerItem
             icon={() => {
