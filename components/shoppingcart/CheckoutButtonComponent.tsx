@@ -7,6 +7,7 @@ import POSTStripe from "../../utilities/POSTStripe";
 import { UserContext } from "../Auth/userContext";
 import { NavigationSignIn } from "../../types/navigationTypes";
 
+
 async function NavitagateToStripe(callback, navigate) {
   const link = await callback;
 
