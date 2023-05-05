@@ -9,6 +9,7 @@ import { NavigationHome } from "../../types/navigationTypes";
 export const SignOut = () => {
   const navigator = useNavigation<NavigationHome>();
   const { sloggedIn, setIsloggedIn } = useContext(UserContext);
+  const { isuserEmail, setIsuserEmail } = useContext(UserContext);
 
   const handleSignOut = async () => {
     try {
@@ -17,6 +18,7 @@ export const SignOut = () => {
       await AsyncStorage.removeItem("userEmail");
 
       setIsloggedIn(false);
+      setIsuserEmail(false);
       navigator.navigate("Home");
     } catch (error) {
       /* empty */

@@ -1,16 +1,19 @@
 import { View } from "react-native";
-import React from "react";
+import React, { useContext, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { Drawer, Title, Avatar } from "react-native-paper";
 import { DrawerContentScrollView, DrawerItem } from "@react-navigation/drawer";
 import { Feather } from "@expo/vector-icons";
 import { profileStyle } from "../../styles/profielStyle";
 import { NavigationProfileSignOut } from "../../types/navigationTypes";
+import { UsersEmail } from "../userInfo/getUserInfo";
+import { UserContext } from "../Auth/userContext";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export const Drawercontent = (props) => {
-  const TestUsername = "zekaria";
   const navigation = useNavigation<NavigationProfileSignOut>();
-  const uri = `https://ui-avatars.com/api/${TestUsername}`;
+  const [emailName, setEmailName] = useState<string>("");
+
   const ProfileNavigator = () => {
     navigation.navigate("SignOut");
   };
@@ -25,6 +28,33 @@ export const Drawercontent = (props) => {
   const testhandles = () => {
     console.error("is Pressed!  just test");
   };
+
+  const userEmailRender = () => {
+    const { isuserEmail } = useContext(UserContext);
+
+    if (isuserEmail) {
+      getUser();
+      return (
+        <Title style={profileStyle.titleText}>
+          <UsersEmail />
+        </Title>
+      );
+    } else {
+      return null;
+    }
+  };
+
+  const getUser = async () => {
+    try {
+      const user: any = await AsyncStorage.getItem("userEmail");
+      setEmailName(user);
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+  const uri = `https://ui-avatars.com/api/?color=0000ff&name=${emailName}`;
+
   return (
     <View style={{ flex: 1 }}>
       <DrawerContentScrollView {...props}>
@@ -39,9 +69,7 @@ export const Drawercontent = (props) => {
               />
             </View>
           </View>
-          <View style={{ marginLeft: 15 }}>
-            <Title style={profileStyle.titleText}>zekaria @gmail.ocm</Title>
-          </View>
+          <View style={{ marginLeft: 15 }}>{userEmailRender()}</View>
         </View>
         <Drawer.Section style={profileStyle.drawerSection}>
           <DrawerItem
@@ -79,7 +107,7 @@ export const Drawercontent = (props) => {
           icon={() => {
             return <Feather name="log-out" color={"blue"} size={25} />;
           }}
-          label="sign Out"
+          label="Sign Out"
           onPress={ProfileNavigator}
         />
       </Drawer.Section>
