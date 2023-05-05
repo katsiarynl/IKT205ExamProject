@@ -19,7 +19,7 @@ import SignInButtonComponent from "./SignInButtonComponent";
 // email Validation
 const EmailsValidation = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
 // password validation
-const PasswordValidation = /^(?=.*[a-z])(?=.*[a-z]).{6,}$/;
+const PasswordValidation = /^(?=.*[a-zA-Z]?\d?[a-zA-Z]?).{6,}$/;
 
 export const SignUp = () => {
   const navigation = useNavigation<NavigationSignOut>();
@@ -46,32 +46,21 @@ export const SignUp = () => {
   };
 
   const handleSignUp = async () => {
-    if (email && password) {
-      if (isValidEmail && isValidPassword) {
-        try {
-          await axios.post("https://cook2go.herokuapp.com/signUp", {
-            email: email,
-            password: password,
-          });
+    try {
+      await axios.post("https://cook2go.herokuapp.com/signUp", {
+        email: email,
+        password: password,
+      });
 
-          // clear the textInputs After submits.
-          setEmail("");
-          setPassword("");
-          navigation.navigate("SignIn");
-        } catch (error: any) {
-          Alert.alert(
-            "Invalid Email or Password",
-            "Please make your your Email password is right!"
-          );
-        }
-      } else {
-        Alert.alert(
-          "Invalid Email or Password",
-          "Please make sure Email and password is right!"
-        );
-      }
-    } else {
-      return false;
+      // clear the textInputs After submits.
+      setEmail("");
+      setPassword("");
+      navigation.navigate("SignIn");
+    } catch (error: any) {
+      Alert.alert(
+        "Invalid Email or Password",
+        "Please make your your Email password is right!"
+      );
     }
   };
   return (
