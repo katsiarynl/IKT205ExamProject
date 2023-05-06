@@ -14,6 +14,7 @@ const Stack = createStackNavigator<RootStackParamList>();
 import { ForgetPass } from "../Auth/ForgetPass";
 import { Drawercontent } from "../stacknavigator/Drawercontent";
 import  AddressFormScreen  from "../Auth/AddressFormScreen";
+import  UpdateAddressForm  from "../Auth/UpdateAddressForm";
 export default function StackNavigatorComponent() {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
@@ -26,6 +27,7 @@ export default function StackNavigatorComponent() {
       <Stack.Screen name="SignOut" component={SignOut} />
       <Stack.Screen name="ForgetPass" component={ForgetPass} />
       <Stack.Screen name="AddressForm" component={AddressFormScreen} />
+      <Stack.Screen name="UpdateAddressForm" component={UpdateAddressForm} />
       <Stack.Screen name="ItemProfile" component={Drawercontent} />
     </Stack.Navigator>
   );

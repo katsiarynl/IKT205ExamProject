@@ -9,7 +9,7 @@ export const checkIfAddressExists = async () => {
     const config = {
       headers: { Authorization: `Bearer ${accessToken}` },
     };
-    const response = await axios.get(`https://cook2go.herokuapp.com/users/${userEmail}`);
+    const response = await axios.get(`https://cook2go.herokuapp.com/users/${userEmail}` , config);
     return response.data
   } catch (error) {
     return false;
