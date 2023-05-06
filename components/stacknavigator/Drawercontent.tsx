@@ -26,7 +26,7 @@ export const Drawercontent = (props) => {
     navigation.navigate("SignIn");
   };
   const testhandles = () => {
-    console.error("is Pressed!  just test");
+    navigation.navigate("UpdateAddressForm");
   };
 
   const userEmailRender = () => {

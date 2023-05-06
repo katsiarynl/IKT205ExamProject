@@ -13,6 +13,7 @@ export type RootStackParamList = {
   Home: undefined;
   ForgetPass: undefined;
   SignOut: undefined;
+  AddressForm: undefined;
 };
 
 export type NavigatorStripeParam = NativeStackNavigationProp<
@@ -47,4 +48,9 @@ export type NavigationForgetPass = NativeStackNavigationProp<
 export type NavigationProfileSignOut = NativeStackNavigationProp<
   RootStackParamList,
   "SignOut"
+>;
+
+export type NavigationProfileAddressForm = NativeStackNavigationProp<
+  RootStackParamList,
+  "AddressForm"
 >;
