@@ -113,8 +113,8 @@ export const SignUp = () => {
           <View>
             {!isValidPassword && (
               <Text style={{ color: "red" }}>
-                Invalid Password! (must contain at least 6 characters, including
-                lowercase letter, and one number)
+                d! (must contain at least 6 characters, including lowercase
+                letter, and one number)
               </Text>
             )}
           </View>

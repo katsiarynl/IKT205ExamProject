@@ -6,6 +6,9 @@ import { NavigatorStripeParam } from "../../types/navigationTypes";
 import POSTMail from "../../utilities/ConfirmPayment";
 import { StudentContext } from "../../context";
 import stripestyle from "../../styles/stripestyles";
+import POSTOrder from "../../utilities/POSTOrder";
+import { UserContext } from "../Auth/userContext";
+import { getUserByEmail } from "../userInfo/getUserInfo";
 
 export default function StripePaymentComponent({ route }) {
   const { state } = useContext(StudentContext);
@@ -40,6 +43,14 @@ export default function StripePaymentComponent({ route }) {
             navigate("navbar");
             navState.url = "http://localhost:5000/success";
             POSTMail(ordered_dishes);
+
+            POSTOrder(
+              {
+                ordered_dishes,
+                email: "thisisatest",
+              },
+              "YZU5Go5XQYQV4ZjfJcM4mY8XVFo1"
+            );
             empty_cart(dispatch);
           }
         }}

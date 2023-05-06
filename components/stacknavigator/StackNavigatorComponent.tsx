@@ -13,6 +13,8 @@ import { SignOut } from "../Auth/SignOut";
 const Stack = createStackNavigator<RootStackParamList>();
 import { ForgetPass } from "../Auth/ForgetPass";
 import { Drawercontent } from "../stacknavigator/Drawercontent";
+import OrderHistoryComponent from "../OrderHisotry/OrderHistoryComponent";
+import OrderItemComponent from "../OrderHisotry/OrderItemComponent";
 
 export default function StackNavigatorComponent() {
   return (
@@ -26,6 +28,7 @@ export default function StackNavigatorComponent() {
       <Stack.Screen name="SignOut" component={SignOut} />
       <Stack.Screen name="ForgetPass" component={ForgetPass} />
       <Stack.Screen name="ItemProfile" component={Drawercontent} />
+      <Stack.Screen name="orderHistory" component={OrderHistoryComponent} />
     </Stack.Navigator>
   );
 }

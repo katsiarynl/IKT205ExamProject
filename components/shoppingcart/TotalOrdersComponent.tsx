@@ -2,7 +2,7 @@ import { View, Text, Pressable } from "react-native";
 import React, { useContext } from "react";
 import { StudentContext } from "../../context";
 
-const Total = (products) => {
+export const Total = (products) => {
   const initialValue = 0;
 
   const total_value = products.reduce(

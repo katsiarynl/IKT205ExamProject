@@ -13,6 +13,8 @@ export type RootStackParamList = {
   Home: undefined;
   ForgetPass: undefined;
   SignOut: undefined;
+  orderHistory: undefined;
+  ItemProfile: undefined;
 };
 
 export type NavigatorStripeParam = NativeStackNavigationProp<

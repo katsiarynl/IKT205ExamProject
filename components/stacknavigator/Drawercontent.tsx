@@ -98,7 +98,7 @@ export const Drawercontent = (props) => {
               return <Feather name="shopping-bag" color={"blue"} size={25} />;
             }}
             label="Order History"
-            onPress={testhandles}
+            onPress={() => navigation.navigate("orderHistory")}
           />
         </Drawer.Section>
       </DrawerContentScrollView>

@@ -14,7 +14,7 @@ type AppState = typeof initialState;
 //https://www.youtube.com/watch?v=5LrDIWkK_Bc&t=489s
 
 const ACTIONS = {
-  ADD_STUDENT: "ADD",
+  ADD_RESTAURANTS: "ADD",
   ADD_CART_ITEM: "PLACE_ORDER",
   DELETE_CART_ITEM: "REMOVE_ORDER",
   EMPTY_CART: "REMOVE_ITEMS",
@@ -38,7 +38,7 @@ const reducer = (state: AppState, action: ActionsType) => {
     case ACTIONS.EMPTY_CART:
       state.cartItems.splice(0, state.cartItems.length);
       return { ...state };
-    case ACTIONS.ADD_STUDENT:
+    case ACTIONS.ADD_RESTAURANTS:
       // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
       return {
         ...state,

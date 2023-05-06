@@ -18,6 +18,7 @@ import { NavigationSignOut } from "../../types/navigationTypes";
 import { ScrollView } from "react-native";
 
 import { UserContext } from "./userContext";
+import ValidateEmail from "../../utilities/EmailValidation";
 // email Validation
 const EmailsValidation = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
 // password validation
@@ -40,8 +41,12 @@ export const SignIn = () => {
 
   const handleEmailBlur = () => {
     setisValidEmail(EmailsValidation.test(email));
+    console.log(isValidEmail);
   };
   const handlePasswordBlur = () => {
+    if (password.length >= 6) {
+      setIsValidPassword(true);
+    }
     setIsValidPassword(PasswordValidation.test(password));
   };
 
