@@ -28,7 +28,6 @@ export default function CheckoutButtonComponent() {
       if (addressExists) {
         await NavitagateToStripe(POSTStripe(state.cartItems), navigator.navigate);
       } else {
-        
         NavigatorHome.navigate("AddressForm");
       }
     } else {
