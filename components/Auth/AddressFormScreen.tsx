@@ -32,7 +32,6 @@ export default function AddressFormScreen() {
       };
   
       await axios.post("https://cook2go.herokuapp.com/users", newAddress, config);
-      console.log("address submitted");
       navigation.goBack();
     } catch (error) {
       console.error(error);

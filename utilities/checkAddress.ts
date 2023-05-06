@@ -6,7 +6,6 @@ export const checkIfAddressExists = async () => {
   try {
     const accessToken = await AsyncStorage.getItem('AccessToken');
     const userEmail = await AsyncStorage.getItem('userEmail');
-    console.log("userEmail: " + userEmail);
     const config = {
       headers: { Authorization: `Bearer ${accessToken}` },
     };
