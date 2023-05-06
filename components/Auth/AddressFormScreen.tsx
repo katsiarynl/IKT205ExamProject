@@ -3,6 +3,8 @@ import { View, Text, TextInput, TouchableOpacity } from "react-native";
 import { addressStyle } from "../../styles/addressStyle";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
+import { useNavigation } from "@react-navigation/native";
+
 
 export default function AddressFormScreen() {
   const [addressLine1, setAddressLine1] = useState("");
@@ -10,7 +12,7 @@ export default function AddressFormScreen() {
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
   const [zipCode, setZipCode] = useState("");
-
+  const navigation = useNavigation();
   const handleAddressSubmit = async () => {
     try {
       const accessToken = await AsyncStorage.getItem('AccessToken');
@@ -30,9 +32,10 @@ export default function AddressFormScreen() {
       };
   
       await axios.post("https://cook2go.herokuapp.com/users", newAddress, config);
-      // handle success
+      console.log("address submitted");
+      navigation.goBack();
     } catch (error) {
-      // handle error
+      console.error(error);
     }
   };
 

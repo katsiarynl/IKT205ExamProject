@@ -25,8 +25,8 @@ export default function StackNavigatorComponent() {
       <Stack.Screen name="SignUp" component={SignUp} />
       <Stack.Screen name="SignOut" component={SignOut} />
       <Stack.Screen name="ForgetPass" component={ForgetPass} />
-      <Stack.Screen name="ItemProfile" component={Drawercontent} />
       <Stack.Screen name="AddressForm" component={AddressFormScreen} />
+      <Stack.Screen name="ItemProfile" component={Drawercontent} />
     </Stack.Navigator>
   );
 }
