@@ -1,5 +1,6 @@
 import { AntDesign } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import React, { useState } from 'react';
 //https://stackoverflow.com/questions/50436313/tab-navigator-icons-in-react-navigation
 
 import { Feather } from "@expo/vector-icons";

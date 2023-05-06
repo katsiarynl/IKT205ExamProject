@@ -12,7 +12,6 @@ export const checkIfAddressExists = async () => {
     const response = await axios.get(`https://cook2go.herokuapp.com/users/${userEmail}`);
     return response.data
   } catch (error) {
-    console.log(error);
     return false;
   }
 };
