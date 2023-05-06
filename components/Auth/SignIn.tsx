@@ -21,11 +21,12 @@ import { UserContext } from "./userContext";
 // email Validation
 const EmailsValidation = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
 // password validation
-const PasswordValidation = /^(?=.*[a-z])(?=.*[a-z]).{6,}$/;
+const PasswordValidation = /^(?=.*[a-zA-Z]?\d?[a-zA-Z]?).{6,}$/;
 export const SignIn = () => {
   const navigation = useNavigation<NavigationSignOut>();
 
-  const { isloggedIn, setIsloggedIn } = useContext(UserContext);
+  const { isloggedIn, setIsloggedIn, setIsuserEmail } = useContext(UserContext);
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passWordVisible, setPassWordVisible] = useState(true);
@@ -45,36 +46,29 @@ export const SignIn = () => {
   };
 
   const handleSignIn = async () => {
-    if (isValidEmail && isValidPassword) {
-      try {
-        const response = await axios.post(
-          "https://cook2go.herokuapp.com/signIn",
-          {
-            email: email,
-            password: password,
-          }
-        );
-        const { userEmail } = response.data.userEmail;
-
-        if (response.data.accessToken && userEmail) {
-          await AsyncStorage.setItem("AccessToken", response.data.accessToken);
-          await AsyncStorage.setItem("userEmail", userEmail);
+    try {
+      const response = await axios.post(
+        "https://cook2go.herokuapp.com/signIn",
+        {
+          email: email,
+          password: password,
         }
+      );
 
-        setEmail("");
-        setPassword("");
-        setIsloggedIn(true);
-        navigation.navigate("Home");
-      } catch (err: any) {
-        Alert.alert(
-          "Invalid Email or Password",
-          "Please make your your Email password is right!"
-        );
+      if (response.data.accessToken) {
+        await AsyncStorage.setItem("AccessToken", response.data.accessToken);
+        await AsyncStorage.setItem("userEmail", response.data.userEmail);
       }
-    } else {
+
+      setEmail("");
+      setPassword("");
+      setIsloggedIn(true);
+      setIsuserEmail(true);
+      navigation.navigate("Home");
+    } catch (err: any) {
       Alert.alert(
         "Invalid Email or Password",
-        "Please make sure Email and password is right!"
+        "Please make your your Email password is right!"
       );
     }
   };

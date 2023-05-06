@@ -26,6 +26,7 @@ export default function CheckoutButtonComponent() {
       await NavitagateToStripe(POSTStripe(state.cartItems), navigator.navigate);
     } else {
       NavigatorHome.navigate("SignIn");
+      
     }
   };
   return (
