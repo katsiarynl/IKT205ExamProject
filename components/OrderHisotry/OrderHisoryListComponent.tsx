@@ -15,10 +15,18 @@ export default function OrderHisoryListComponent() {
   return (
     <View style={{ flex: 12 }}>
       <ScrollView>
-        {state.history.orders.map((order) => {
-          console.log(order);
-          return <OrderItemComponent orders={order} />;
-        })}
+        {state.history.orders
+          ? state.history.orders.map((order) => {
+              return <OrderItemComponent orders={order} />;
+            })
+          : () => {
+              return (
+                <View>
+                  <Text> hello</Text>
+                </View>
+              );
+            }}
+
         <Pressable onPress={() => console.log(state)}>
           <View style={{ width: 100, height: 300 }}>
             <Text>PRESS</Text>

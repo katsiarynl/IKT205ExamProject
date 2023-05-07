@@ -22,6 +22,7 @@ async function AddToHistory(
 ) {
   const credentials = await getCredentials();
   // console.log(history);
+  console.log("the token is 1");
   await POSTOrder(
     {
       ordered_dishes,
@@ -30,10 +31,8 @@ async function AddToHistory(
     credentials.token
   );
 
-  console.log("the token is ");
-  console.log(credentials.token);
   // GETHistory(credentials.token, dispatch);
-  GETHistory(credentials.email, dispatchUser);
+  await GETHistory(credentials.email, dispatchUser);
   return empty_cart(dispatch);
 }
 
@@ -71,7 +70,7 @@ export default function StripePaymentComponent({ route }) {
             navigate("navbar");
 
             navState.url = "http://localhost:5000/success";
-            POSTMail(ordered_dishes);
+            // POSTMail(ordered_dishes);
             AddToHistory(
               GetTokenAndId,
               POSTOrder,
