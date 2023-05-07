@@ -3,6 +3,7 @@ export type GeneralProduct = {
   name: string;
   description: string;
   price: number;
+  restaurant?: string;
 };
 
 export interface Product extends GeneralProduct {

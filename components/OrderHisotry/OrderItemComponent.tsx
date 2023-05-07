@@ -9,13 +9,16 @@ export default function OrderItemComponent(props) {
     <View style={orderHistorystyles.orderitem}>
       {props.orders.map((order) => {
         return (
-          <Text>
-            Dish: {order.name} Price: {order.price} quanity:
+          <Text style={{ fontSize: 20, padding: 10 }}>
+            Restaurant: {order.restaurant} Dish: {order.name} Price:
+            {order.price} quanity:
             {order.cartQuantity}
           </Text>
         );
       })}
-      <Text>HEYYY{calc}</Text>
+      <Text style={{ fontWeight: "bold", fontSize: "20", padding: 10 }}>
+        Total: {calc} kr
+      </Text>
     </View>
   );
 }

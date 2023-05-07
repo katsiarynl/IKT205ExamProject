@@ -44,6 +44,7 @@ export default function ProductItemComponent(props: Product) {
                 description={props.name}
                 price={props.price}
                 image={props.image}
+                restaurant={props.restaurant}
               />
             </View>
           </View>

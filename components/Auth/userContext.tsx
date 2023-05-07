@@ -6,15 +6,19 @@ export type ActionsType = { type: string; payload: any };
 type AppState = typeof initialState;
 const ACTIONS = {
   ADD_HISTORY: "ADD",
+  REMOVE_HISTORY: "REMOVE",
 };
 
 const reducer = (state: AppState, action: ActionsType) => {
+  console.log(" i am here");
   switch (action.type) {
     case ACTIONS.ADD_HISTORY:
       return {
         ...state,
         history: action.payload,
       };
+    case ACTIONS.REMOVE_HISTORY:
+      return { ...state, history: [] };
   }
 };
 
@@ -24,7 +28,7 @@ type InitialStateType = {
   isuserEmail: boolean;
   setIsuserEmail: React.Dispatch<React.SetStateAction<boolean>>;
   state: initialStateHistoryType;
-  dispatch: React.Dispatch<ActionsType>;
+  dispatchUser: React.Dispatch<ActionsType>;
 };
 type initialStateHistoryType = {
   history: [];
@@ -45,16 +49,15 @@ export const UserContext = createContext(initialState);
 export const UserProvider = ({ children }) => {
   const [isloggedIn, setIsloggedIn] = useState<boolean>(false);
   const [isuserEmail, setIsuserEmail] = useState<boolean>(false);
-  const [state, dispatch] = useReducer(reducer, initialStateHistory);
+  const [state, dispatchUser] = useReducer(reducer, initialStateHistory);
 
   useEffect(() => {
     const checkUserLoggedIn = async () => {
       try {
         const token = await AsyncStorage.getItem("AccessToken");
         const userEmail = await AsyncStorage.getItem("userEmail");
-
+        GETOrderHistoryById(userEmail, dispatchUser);
         if (token || userEmail) {
-          GETOrderHistoryById("YZU5Go5XQYQV4ZjfJcM4mY8XVFo1", dispatch);
           setIsloggedIn(true);
           setIsuserEmail(true);
         } else {
@@ -76,7 +79,7 @@ export const UserProvider = ({ children }) => {
         setIsloggedIn,
         isuserEmail,
         setIsuserEmail,
-        dispatch,
+        dispatchUser,
         state,
       }}
     >

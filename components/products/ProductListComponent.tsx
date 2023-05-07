@@ -55,6 +55,7 @@ export default function ProductListComponent({ route }) {
                       description={product.description}
                       _id={product["_id"]}
                       image={product.image}
+                      restaurant={restaurant.name}
                     />
                   );
                 })}

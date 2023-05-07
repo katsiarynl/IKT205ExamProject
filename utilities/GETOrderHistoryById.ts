@@ -1,7 +1,7 @@
 import axios from "axios";
 
 async function GETOrderHistoryById(id: string, dispatch) {
-  console.log("click");
+  console.log("GETHISOTRY");
   const response = await axios.get(
     "http://10.0.0.9:5000/users/" + id,
 
@@ -11,6 +11,8 @@ async function GETOrderHistoryById(id: string, dispatch) {
       },
     }
   );
+  console.log("GETHISOTRY");
+  console.log(response.data);
 
   dispatch(
     (() => {

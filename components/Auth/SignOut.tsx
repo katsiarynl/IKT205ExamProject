@@ -5,10 +5,11 @@ import axios from "axios";
 import { useNavigation } from "@react-navigation/native";
 import { UserContext } from "./userContext";
 import { NavigationHome } from "../../types/navigationTypes";
+import RemoveHisotry from "../../utilities/RemoveHistory";
 
 export const SignOut = () => {
   const navigator = useNavigation<NavigationHome>();
-  const { sloggedIn, setIsloggedIn } = useContext(UserContext);
+  const { sloggedIn, setIsloggedIn, dispatchUser } = useContext(UserContext);
   const { isuserEmail, setIsuserEmail } = useContext(UserContext);
 
   const handleSignOut = async () => {
@@ -16,12 +17,14 @@ export const SignOut = () => {
       await axios.post("https://cook2go.herokuapp.com/singOut");
       await AsyncStorage.removeItem("AccessToken");
       await AsyncStorage.removeItem("userEmail");
+      RemoveHisotry(dispatchUser);
 
       setIsloggedIn(false);
       setIsuserEmail(false);
       navigator.navigate("Home");
     } catch (error) {
       /* empty */
+      console.error(error);
     }
   };
 
