@@ -8,8 +8,8 @@ import { NavigationHome } from "../../types/navigationTypes";
 
 export const SignOut = () => {
   const navigator = useNavigation<NavigationHome>();
-  const { sloggedIn, setIsloggedIn } = useContext(UserContext);
-  const { isuserEmail, setIsuserEmail } = useContext(UserContext);
+  const { setIsloggedIn } = useContext(UserContext);
+  const { setIsuserEmail } = useContext(UserContext);
 
   const handleSignOut = async () => {
     try {
