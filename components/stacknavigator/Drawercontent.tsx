@@ -14,6 +14,7 @@ import { checkIfAddressExists } from '../../utilities/checkAddress';
 export const Drawercontent = (props) => {
   const navigation = useNavigation<NavigationProfileSignOut>();
   const [emailName, setEmailName] = useState<string>("");
+  const { isloggedIn } = useContext(UserContext);
 
   const ProfileNavigator = () => {
     navigation.navigate("SignOut");
@@ -30,7 +31,11 @@ export const Drawercontent = (props) => {
     const addressExists = await checkIfAddressExists();
     if (addressExists) {
       navigation.navigate("UpdateAddressForm");
-    } else {
+    } 
+    else if (!isloggedIn) {
+      navigation.navigate("SignIn");
+    }
+    else {
       navigation.navigate("AddressForm");
     }
   };
