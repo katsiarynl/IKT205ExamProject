@@ -9,6 +9,7 @@ import { NavigationProfileSignOut } from "../../types/navigationTypes";
 import { UsersEmail } from "../userInfo/getUserInfo";
 import { UserContext } from "../Auth/userContext";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { checkIfAddressExists } from '../../utilities/checkAddress';
 
 export const Drawercontent = (props) => {
   const navigation = useNavigation<NavigationProfileSignOut>();
@@ -25,8 +26,13 @@ export const Drawercontent = (props) => {
   const SignInNavigator = () => {
     navigation.navigate("SignIn");
   };
-  const testhandles = () => {
-    navigation.navigate("UpdateAddressForm");
+  const testhandles = async () => {
+    const addressExists = await checkIfAddressExists();
+    if (addressExists) {
+      navigation.navigate("UpdateAddressForm");
+    } else {
+      navigation.navigate("AddressForm");
+    }
   };
 
   const userEmailRender = () => {

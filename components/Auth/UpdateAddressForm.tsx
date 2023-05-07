@@ -64,7 +64,7 @@ export default function UpdateAddressForm() {
 
   return (
     <View style={addressStyle.container}>
-      <Text style={addressStyle.title}>Address Form</Text>
+      <Text style={addressStyle.title}>Edit Address Form</Text>
       <View style={addressStyle.inputContainer}>
         <TextInput
           style={addressStyle.input}
