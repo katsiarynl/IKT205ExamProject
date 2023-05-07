@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import { useContext, useState } from "react";
 import { signInStyle } from "../../styles/signIn";
 import {
@@ -25,11 +24,11 @@ const PasswordValidation = /^(?=.*[a-zA-Z]?\d?[a-zA-Z]?).{6,}$/;
 export const SignIn = () => {
   const navigation = useNavigation<NavigationSignOut>();
 
-  const { isloggedIn, setIsloggedIn, setIsuserEmail } = useContext(UserContext);
+  const { setIsloggedIn, setIsuserEmail } = useContext(UserContext);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [passWordVisible, setPassWordVisible] = useState(true);
+
   const [isValidEmail, setisValidEmail] = useState(true);
   const [isValidPassword, setIsValidPassword] = useState(true);
   const [secureTextEntry, SetsecureTextEntry] = useState(true);

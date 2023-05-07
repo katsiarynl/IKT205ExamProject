@@ -13,30 +13,24 @@ import axios from "axios";
 
 export const ForgetPass = () => {
   const [email, setEmail] = useState("");
-  const [isvalidEMail, setIsvalidEmail] = useState(true);
+
   const handleEmailchange = (text) => {
     setEmail(text);
   };
 
   const handleForgetPassword = async () => {
-    if (isvalidEMail) {
-      try {
-        await axios.post("https://cook2go.herokuapp.com/forgetPassword", {
-          email,
-        });
-        setEmail(" ");
-        Alert.alert(
-          "Password Reset Link Sent to your Email",
-          "Check your Email Spam box!",
-          [{ text: "OK", onPress: undefined }]
-        );
-      } catch (error) {
-        Alert.alert("Invalid Email ", "Pleas make sure is a valid email! ");
-      }
-    } else {
-      Alert.alert("Invalid Email", "Please enter a valid email address.", [
-        { text: "OK", onPress: undefined },
-      ]);
+    try {
+      await axios.post("https://cook2go.herokuapp.com/forgetPassword", {
+        email,
+      });
+      setEmail(" ");
+      Alert.alert(
+        "Password Reset Link Sent to your Email",
+        "Check your Email Spam box!",
+        [{ text: "OK", onPress: undefined }]
+      );
+    } catch (error) {
+      Alert.alert("Invalid Email ", "Pleas make sure is a valid email! ");
     }
   };
   return (

@@ -6,6 +6,8 @@ type InitialStateType = {
   setIsloggedIn: React.Dispatch<React.SetStateAction<boolean>>;
   isuserEmail: boolean;
   setIsuserEmail: React.Dispatch<React.SetStateAction<boolean>>;
+  isLoading: boolean;
+  setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 const initialState: InitialStateType = {
@@ -18,6 +20,7 @@ export const UserContext = createContext(initialState);
 export const UserProvider = ({ children }) => {
   const [isloggedIn, setIsloggedIn] = useState<boolean>(false);
   const [isuserEmail, setIsuserEmail] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   useEffect(() => {
     const checkUserLoggedIn = async () => {
@@ -42,7 +45,14 @@ export const UserProvider = ({ children }) => {
 
   return (
     <UserContext.Provider
-      value={{ isloggedIn, setIsloggedIn, isuserEmail, setIsuserEmail }}
+      value={{
+        isloggedIn,
+        setIsloggedIn,
+        isuserEmail,
+        setIsuserEmail,
+        isLoading,
+        setIsLoading,
+      }}
     >
       {children}
     </UserContext.Provider>
