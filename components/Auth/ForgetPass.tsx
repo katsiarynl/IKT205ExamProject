@@ -9,9 +9,12 @@ import React, { useState } from "react";
 import { TextInput } from "react-native-paper";
 import { forgetPassStyle } from "../../styles/forgetPasswor";
 import axios from "axios";
+import { useNavigation } from "@react-navigation/native";
+import { NavigationHome } from "../../types/navigationTypes";
 //const Emailvalidation = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
 
 export const ForgetPass = () => {
+  const navigation = useNavigation<NavigationHome>();
   const [email, setEmail] = useState("");
 
   const handleEmailchange = (text) => {
@@ -29,6 +32,7 @@ export const ForgetPass = () => {
         "Check your Email Spam box!",
         [{ text: "OK", onPress: undefined }]
       );
+      navigation.navigate("Home");
     } catch (error) {
       Alert.alert("Invalid Email ", "Pleas make sure is a valid email! ");
     }
