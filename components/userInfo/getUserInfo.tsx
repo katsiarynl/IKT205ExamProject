@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Text } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-const getUserByEmail = async () => {
+export const getUserByEmail = async () => {
   try {
     const userEmail = await AsyncStorage.getItem("userEmail");
 

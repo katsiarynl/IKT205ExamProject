@@ -5,6 +5,7 @@ import CartComponent from "../shoppingcart/CartComponent";
 import ProductListComponent from "../products/ProductListComponent";
 import StripePaymentComponent from "../payment/StripePaymentComponent";
 import { RootStackParamList } from "../../types/navigationTypes";
+import OrderHistoryComponent from "../OrderHisotry/OrderHistoryComponent";
 
 import { SignIn } from "../Auth/SignIn";
 import { SignUp } from "../Auth/SignUp";
@@ -13,8 +14,8 @@ import { SignOut } from "../Auth/SignOut";
 const Stack = createStackNavigator<RootStackParamList>();
 import { ForgetPass } from "../Auth/ForgetPass";
 import { Drawercontent } from "../stacknavigator/Drawercontent";
-import  AddressFormScreen  from "../Auth/AddressFormScreen";
-import  UpdateAddressForm  from "../Auth/UpdateAddressForm";
+import AddressFormScreen from "../Auth/AddressFormScreen";
+import UpdateAddressForm from "../Auth/UpdateAddressForm";
 export default function StackNavigatorComponent() {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
@@ -29,6 +30,7 @@ export default function StackNavigatorComponent() {
       <Stack.Screen name="AddressForm" component={AddressFormScreen} />
       <Stack.Screen name="UpdateAddressForm" component={UpdateAddressForm} />
       <Stack.Screen name="ItemProfile" component={Drawercontent} />
+      <Stack.Screen name="orderHistory" component={OrderHistoryComponent} />
     </Stack.Navigator>
   );
 }

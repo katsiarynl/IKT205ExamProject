@@ -6,13 +6,12 @@ import cartstyle from "../../styles/cartstyles";
 import POSTStripe from "../../utilities/POSTStripe";
 import { UserContext } from "../Auth/userContext";
 import { NavigationSignIn } from "../../types/navigationTypes";
-import { checkIfAddressExists } from '../../utilities/checkAddress';
+import { checkIfAddressExists } from "../../utilities/checkAddress";
 
-
-async function NavitagateToStripe(callback, navigate) {
+async function NavitagateToStripe(callback, navigate, ordered_dishes) {
   const link = await callback;
 
-  navigate("stripe", { link });
+  navigate("stripe", { link, ordered_dishes });
   return link;
 }
 export default function CheckoutButtonComponent() {
@@ -26,7 +25,11 @@ export default function CheckoutButtonComponent() {
     if (isloggedIn) {
       const addressExists = await checkIfAddressExists();
       if (addressExists) {
-        await NavitagateToStripe(POSTStripe(state.cartItems), navigator.navigate);
+        await NavitagateToStripe(
+          POSTStripe(state.cartItems),
+          navigator.navigate,
+          state.cartItems
+        );
       } else {
         NavigatorHome.navigate("AddressForm");
       }
@@ -34,8 +37,6 @@ export default function CheckoutButtonComponent() {
       NavigatorHome.navigate("SignIn");
     }
   };
-
- 
 
   return (
     <View

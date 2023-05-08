@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { View, Text, TextInput, TouchableOpacity } from "react-native";
 import { addressStyle } from "../../styles/addressStyle";
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import axios from 'axios';
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import axios from "axios";
 import { useNavigation } from "@react-navigation/native";
-
 
 export default function AddressFormScreen() {
   const [addressLine1, setAddressLine1] = useState("");
@@ -15,13 +14,14 @@ export default function AddressFormScreen() {
   const navigation = useNavigation();
   const handleAddressSubmit = async () => {
     try {
-      const accessToken = await AsyncStorage.getItem('AccessToken');
-      const email = await AsyncStorage.getItem('userEmail');
-  
+      const accessToken = await AsyncStorage.getItem("AccessToken");
+      const email = await AsyncStorage.getItem("userEmail");
+      const userId = await email;
+
       const config = {
         headers: { Authorization: `Bearer ${accessToken}` },
       };
-  
+
       const newAddress = {
         addressLine1,
         addressLine2,
@@ -29,9 +29,14 @@ export default function AddressFormScreen() {
         state,
         zipCode,
         email,
+        userId,
       };
-  
-      await axios.post("https://cook2go.herokuapp.com/users", newAddress, config);
+
+      await axios.post(
+        "https://cook2go.herokuapp.com/users",
+        newAddress,
+        config
+      );
       navigation.goBack();
     } catch (error) {
       console.error(error);
