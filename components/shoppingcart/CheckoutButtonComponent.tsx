@@ -6,6 +6,7 @@ import cartstyle from "../../styles/cartstyles";
 import POSTStripe from "../../utilities/POSTStripe";
 import { UserContext } from "../Auth/userContext";
 import { NavigationSignIn } from "../../types/navigationTypes";
+import { checkIfAddressExists } from "../../utilities/checkAddress";
 
 async function NavitagateToStripe(callback, navigate, ordered_dishes) {
   const link = await callback;
@@ -22,15 +23,21 @@ export default function CheckoutButtonComponent() {
 
   const handleCheout = async () => {
     if (isloggedIn) {
-      await NavitagateToStripe(
-        POSTStripe(state.cartItems),
-        navigator.navigate,
-        state.cartItems
-      );
+      const addressExists = await checkIfAddressExists();
+      if (addressExists) {
+        await NavitagateToStripe(
+          POSTStripe(state.cartItems),
+          navigator.navigate,
+          state.cartItems
+        );
+      } else {
+        NavigatorHome.navigate("AddressForm");
+      }
     } else {
       NavigatorHome.navigate("SignIn");
     }
   };
+
   return (
     <View
       style={{

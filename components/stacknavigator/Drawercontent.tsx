@@ -9,10 +9,12 @@ import { NavigationProfileSignOut } from "../../types/navigationTypes";
 import { UsersEmail } from "../userInfo/getUserInfo";
 import { UserContext } from "../Auth/userContext";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { checkIfAddressExists } from '../../utilities/checkAddress';
 
 export const Drawercontent = (props) => {
   const navigation = useNavigation<NavigationProfileSignOut>();
   const [emailName, setEmailName] = useState<string>("");
+  const { isloggedIn } = useContext(UserContext);
 
   const ProfileNavigator = () => {
     navigation.navigate("SignOut");
@@ -25,8 +27,17 @@ export const Drawercontent = (props) => {
   const SignInNavigator = () => {
     navigation.navigate("SignIn");
   };
-  const testhandles = () => {
-    console.error("is Pressed!  just test");
+  const testhandles = async () => {
+    const addressExists = await checkIfAddressExists();
+    if (addressExists) {
+      navigation.navigate("UpdateAddressForm");
+    } 
+    else if (!isloggedIn) {
+      navigation.navigate("SignIn");
+    }
+    else {
+      navigation.navigate("AddressForm");
+    }
   };
 
   const userEmailRender = () => {

@@ -10,30 +10,27 @@ import GetTokenAndId from "../../utilities/GetTokenAndId";
 
 export default function OrderHisoryListComponent() {
   const { state } = useContext(UserContext);
-  const navigator = useNavigation();
-  const token = GetTokenAndId();
+
   return (
     <View style={{ flex: 12 }}>
       <ScrollView>
-        {state.history.orders
+        {state.history.orders && state.history
           ? state.history.orders.map((order) => {
-              return <OrderItemComponent orders={order} />;
+              return (
+                <OrderItemComponent
+                  order_date={order.date}
+                  orders={order.orderdetails}
+                />
+              );
             })
           : () => {
               return (
-                <View>
-                  <Text> hello</Text>
+                <View style={{ backgroundColor: "blue" }}>
+                  <Text> No Orders</Text>
                 </View>
               );
             }}
-
-        <Pressable onPress={() => console.log(state)}>
-          <View style={{ width: 100, height: 300 }}>
-            <Text>PRESS</Text>
-          </View>
-        </Pressable>
       </ScrollView>
-      <Text>OrderHisoryListComponent</Text>
     </View>
   );
 }

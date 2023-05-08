@@ -1,8 +1,8 @@
 import axios from "axios";
 
-async function POSTOrder(order, id) {
+async function POSTOrder(order, id: string) {
   const { data } = await axios.put(
-    "http://10.0.0.9:5000/users/" + id,
+    "https://cook2go.herokuapp.com/users/" + id,
 
     {
       headers: {

@@ -43,7 +43,6 @@ export const SignIn = () => {
 
   const handleEmailBlur = () => {
     setisValidEmail(EmailsValidation.test(email));
-    console.log(isValidEmail);
   };
   const handlePasswordBlur = () => {
     if (password.length >= 6) {

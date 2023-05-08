@@ -14,9 +14,9 @@ async function testCallback(callback, callback2, callback3, ordered_dishes) {
 export default function StripeNavigate() {
   const { state } = useContext(StudentContext);
   const navigator = useNavigation();
-  const [link, setLink] = useState("");
+  const [_, setLink] = useState("");
   useEffect(() => {
-    const thelink = testCallback(
+    testCallback(
       POSTStripe(state.cartItems),
       setLink,
       navigator.navigate,

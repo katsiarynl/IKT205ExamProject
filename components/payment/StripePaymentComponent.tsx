@@ -22,7 +22,7 @@ async function AddToHistory(
 ) {
   const credentials = await getCredentials();
   // console.log(history);
-  console.log("the token is 1");
+  
   await POSTOrder(
     {
       ordered_dishes,

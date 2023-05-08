@@ -1,9 +1,8 @@
 import axios from "axios";
 
 async function GETOrderHistoryById(id: string, dispatch) {
-  console.log("GETHISOTRY");
   const response = await axios.get(
-    "http://10.0.0.9:5000/users/" + id,
+    "https://cook2go.herokuapp.com/users/" + id,
 
     {
       headers: {
@@ -11,8 +10,6 @@ async function GETOrderHistoryById(id: string, dispatch) {
       },
     }
   );
-  console.log("GETHISOTRY");
-  console.log(response.data);
 
   dispatch(
     (() => {

@@ -4,23 +4,26 @@ export const orderHistorystyles = StyleSheet.create({
   container: {
     flexDirection: "column",
     justifyContent: "center",
-    backgroundColor: "yellow",
+
     flex: 1,
     margin: 20,
     paddingTop: 20,
   },
   header: {
     flexDirection: "row",
-    backgroundColor: "green",
+
     flex: 1,
     alignItems: "center",
   },
   orderitem: {
-    backgroundColor: "orange",
+    backgroundColor: "white",
     margin: 10,
     borderRadius: 15,
-    paddingTop: 30,
-    paddingBottom: 20,
+    paddingTop: 10,
+    paddingBottom: 5,
+    paddingHorizontal: 5,
+    shadowRadius: 3,
+    shadowOpacity: 0.4,
   },
   orderdetails: {
     backgroundColor: "yellow",
