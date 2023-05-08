@@ -9,34 +9,32 @@ import React, { useState } from "react";
 import { TextInput } from "react-native-paper";
 import { forgetPassStyle } from "../../styles/forgetPasswor";
 import axios from "axios";
+import { useNavigation } from "@react-navigation/native";
+import { NavigationHome } from "../../types/navigationTypes";
 //const Emailvalidation = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
 
 export const ForgetPass = () => {
+  const navigation = useNavigation<NavigationHome>();
   const [email, setEmail] = useState("");
-  const [isvalidEMail, setIsvalidEmail] = useState(true);
+
   const handleEmailchange = (text) => {
     setEmail(text);
   };
 
   const handleForgetPassword = async () => {
-    if (isvalidEMail) {
-      try {
-        await axios.post("https://cook2go.herokuapp.com/forgetPassword", {
-          email,
-        });
-        setEmail(" ");
-        Alert.alert(
-          "Password Reset Link Sent to your Email",
-          "Check your Email Spam box!",
-          [{ text: "OK", onPress: undefined }]
-        );
-      } catch (error) {
-        Alert.alert("Invalid Email ", "Pleas make sure is a valid email! ");
-      }
-    } else {
-      Alert.alert("Invalid Email", "Please enter a valid email address.", [
-        { text: "OK", onPress: undefined },
-      ]);
+    try {
+      await axios.post("https://cook2go.herokuapp.com/forgetPassword", {
+        email,
+      });
+      setEmail(" ");
+      Alert.alert(
+        "Password Reset Link Sent to your Email",
+        "Check your Email Spam box!",
+        [{ text: "OK", onPress: undefined }]
+      );
+      navigation.navigate("Home");
+    } catch (error) {
+      Alert.alert("Invalid Email ", "Pleas make sure is a valid email! ");
     }
   };
   return (

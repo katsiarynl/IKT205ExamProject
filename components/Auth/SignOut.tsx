@@ -9,6 +9,7 @@ import RemoveHisotry from "../../utilities/RemoveHistory";
 
 export const SignOut = () => {
   const navigator = useNavigation<NavigationHome>();
+
   const { sloggedIn, setIsloggedIn, dispatchUser } = useContext(UserContext);
   const { isuserEmail, setIsuserEmail } = useContext(UserContext);
 
