@@ -20,6 +20,7 @@ import { ScrollView } from "react-native";
 import { UserContext } from "./userContext";
 import ValidateEmail from "../../utilities/EmailValidation";
 import GETOrderHistoryById from "../../utilities/GETOrderHistoryById";
+import SetUser from "../../utilities/SetUser";
 // email Validation
 const EmailsValidation = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
 // password validation
@@ -27,10 +28,8 @@ const PasswordValidation = /^(?=.*[a-zA-Z]?\d?[a-zA-Z]?).{6,}$/;
 export const SignIn = () => {
   const navigation = useNavigation<NavigationSignOut>();
 
-
   const { isloggedIn, setIsloggedIn, setIsuserEmail, dispatchUser } =
     useContext(UserContext);
-
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -64,9 +63,12 @@ export const SignIn = () => {
       );
 
       if (response.data.accessToken) {
-        await AsyncStorage.setItem("AccessToken", response.data.accessToken);
-        await AsyncStorage.setItem("userEmail", response.data.userEmail);
-        await GETOrderHistoryById(response.data.userEmail, dispatchUser);
+        await SetUser(
+          response.data.accessToken,
+          response.data.userEmail,
+          GETOrderHistoryById,
+          dispatchUser
+        );
       }
 
       setEmail("");
