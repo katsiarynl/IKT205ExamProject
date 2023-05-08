@@ -38,11 +38,9 @@ interface InitialStateTypeWithHistory extends InitialStateType {
   setIsloggedIn: React.Dispatch<React.SetStateAction<boolean>>;
   isuserEmail: boolean;
   setIsuserEmail: React.Dispatch<React.SetStateAction<boolean>>;
-
   isLoading: boolean;
   setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
-};
-
+}
 
 const initialState: InitialStateTypeWithHistory = {
   isloggedIn: false,
@@ -53,7 +51,6 @@ const initialState: InitialStateTypeWithHistory = {
   dispatchUser: () => undefined,
   setIsLoading: () => undefined,
   isLoading: false,
-  
 };
 
 export const UserContext = createContext(initialState);
@@ -66,7 +63,6 @@ export const UserProvider = ({ children }) => {
   const [state, dispatchUser] = useReducer(reducer, initialStateHistory);
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
-
 
   useEffect(() => {
     const checkUserLoggedIn = async () => {
@@ -101,7 +97,6 @@ export const UserProvider = ({ children }) => {
         state,
         isLoading,
         setIsLoading,
-
       }}
     >
       {children}
