@@ -1,6 +1,6 @@
 import { View, Text, Pressable } from "react-native";
 import React, { useContext } from "react";
-import { StudentContext } from "../../context";
+import { RestaurantContext } from "../../context";
 
 export const Total = (products) => {
   const initialValue = 0;
@@ -15,7 +15,7 @@ export const Total = (products) => {
 };
 
 export default function TotalOrdersComponent() {
-  const { state } = useContext(StudentContext);
+  const { state } = useContext(RestaurantContext);
 
   // console.log(state.cartItems);
   Total(state.cartItems);

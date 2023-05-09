@@ -1,14 +1,14 @@
 import React, { useContext } from "react";
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
-import { StudentContext } from "./context";
+import { RestaurantContext } from "./context";
 import Dish from "./components/shoppingcart/Dish";
 import { Pressable } from "react-native";
 
 import GETRestaurants from "./utilities/GETRestaurants";
 
 export default function Main() {
-  const { dispatch } = useContext(StudentContext);
+  const { dispatch } = useContext(RestaurantContext);
 
   return (
     <View style={styles.container}>

@@ -1,7 +1,7 @@
 import { useNavigation } from "@react-navigation/native";
 import React, { useContext } from "react";
 import { Pressable, Text, View } from "react-native";
-import { StudentContext } from "../../context";
+import { RestaurantContext } from "../../context";
 import cartstyle from "../../styles/cartstyles";
 import POSTStripe from "../../utilities/POSTStripe";
 import { UserContext } from "../Auth/userContext";
@@ -17,7 +17,7 @@ async function NavitagateToStripe(callback, navigate, ordered_dishes) {
 export default function CheckoutButtonComponent() {
   const navigator = useNavigation();
   const NavigatorHome = useNavigation<NavigationSignIn>();
-  const { state } = useContext(StudentContext);
+  const { state } = useContext(RestaurantContext);
 
   const { isloggedIn } = useContext(UserContext);
 

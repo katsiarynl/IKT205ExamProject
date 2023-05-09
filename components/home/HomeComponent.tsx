@@ -12,7 +12,7 @@ import {
 import { homesStyle } from "../../styles/homestyles";
 import RestrauntItemComponent from "../restaurants/RestrauntItemComponent";
 import { Search } from "../search/Search";
-import { StudentContext } from "../../context";
+import { RestaurantContext } from "../../context";
 import { ActivityIndicator } from "react-native-paper";
 
 import { RestrauntItemComponentType } from "../../types/restrauntTypes";
@@ -24,7 +24,7 @@ import { UserContext } from "../Auth/userContext";
 
 export default function HomeComponent() {
   const { navigate } = useNavigation<NavigatorProductParam>();
-  const { state, dispatch } = useContext(StudentContext);
+  const { state, dispatch } = useContext(RestaurantContext);
   const [refreshing, setRefreshing] = React.useState(false);
   const { isLoading } = useContext(UserContext);
 

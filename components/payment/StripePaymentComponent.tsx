@@ -4,13 +4,14 @@ import { View } from "react-native";
 import { WebView } from "react-native-webview";
 import { NavigatorStripeParam } from "../../types/navigationTypes";
 import POSTMail from "../../utilities/ConfirmPayment";
-import { StudentContext } from "../../context";
+import { RestaurantContext } from "../../context";
 import stripestyle from "../../styles/stripestyles";
 import POSTOrder from "../../utilities/POSTOrder";
 import { UserContext } from "../Auth/userContext";
-import { UsersEmail, getUserByEmail } from "../userInfo/getUserInfo";
+
 import GetTokenAndId from "../../utilities/GetTokenAndId";
 import GETOrderHistoryById from "../../utilities/GETOrderHistoryById";
+import empty_cart from "../../utilities/Empty_Cart";
 async function AddToHistory(
   getCredentials,
   POSTOrder,
@@ -18,11 +19,12 @@ async function AddToHistory(
   empty_cart,
   dispatch,
   GETHistory,
-  dispatchUser
+  dispatchUser,
+  sendMail
 ) {
   const credentials = await getCredentials();
   // console.log(history);
-  
+
   await POSTOrder(
     {
       ordered_dishes,
@@ -31,15 +33,17 @@ async function AddToHistory(
     credentials.token
   );
 
+  await sendMail(ordered_dishes, credentials.email);
+
   // GETHistory(credentials.token, dispatch);
   await GETHistory(credentials.email, dispatchUser);
   return empty_cart(dispatch);
 }
 
 export default function StripePaymentComponent({ route }) {
-  const { state } = useContext(StudentContext);
+  const { state } = useContext(RestaurantContext);
   const { link, ordered_dishes } = route.params;
-  const { dispatch } = useContext(StudentContext);
+  const { dispatch } = useContext(RestaurantContext);
   const { dispatchUser } = useContext(UserContext);
   const [canGoBack, setCanGoBack] = useState(false);
   const [canGoForward, setCanGoForward] = useState<boolean>(false);
@@ -47,13 +51,6 @@ export default function StripePaymentComponent({ route }) {
 
   const { navigate } = useNavigation<NavigatorStripeParam>();
 
-  const empty_cart = (dispatch) => {
-    dispatch(
-      (() => {
-        return { type: "REMOVE_ITEMS" };
-      })()
-    );
-  };
   return (
     <View style={stripestyle.screen_webviewstyle}>
       <WebView
@@ -70,7 +67,7 @@ export default function StripePaymentComponent({ route }) {
             navigate("navbar");
 
             navState.url = "http://localhost:5000/success";
-            // POSTMail(ordered_dishes);
+
             AddToHistory(
               GetTokenAndId,
               POSTOrder,
@@ -78,7 +75,8 @@ export default function StripePaymentComponent({ route }) {
               empty_cart,
               dispatch,
               GETOrderHistoryById,
-              dispatchUser
+              dispatchUser,
+              POSTMail
             );
 
             // POSTOrder(

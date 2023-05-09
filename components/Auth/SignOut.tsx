@@ -6,12 +6,14 @@ import { useNavigation } from "@react-navigation/native";
 import { UserContext } from "./userContext";
 import { NavigationHome } from "../../types/navigationTypes";
 import RemoveHisotry from "../../utilities/RemoveHistory";
-
+import { RestaurantContext } from "../../context";
+import empty_cart from "../../utilities/Empty_Cart";
 export const SignOut = () => {
   const navigator = useNavigation<NavigationHome>();
 
   const { sloggedIn, setIsloggedIn, dispatchUser } = useContext(UserContext);
   const { isuserEmail, setIsuserEmail } = useContext(UserContext);
+  const { dispatch } = useContext(RestaurantContext);
 
   const handleSignOut = async () => {
     try {
@@ -19,12 +21,12 @@ export const SignOut = () => {
       await AsyncStorage.removeItem("AccessToken");
       await AsyncStorage.removeItem("userEmail");
       RemoveHisotry(dispatchUser);
+      empty_cart(dispatch);
 
       setIsloggedIn(false);
       setIsuserEmail(false);
       navigator.navigate("Home");
     } catch (error) {
-      /* empty */
       console.error(error);
     }
   };
