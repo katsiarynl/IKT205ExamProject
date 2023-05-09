@@ -1,13 +1,13 @@
 import React, { useContext } from "react";
 import { SafeAreaView, ScrollView, View } from "react-native";
-import { StudentContext } from "../../context";
+import { RestaurantContext } from "../../context";
 import cartstyle from "../../styles/cartstyles";
 import CartItemComponent from "./CartItemComponent";
 import HeadComponent from "./HeadComponent";
 import ProceedViewComponent from "./ProceedViewComponent";
 
 export default function CartComponent() {
-  const { state } = useContext(StudentContext);
+  const { state } = useContext(RestaurantContext);
 
   return (
     <View style={{ backgroundColor: "#E6E6EA" }}>

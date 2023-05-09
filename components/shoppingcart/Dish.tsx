@@ -1,18 +1,18 @@
 import { View, Text } from "react-native";
 import React from "react";
-import StudentProvider, { StudentContext } from "../../context";
+import RestaurantProvider, { RestaurantContext } from "../../context";
 function Dish() {
-  const { state } = React.useContext(StudentContext);
+  const { state } = React.useContext(RestaurantContext);
 
   return (
-    <StudentProvider>
+    <RestaurantProvider>
       <View>
         {state.restraunts.map((item, index) => {
           // return <Text key={index}>{item["author"]}</Text>;
           return <Text key={index}>{item["name"]}</Text>;
         })}
       </View>
-    </StudentProvider>
+    </RestaurantProvider>
   );
 }
 

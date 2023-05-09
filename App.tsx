@@ -1,5 +1,5 @@
 import React from "react";
-import StudentProvider from "./context";
+import RestaurantProvider from "./context";
 import { UserProvider } from "./components/Auth/userContext";
 import "react-native-gesture-handler";
 
@@ -9,11 +9,11 @@ import StackNavigatorComponent from "./components/stacknavigator/StackNavigatorC
 export default function App() {
   return (
     <NavigationContainer>
-      <StudentProvider>
+      <RestaurantProvider>
         <UserProvider>
           <StackNavigatorComponent />
         </UserProvider>
-      </StudentProvider>
+      </RestaurantProvider>
     </NavigationContainer>
   );
 }

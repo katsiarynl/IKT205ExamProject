@@ -7,11 +7,11 @@ import RestrauntComponent from "../restrauntdetails/RestrauntComponent";
 import ProductItemComponent from "./ProductItemComponent";
 import ScrollCategoriesComponent from "./ScrollCategoriesComponent";
 import { useContext } from "react";
-import { StudentContext } from "../../context";
+import { RestaurantContext } from "../../context";
 import GETRestaurants from "../../utilities/GETRestaurants";
 export default function ProductListComponent({ route }) {
   let { restaurant } = route.params;
-  const { dispatch } = useContext(StudentContext);
+  const { dispatch } = useContext(RestaurantContext);
   // console.log(item["menu"][1]["category"]);
   //https://blog.logrocket.com/using-react-usestate-object/
 

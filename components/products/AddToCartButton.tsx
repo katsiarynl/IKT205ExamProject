@@ -1,10 +1,10 @@
 import { View, Text, Pressable } from "react-native";
 import React, { useContext } from "react";
 import products from "../../styles/products";
-import { StudentContext } from "../../context";
+import { RestaurantContext } from "../../context";
 import { Product } from "../../types/productTypes";
 export default function AddToCartButton(props: Product) {
-  const { dispatch } = useContext(StudentContext);
+  const { dispatch } = useContext(RestaurantContext);
 
   const new_product = {
     _id: props._id,

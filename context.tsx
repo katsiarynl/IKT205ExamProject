@@ -90,12 +90,12 @@ const initialState: InitialStateType = {
   cartItems: [],
 };
 
-export const StudentContext = createContext<{
+export const RestaurantContext = createContext<{
   state: AppState;
   dispatch: React.Dispatch<ActionsType>;
 }>({ state: initialState, dispatch: () => undefined });
 
-function StudentProvider({ children }) {
+function RestaurantProvider({ children }) {
   // @ts-ignore
   const [state, dispatch] = useReducer(reducer, initialState);
 
@@ -109,10 +109,10 @@ function StudentProvider({ children }) {
   }, []);
 
   return (
-    <StudentContext.Provider value={{ dispatch, state }}>
+    <RestaurantContext.Provider value={{ dispatch, state }}>
       {children}
-    </StudentContext.Provider>
+    </RestaurantContext.Provider>
   );
 }
 
-export default StudentProvider;
+export default RestaurantProvider;
