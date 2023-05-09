@@ -2,7 +2,7 @@ import { View, Text, Button } from "react-native";
 import React, { useContext } from "react";
 import auth from "@react-native-firebase/auth";
 import { GoogleSignin } from "@react-native-google-signin/google-signin";
-import { UserContext } from "../Auth/userContext";
+
 export const GoogleComponent = () => {
   GoogleSignin.configure({
     webClientId:

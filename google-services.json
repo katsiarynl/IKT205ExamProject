@@ -14,19 +14,19 @@
       },
       "oauth_client": [
         {
-          "client_id": "724932999085-467trf3h6sg3bk2q6n02hdhgple5mngo.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.cookTogo.IKT205FinalProject",
-            "certificate_hash": "2f5c3c7b58c4b40403cc6440897dc49f59e9c00b"
-          }
-        },
-        {
-          "client_id": "724932999085-6degio7jrcfsjuvrb1j1si78gjl0rkhj.apps.googleusercontent.com",
+          "client_id": "724932999085-5m6a3ijcu5ft0m3iphlp9ds5pr68lefb.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.cookTogo.IKT205FinalProject",
             "certificate_hash": "3e8250b43e458b77040fd14b57b09ef647ef9174"
+          }
+        },
+        {
+          "client_id": "724932999085-rpj6no92r0moq0tuomjvd4kn21hp7pim.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cookTogo.IKT205FinalProject",
+            "certificate_hash": "2f5c3c7b58c4b40403cc6440897dc49f59e9c00b"
           }
         },
         {

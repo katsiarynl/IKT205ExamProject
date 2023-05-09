@@ -20,9 +20,9 @@ export const SignOut = () => {
       await axios.post("https://cook2go.herokuapp.com/singOut");
       await AsyncStorage.removeItem("AccessToken");
       await AsyncStorage.removeItem("userEmail");
-      await GoogleSignin.signOut();
-      RemoveHisotry(dispatchUser);
 
+      RemoveHisotry(dispatchUser);
+      await GoogleSignin.signOut();
       setIsloggedIn(false);
       setIsuserEmail(false);
       navigator.navigate("Home");
