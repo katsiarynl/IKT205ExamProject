@@ -2,6 +2,7 @@ import React, { createContext, useState, useEffect, useReducer } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import GETOrderHistoryById from "../../utilities/GETOrderHistoryById";
 import { Product } from "../../types/productTypes";
+import { GoogleSignin } from "@react-native-google-signin/google-signin";
 export type ActionsType = { type: string; payload: any };
 
 type AppState = typeof initialStateHistory;
@@ -69,8 +70,10 @@ export const UserProvider = ({ children }) => {
       try {
         const token = await AsyncStorage.getItem("AccessToken");
         const userEmail = await AsyncStorage.getItem("userEmail");
+        const isgoogleUserLoged = await GoogleSignin.isSignedIn();
+        console.log("yeryery:", isgoogleUserLoged);
 
-        if (token && userEmail) {
+        if (token && userEmail && isgoogleUserLoged) {
           GETOrderHistoryById(userEmail, dispatchUser);
           setIsloggedIn(true);
           setIsuserEmail(true);

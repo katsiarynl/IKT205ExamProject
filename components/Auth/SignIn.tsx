@@ -8,6 +8,7 @@ import {
   Text,
   SafeAreaView,
 } from "react-native";
+import { onGoogleSignIn } from "../External/googleLogin";
 import { TextInput } from "react-native-paper";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { useNavigation } from "@react-navigation/native";
@@ -50,6 +51,10 @@ export const SignIn = () => {
       setIsValidPassword(true);
     }
     setIsValidPassword(PasswordValidation.test(password));
+  };
+
+  const handleGoogleSign = async () => {
+    await onGoogleSignIn();
   };
 
   const handleSignIn = async () => {
@@ -160,7 +165,7 @@ export const SignIn = () => {
             <Icon.Button
               name="facebook"
               backgroundColor="#3b5998"
-              onPress={() => alert("Login with Facebook")}
+              onPress={() => alert("Login with Google")}
             >
               Login with Facebook
             </Icon.Button>
@@ -169,9 +174,9 @@ export const SignIn = () => {
             <Icon.Button
               name="google"
               backgroundColor="#900603"
-              onPress={() => alert("Login with Google!")}
+              onPress={handleGoogleSign}
             >
-              Login with Facebook
+              Login with Google
             </Icon.Button>
           </View>
           <View style={signInStyle.singUpContainer}>

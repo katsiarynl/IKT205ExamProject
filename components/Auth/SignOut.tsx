@@ -7,17 +7,20 @@ import { UserContext } from "./userContext";
 import { NavigationHome } from "../../types/navigationTypes";
 import RemoveHisotry from "../../utilities/RemoveHistory";
 
+import { GoogleSignin } from "@react-native-google-signin/google-signin";
+
 export const SignOut = () => {
   const navigator = useNavigation<NavigationHome>();
 
-  const { sloggedIn, setIsloggedIn, dispatchUser } = useContext(UserContext);
-  const { isuserEmail, setIsuserEmail } = useContext(UserContext);
+  const { setIsloggedIn, dispatchUser } = useContext(UserContext);
+  const { setIsuserEmail } = useContext(UserContext);
 
   const handleSignOut = async () => {
     try {
       await axios.post("https://cook2go.herokuapp.com/singOut");
       await AsyncStorage.removeItem("AccessToken");
       await AsyncStorage.removeItem("userEmail");
+      await GoogleSignin.signOut();
       RemoveHisotry(dispatchUser);
 
       setIsloggedIn(false);
