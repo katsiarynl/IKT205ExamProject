@@ -11,8 +11,8 @@ import empty_cart from "../../utilities/Empty_Cart";
 export const SignOut = () => {
   const navigator = useNavigation<NavigationHome>();
 
-  const { sloggedIn, setIsloggedIn, dispatchUser } = useContext(UserContext);
-  const { isuserEmail, setIsuserEmail } = useContext(UserContext);
+  const { setIsloggedIn, dispatchUser } = useContext(UserContext);
+  const { setIsuserEmail } = useContext(UserContext);
   const { dispatch } = useContext(RestaurantContext);
 
   const handleSignOut = async () => {

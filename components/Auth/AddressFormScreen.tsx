@@ -33,7 +33,7 @@ export default function AddressFormScreen() {
       };
 
       await axios.post(
-        "https://cook2go.herokuapp.com/users",
+        "https://cook2go.herokuapp.com/user",
         newAddress,
         config
       );
