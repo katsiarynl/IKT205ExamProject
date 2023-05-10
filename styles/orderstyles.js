@@ -1,37 +1,81 @@
 import { StatusBar, StyleSheet } from "react-native";
 import { windowHeight, windowWidth } from "./dimensions";
+
 export const orderHistorystyles = StyleSheet.create({
   container: {
-    flexDirection: "column",
-    justifyContent: "center",
-
-    flex: 1,
-    margin: 20,
-    paddingTop: 20,
+    flex: 2,
+    backgroundColor: "#FDFDFD",
+    paddingHorizontal: 30,
+    paddingVertical: 30,
   },
   header: {
-    flexDirection: "row",
-
-    flex: 1,
-    alignItems: "center",
+    backgroundColor: "#F2C94C",
+    borderRadius: 10,
+    marginTop: 20,
+    marginBottom: 20,
+    paddingVertical: 10,
+    paddingHorizontal: 30,
+  },
+  title: {
+    fontSize: 28,
+    fontWeight: "bold",
+    color: "#FFF",
+    textAlign: "center",
+  },
+  headerText: {
+    fontSize: 29,
+    fontWeight: "bold",
+    color: "#FF5A5F",
+    marginLeft: 10,
   },
   orderitem: {
-    backgroundColor: "white",
-    margin: 10,
+    backgroundColor: "#FFFAF2",
+    marginBottom: 20,
     borderRadius: 15,
-    paddingTop: 10,
-    paddingBottom: 5,
-    paddingHorizontal: 5,
+    padding: 20,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.2,
     shadowRadius: 3,
-    shadowOpacity: 0.4,
+    elevation: 3,
   },
-  orderdetails: {
-    backgroundColor: "yellow",
-    flex: 1,
-    paddingTop: 30,
-  },
-  texttop: {
-    fontSize: 40,
+  orderNumber: {
+    fontSize: 18,
     fontWeight: "bold",
+    color: "#FF5A5F",
+    marginBottom: 10,
+  },
+  orderDate: {
+    fontSize: 16,
+    color: "#777",
+    marginBottom: 10,
+  },
+  orderItems: {
+    marginTop: 10,
+  },
+  orderItem: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginBottom: 10,
+  },
+  orderItemImage: {
+    width: 60,
+    height: 60,
+    borderRadius: 10,
+    marginRight: 10,
+  },
+  orderItemName: {
+    fontSize: 16,
+    fontWeight: "bold",
+    color: "#333",
+  },
+  orderItemPrice: {
+    fontSize: 16,
+    fontWeight: "bold",
+    color: "#FF5A5F",
+    marginLeft: "auto",
   },
 });

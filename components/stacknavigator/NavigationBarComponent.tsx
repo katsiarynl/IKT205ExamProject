@@ -46,6 +46,7 @@ export default function NavigatorBarComponent() {
             <AntDesign name="shoppingcart" size={24} color={color} />
           ),
         }}
+        
       />
       <Tab.Screen
         name="Profile"

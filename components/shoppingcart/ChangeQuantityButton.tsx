@@ -17,7 +17,7 @@ export default function ChangeQuantityButton(props: ChangeQuantityButtonType) {
           : DecreaseQuantity(dispatch, existing_product)
       }
       style={{
-        backgroundColor: "green",
+        backgroundColor: "#B71C1C",
         width: 50,
         height: 50,
         borderRadius: 25,
