@@ -27,7 +27,7 @@ const cartstyle = StyleSheet.create({
   header: {
     flexDirection: "row",
     alignItems: "center",
-    backgroundColor: "#FF7878",
+    backgroundColor: "#F2C94C",
   },
   cartItemPreview: {
     flex: 1,

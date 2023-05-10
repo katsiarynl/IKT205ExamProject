@@ -5,10 +5,10 @@ import ChangeQuantityButton from "./ChangeQuantityButton";
 export default function QuantityComponent(props) {
   return (
     <View style={cartstyle.quantitystyle}>
-      <ChangeQuantityButton sign="-" _id={props._id} />
+      <ChangeQuantityButton sign="-" _id={props._id } />
       <Text style={{ fontSize: 30, marginHorizontal: "5%" }}>
-        {props.quantity}
-      </Text>
+     {props.quantity}
+     </Text>
       <ChangeQuantityButton sign="+" _id={props._id} />
     </View>
   );

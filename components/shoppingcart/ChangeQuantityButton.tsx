@@ -4,10 +4,11 @@ import DecreaseQuantity from "../../utilities/DecreaseItemQuantity";
 import IncreaseQuantity from "../../utilities/IncreaseItemQuantity";
 import { RestaurantContext } from "../../context";
 import { ChangeQuantityButtonType } from "../../types/cartTypes";
-// todo: add types
+
 export default function ChangeQuantityButton(props: ChangeQuantityButtonType) {
   const { dispatch } = useContext(RestaurantContext);
   const existing_product = { _id: props._id };
+
   return (
     <Pressable
       onPress={() =>
@@ -16,21 +17,19 @@ export default function ChangeQuantityButton(props: ChangeQuantityButtonType) {
           : DecreaseQuantity(dispatch, existing_product)
       }
       style={{
-        // todo: fix styling
         backgroundColor: "green",
-        width: "35%",
-        height: "60%",
-        // borderRadius: "10%",
-        alignContent: "center",
+        width: 50,
+        height: 50,
+        borderRadius: 25,
         alignItems: "center",
-
-        // borderRadius: "5%",
+        justifyContent: "center",
       }}
     >
       <Text
         style={{
           fontWeight: "bold",
           fontSize: 30,
+          color: "white",
         }}
       >
         {props.sign}
