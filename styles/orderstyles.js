@@ -5,19 +5,19 @@ export const orderHistorystyles = StyleSheet.create({
   container: {
     flex: 2,
     backgroundColor: "#FDFDFD",
-    paddingHorizontal: 30,
-    paddingVertical: 30,
+    paddingHorizontal: 20,
+    paddingVertical: 20,
   },
   header: {
     backgroundColor: "#F2C94C",
     borderRadius: 10,
-    marginTop: 20,
+    marginTop: 15,
     marginBottom: 20,
     paddingVertical: 10,
     paddingHorizontal: 30,
   },
   title: {
-    fontSize: 28,
+    fontSize: 30,
     fontWeight: "bold",
     color: "#FFF",
     textAlign: "center",
@@ -79,3 +79,7 @@ export const orderHistorystyles = StyleSheet.create({
     marginLeft: "auto",
   },
 });
+
+
+
+

@@ -11,14 +11,14 @@ import {
 import { TextInput } from "react-native-paper";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { useNavigation } from "@react-navigation/native";
-import AsyncStorage from "@react-native-async-storage/async-storage";
+
 import axios from "axios";
 import { forgetPassStyle } from "../../styles/forgetPasswor";
 import { NavigationSignOut } from "../../types/navigationTypes";
 import { ScrollView } from "react-native";
 
 import { UserContext } from "./userContext";
-import ValidateEmail from "../../utilities/EmailValidation";
+
 import GETOrderHistoryById from "../../utilities/GETOrderHistoryById";
 import SetUser from "../../utilities/SetUser";
 // email Validation
@@ -28,7 +28,7 @@ const PasswordValidation = /^(?=.*[a-zA-Z]?\d?[a-zA-Z]?).{6,}$/;
 export const SignIn = () => {
   const navigation = useNavigation<NavigationSignOut>();
 
-  const { isloggedIn, setIsloggedIn, setIsuserEmail, dispatchUser } =
+  const { setIsloggedIn, setIsuserEmail, dispatchUser } =
     useContext(UserContext);
 
   const [email, setEmail] = useState("");
