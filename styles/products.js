@@ -15,8 +15,9 @@ const products = StyleSheet.create({
     width: windowWidth * 0.25,
     height: windowHeight * 0.038,
     justifyContent: "center",
-
-    backgroundColor: "white",
+    alignItems: "center",
+    backgroundColor: "#00bfff",
+    color:"#333",
   },
   productlist: {
     marginHorizontal: windowWidth * 0.04,
@@ -47,8 +48,8 @@ const products = StyleSheet.create({
     backgroundColor: "orange",
     justifyContent: "center",
     alignItems: "center",
-    width: windowWidth * 0.25,
-    height: windowHeight * 0.05,
+    width: windowWidth * 0.28,
+    height: windowHeight * 0.06,
   },
   pricetag: {},
   imagestyle: {

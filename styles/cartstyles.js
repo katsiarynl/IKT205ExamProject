@@ -5,7 +5,7 @@ const cartstyle = StyleSheet.create({
   scrollStyle: {
     backgroundColor: "#E6E6EA",
     paddingTop: "5%",
-    height: windowHeight * 0.7,
+    height: windowHeight * 0.73,
   },
   cartItem: {
     backgroundColor: "#F4F4F8",
@@ -27,7 +27,7 @@ const cartstyle = StyleSheet.create({
   header: {
     flexDirection: "row",
     alignItems: "center",
-    backgroundColor: "#FF7878",
+    backgroundColor: "#F2C94C",
   },
   cartItemPreview: {
     flex: 1,
