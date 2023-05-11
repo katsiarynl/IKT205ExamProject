@@ -22,7 +22,10 @@ export default function RestrauntComponent(props) {
           uri: avatare,
         }}
       />
-      <RestrauntDescriptionComponent />
+      <RestrauntDescriptionComponent
+        name={props.name}
+        description={props.description}
+      />
     </View>
   );
 }
