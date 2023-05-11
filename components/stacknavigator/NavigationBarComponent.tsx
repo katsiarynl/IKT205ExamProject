@@ -4,7 +4,6 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 //https://stackoverflow.com/questions/50436313/tab-navigator-icons-in-react-navigation
 
 import { Feather } from "@expo/vector-icons";
-import { UserInfoAlert } from "../ToastMessage/infoAlert";
 
 import HomeComponent from "../home/HomeComponent";
 import CartComponent from "../shoppingcart/CartComponent";

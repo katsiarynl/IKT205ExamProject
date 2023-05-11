@@ -1,9 +1,9 @@
-import { View, Text, Pressable, TouchableOpacity } from "react-native";
+import { View, Text, Pressable } from "react-native";
 import React, { useContext } from "react";
 import products from "../../styles/products";
 import { RestaurantContext } from "../../context";
 import { Product } from "../../types/productTypes";
-import Toast, { BaseToast } from "react-native-toast-message";
+import Toast from "react-native-toast-message";
 export default function AddToCartButton(props: Product) {
   const { dispatch } = useContext(RestaurantContext);
 
@@ -23,16 +23,16 @@ export default function AddToCartButton(props: Product) {
     );
   };
 
-  const alertAddToCart = () => {
+  const alertAddedToCart = () => {
     fundisp(dispatch, new_product);
 
     Toast.show({
       type: "success",
-      text1: "Item added to cart!",
-      text2: `${new_product.price} has been added to your cart.`,
+      text1: `${new_product.name} Has been added to your cart.`,
+      text2: `${new_product.price + "NOK"} View Your cart `,
       position: "top",
       autoHide: true,
-      topOffset: 47,
+      topOffset: 40,
       bottomOffset: 90,
     });
   };
@@ -41,7 +41,7 @@ export default function AddToCartButton(props: Product) {
     <View style={{ flex: 1 }}>
       <Pressable
         onPress={() => {
-          alertAddToCart();
+          alertAddedToCart();
         }}
         //https://www.youtube.com/watch?v=ooEFRONfq_s
         style={({ pressed }) => pressed && { opacity: 0.4 }}
