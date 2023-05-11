@@ -33,17 +33,19 @@ exports[`snapshot 1`] = `
   onStartShouldSetResponder={[Function]}
   style={
     {
-      "alignContent": "center",
       "alignItems": "center",
-      "backgroundColor": "green",
-      "height": "60%",
-      "width": "35%",
+      "backgroundColor": "#B71C1C",
+      "borderRadius": 25,
+      "height": 50,
+      "justifyContent": "center",
+      "width": 50,
     }
   }
 >
   <Text
     style={
       {
+        "color": "white",
         "fontSize": 30,
         "fontWeight": "bold",
       }
