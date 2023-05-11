@@ -11,6 +11,7 @@ import CartComponent from "../shoppingcart/CartComponent";
 import { SignIn } from "../Auth/SignIn";
 
 import ProfileComponent from "../profile/ProfileComponent";
+import React from "react";
 
 const Tab = createBottomTabNavigator();
 
