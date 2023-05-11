@@ -1,6 +1,7 @@
 import { View } from "react-native";
 import React from "react";
 import { SignIn } from "../Auth/SignIn";
+import { UserInfoAlert } from "../ToastMessage/infoAlert";
 
 export default function FavoritesComponent() {
   return (
@@ -11,7 +12,7 @@ export default function FavoritesComponent() {
         alignItems: "center",
       }}
     >
-      <SignIn Navigation="tatial" />
+      <UserInfoAlert></UserInfoAlert>
     </View>
   );
 }
