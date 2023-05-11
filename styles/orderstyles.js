@@ -5,8 +5,8 @@ export const orderHistorystyles = StyleSheet.create({
   container: {
     flex: 2,
     backgroundColor: "#FDFDFD",
-    paddingHorizontal: 20,
-    paddingVertical: 20,
+    paddingHorizontal: 21,
+    paddingVertical: 21,
   },
   header: {
     backgroundColor: "#F2C94C",
