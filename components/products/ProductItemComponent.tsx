@@ -10,6 +10,7 @@ import { Product } from "../../types/productTypes";
 export default function ProductItemComponent(props: Product) {
   const [image, setImage] = useState("");
   fetchImage(GETPath, setImage, props.image);
+
   return (
     <View>
       <View style={products.productitem}>

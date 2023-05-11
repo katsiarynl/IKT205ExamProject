@@ -40,9 +40,9 @@ exports[`snapshot 1`] = `
           "alignItems": "center",
           "backgroundColor": "orange",
           "borderRadius": 15,
-          "height": 66.7,
+          "height": 80.03999999999999,
           "justifyContent": "center",
-          "width": 187.5,
+          "width": 210.00000000000003,
         }
       }
     >
