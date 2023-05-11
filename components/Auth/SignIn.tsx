@@ -11,7 +11,7 @@ import {
 import { TextInput } from "react-native-paper";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { useNavigation } from "@react-navigation/native";
-import AsyncStorage from "@react-native-async-storage/async-storage";
+
 import axios from "axios";
 import { forgetPassStyle } from "../../styles/forgetPasswor";
 import { NavigationSignOut } from "../../types/navigationTypes";

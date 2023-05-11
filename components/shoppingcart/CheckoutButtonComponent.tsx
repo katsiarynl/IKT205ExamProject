@@ -50,7 +50,7 @@ export default function CheckoutButtonComponent() {
         style={({ pressed }) => [
           cartstyle.checkoutbutton,
           state.cartItems.length !== 0
-            ? { backgroundColor: "#FF7878", ...(pressed && { opacity: 0.4 }) }
+            ? { backgroundColor: "#F2C94C", ...(pressed && { opacity: 0.4 }) }
             : { backgroundColor: "gray" },
         ]}
         disabled={state.cartItems.length === 0}
@@ -60,7 +60,7 @@ export default function CheckoutButtonComponent() {
         <View style={{ backgroundColor: "white " }}>
           <Text
             style={{
-              fontSize: 30,
+              fontSize: 25,
               fontWeight: "bold",
             }}
           >

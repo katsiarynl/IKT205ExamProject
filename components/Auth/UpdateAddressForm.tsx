@@ -1,7 +1,7 @@
 import { View, Text, TextInput, TouchableOpacity } from "react-native";
 import { addressStyle } from "../../styles/addressStyle";
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import axios from 'axios';
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import axios from "axios";
 import { useNavigation } from "@react-navigation/native";
 import React, { useState, useEffect } from "react";
 
@@ -16,14 +16,17 @@ export default function UpdateAddressForm() {
   useEffect(() => {
     const getUserAddress = async () => {
       try {
-        const accessToken = await AsyncStorage.getItem('AccessToken');
-        const email = await AsyncStorage.getItem('userEmail');
+        const accessToken = await AsyncStorage.getItem("AccessToken");
+        const email = await AsyncStorage.getItem("userEmail");
 
         const config = {
           headers: { Authorization: `Bearer ${accessToken}` },
         };
 
-        const response = await axios.get(`https://cook2go.herokuapp.com/users/${email}`, config);
+        const response = await axios.get(
+          `https://cook2go.herokuapp.com/user/${email}`,
+          config
+        );
         const userAddress = response.data;
         setAddressLine1(userAddress.addressLine1);
         setAddressLine2(userAddress.addressLine2);
@@ -40,8 +43,8 @@ export default function UpdateAddressForm() {
 
   const handleAddressSubmit = async () => {
     try {
-      const accessToken = await AsyncStorage.getItem('AccessToken');
-      const email = await AsyncStorage.getItem('userEmail');
+      const accessToken = await AsyncStorage.getItem("AccessToken");
+      const email = await AsyncStorage.getItem("userEmail");
 
       const config = {
         headers: { Authorization: `Bearer ${accessToken}` },
@@ -55,7 +58,11 @@ export default function UpdateAddressForm() {
         zipCode,
       };
 
-      await axios.put(`https://cook2go.herokuapp.com/users/${email}`, updatedAddress, config);
+      await axios.put(
+        `https://cook2go.herokuapp.com/user/${email}`,
+        updatedAddress,
+        config
+      );
       navigation.goBack();
     } catch (error) {
       console.error(error);
@@ -101,10 +108,8 @@ export default function UpdateAddressForm() {
         style={addressStyle.button}
         onPress={handleAddressSubmit}
       >
-        <Text style={addressStyle.buttonText
-    }>Save Address</Text>
-    </TouchableOpacity>
-  </View>
+        <Text style={addressStyle.buttonText}>Save Address</Text>
+      </TouchableOpacity>
+    </View>
   );
 }
-

@@ -6,7 +6,7 @@ export default function OrderHistoryComponent() {
   return (
     <View style={orderHistorystyles.container}>
       <View style={orderHistorystyles.header}>
-        <Text style={orderHistorystyles.texttop}> Order History</Text>
+        <Text style={orderHistorystyles.title}> Order History</Text>
       </View>
       <OrderHisoryListComponent />
     </View>
