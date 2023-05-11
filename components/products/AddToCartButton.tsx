@@ -3,6 +3,7 @@ import React, { useContext } from "react";
 import products from "../../styles/products";
 import { RestaurantContext } from "../../context";
 import { Product } from "../../types/productTypes";
+import Toast from "react-native-toast-message";
 export default function AddToCartButton(props: Product) {
   const { dispatch } = useContext(RestaurantContext);
 
@@ -22,11 +23,25 @@ export default function AddToCartButton(props: Product) {
     );
   };
 
+  const alertAddedToCart = () => {
+    fundisp(dispatch, new_product);
+
+    Toast.show({
+      type: "success",
+      text1: `${new_product.name} Has been added to your cart.`,
+      text2: `${new_product.price + "NOK"} View Your cart `,
+      position: "top",
+      autoHide: true,
+      topOffset: 40,
+      bottomOffset: 90,
+    });
+  };
+
   return (
-    <View>
+    <View style={{ flex: 1 }}>
       <Pressable
         onPress={() => {
-          fundisp(dispatch, new_product);
+          alertAddedToCart();
         }}
         //https://www.youtube.com/watch?v=ooEFRONfq_s
         style={({ pressed }) => pressed && { opacity: 0.4 }}

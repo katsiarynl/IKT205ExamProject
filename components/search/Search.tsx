@@ -9,7 +9,7 @@ export const Search = () => {
 
   return (
     <Searchbar
-      placeholder="Search"
+      placeholder="Search for restaurant"
       onChangeText={onChangeSearch}
       value={searchQuery}
     />
