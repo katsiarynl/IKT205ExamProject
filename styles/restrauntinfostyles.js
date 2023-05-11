@@ -8,9 +8,11 @@ const restrauntInfoStyles = StyleSheet.create({
   },
   restrauntdescription: {
     backgroundColor: "#ffff",
-    borderTopLeftRadius: 40,
-    borderTopRightRadius: 40,
+    borderTopLeftRadius: 25,
+    borderTopRightRadius: 25,
     flex: 1,
+    paddingTop: "-5%",
+    paddingHorizontal: "2%",
   },
 });
 
