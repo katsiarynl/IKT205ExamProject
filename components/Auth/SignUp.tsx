@@ -24,14 +24,14 @@ const PasswordValidation = /^(?=.*[a-zA-Z]?\d?[a-zA-Z]?).{6,}$/;
 export const SignUp = () => {
   const navigation = useNavigation<NavigationSignOut>();
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [isValidEmail, setisValidEmail] = useState(true);
-  const [isValidPassword, setIsValidPassword] = useState(true);
-  const [secureTextEntry, SetsecureTextEntry] = useState(true);
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [isValidEmail, setisValidEmail] = useState<boolean>(true);
+  const [isValidPassword, setIsValidPassword] = useState<boolean>(true);
+  const [secureTextEntry, SetsecureTextEntry] = useState<boolean>(true);
 
   // the function for email validation
-  const handleEmailchange = (text) => {
+  const handleEmailchange = (text: string) => {
     setEmail(text);
   };
   // Handle Email Blur if the Email is Valid.
@@ -56,7 +56,7 @@ export const SignUp = () => {
       setEmail("");
       setPassword("");
       navigation.navigate("SignIn");
-    } catch (error: any) {
+    } catch (error: unknown) {
       Alert.alert(
         "Invalid Email or Password",
         "Please make your your Email password is right!"

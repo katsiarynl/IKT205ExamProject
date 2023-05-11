@@ -32,13 +32,13 @@ export const SignIn = () => {
     useContext(UserContext);
 
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [password, setPassword] = useState<string>("");
 
-  const [isValidEmail, setisValidEmail] = useState(true);
-  const [isValidPassword, setIsValidPassword] = useState(true);
-  const [secureTextEntry, SetsecureTextEntry] = useState(true);
+  const [isValidEmail, setisValidEmail] = useState<boolean>(true);
+  const [isValidPassword, setIsValidPassword] = useState<boolean>(true);
+  const [secureTextEntry, SetsecureTextEntry] = useState<boolean>(true);
 
-  const handleEmailchange = (text) => {
+  const handleEmailchange = (text: string) => {
     setEmail(text);
   };
 
