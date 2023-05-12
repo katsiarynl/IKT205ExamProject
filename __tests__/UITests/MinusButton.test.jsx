@@ -4,6 +4,6 @@ import { create } from "react-test-renderer";
 import ChangeQuantityButton from "../../components/shoppingcart/ChangeQuantityButton";
 const tree = create(<ChangeQuantityButton sign="-" />);
 
-test("snapshot", () => {
+test("Snapshot for ChangeQuantityButton", () => {
   expect(tree).toMatchSnapshot();
 });

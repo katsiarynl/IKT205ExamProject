@@ -22,7 +22,7 @@ jest.mock("react-native-paper", () => {
 });
 
 const tree = create(<HomeIconComponent />);
-test("snapshot", () => {
+test("Check if the user is navigated to the home screen when the draw Home icon is pressed", () => {
   const button = tree.root.findByProps({
     testID: "HomeIcon",
   }).props;

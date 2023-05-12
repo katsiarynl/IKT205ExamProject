@@ -9,6 +9,6 @@ jest.mock("@react-navigation/native", () => ({
 }));
 const tree = create(<SignUpButtonComponent />);
 
-test("snapshot", () => {
+test("Snapshot for SignUpButtonComponent", () => {
   expect(tree).toMatchSnapshot();
 });

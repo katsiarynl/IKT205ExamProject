@@ -6,9 +6,9 @@ import products from "../../styles/products";
 import GETPath from "../../utilities/GETPath";
 import AddToCartButton from "./AddToCartButton";
 import PriceTagComponent from "./PriceTagComponent";
-import { Product } from "../../types/productTypes";
-export default function ProductItemComponent(props: Product) {
-  const [image, setImage] = useState("");
+import { GeneralProductImage } from "../../types/productTypes";
+export default function ProductItemComponent(props: GeneralProductImage) {
+  const [image, setImage] = useState<string>("");
   fetchImage(GETPath, setImage, props.image);
 
   return (

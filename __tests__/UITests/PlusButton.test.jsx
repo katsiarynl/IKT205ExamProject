@@ -4,6 +4,6 @@ import ChangeQuantityButton from "../../components/shoppingcart/ChangeQuantityBu
 
 const tree = create(<ChangeQuantityButton sign="+" />);
 
-test("snapshot", () => {
+test("Snapshot for ChangeQuantityButton", () => {
   expect(tree).toMatchSnapshot();
 });

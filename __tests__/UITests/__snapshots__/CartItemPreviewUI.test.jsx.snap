@@ -1,0 +1,205 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot 1`] = `
+<View
+  style={
+    {
+      "flex": 1,
+      "flexDirection": "column",
+    }
+  }
+>
+  <View
+    style={
+      {
+        "flex": 1,
+        "flexDirection": "row",
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "flex": 1.6,
+          "paddingHorizontal": 6,
+        }
+      }
+    >
+      <Text
+        numberOfLines={2}
+        style={
+          {
+            "alignItems": "center",
+            "fontSize": 17,
+            "fontWeight": "bold",
+            "justifyContent": "center",
+            "textAlign": "left",
+          }
+        }
+      >
+        Name
+      </Text>
+    </View>
+    <View
+      style={
+        {
+          "alignItems": "center",
+          "flex": 2,
+          "justifyContent": "center",
+        }
+      }
+    >
+      <View
+        style={
+          {
+            "backgroundColor": "#F2C94C",
+            "borderRadius": 150,
+            "padding": 7,
+          }
+        }
+      >
+        <Text
+          style={
+            {
+              "color": "black",
+              "fontSize": 18,
+              "fontWeight": "bold",
+            }
+          }
+        >
+          price
+           NOK
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "backgroundColor": "transparent",
+        "flex": 2,
+        "flexDirection": "row",
+        "justifyContent": "center",
+      }
+    }
+  >
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "alignItems": "center",
+          "backgroundColor": "#B71C1C",
+          "borderRadius": 25,
+          "height": 50,
+          "justifyContent": "center",
+          "width": 50,
+        }
+      }
+    >
+      <Text
+        style={
+          {
+            "color": "white",
+            "fontSize": 30,
+            "fontWeight": "bold",
+          }
+        }
+      >
+        -
+      </Text>
+    </View>
+    <Text
+      style={
+        {
+          "fontSize": 30,
+          "marginHorizontal": "5%",
+        }
+      }
+    >
+      3
+    </Text>
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "alignItems": "center",
+          "backgroundColor": "#B71C1C",
+          "borderRadius": 25,
+          "height": 50,
+          "justifyContent": "center",
+          "width": 50,
+        }
+      }
+    >
+      <Text
+        style={
+          {
+            "color": "white",
+            "fontSize": 30,
+            "fontWeight": "bold",
+          }
+        }
+      >
+        +
+      </Text>
+    </View>
+  </View>
+</View>
+`;

@@ -3,6 +3,6 @@ import { create } from "react-test-renderer";
 import AddToCartButton from "../../components/products/AddToCartButton";
 const tree = create(<AddToCartButton />);
 
-test("snapshot", () => {
+test("Snapshot for AddToCartButton", () => {
   expect(tree).toMatchSnapshot();
 });

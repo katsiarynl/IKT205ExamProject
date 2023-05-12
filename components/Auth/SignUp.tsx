@@ -18,11 +18,6 @@ import SignInButtonComponent from "./SignInButtonComponent";
 import ValidatePassword from "../../utilities/PasswordValidation";
 import ValidateEmail from "../../utilities/EmailValidation";
 
-// email Validation
-const EmailsValidation = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
-// password validation
-const PasswordValidation = /^(?=.*[a-zA-Z]?\d?[a-zA-Z]?).{6,}$/;
-
 export const SignUp = () => {
   const navigation = useNavigation<NavigationSignOut>();
 

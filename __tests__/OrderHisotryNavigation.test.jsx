@@ -9,8 +9,6 @@ jest.mock("@react-navigation/native", () => ({
 //https://github.com/react-navigation/react-navigation/issues/8207
 jest.mock("@react-navigation/drawer", () => {
   return {
-    addEventListener: jest.fn(),
-    createDrawerNavigator: jest.fn(),
     DrawerItem: jest.fn(),
   };
 });
@@ -22,7 +20,7 @@ jest.mock("react-native-paper", () => {
 });
 
 const tree = create(<HistoryIconComponent />);
-test("snapshot", () => {
+test("Check if the user is navigated to the orderhistory screen whe the Order History draw icon is pressed", () => {
   const button = tree.root.findByProps({
     testID: "OrderHistoryIcon",
   }).props;

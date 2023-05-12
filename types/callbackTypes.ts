@@ -17,5 +17,5 @@ export interface GetHistoryCallback {
 }
 
 export interface POSTEmailCallback {
-  (cartdata: GeneralProductQ, mail: string): any;
+  (cartdata: GeneralProductQ[], mail: string): any;
 }
