@@ -15,12 +15,12 @@ import SignInIcon from "./SignInIcon";
 import HomeIconComponent from "./HomeIconComponent";
 
 import { SignOut } from "../Auth/SignOut";
+import ForgotPasswordIcon from "./ForgotPasswordIcon";
 
 export const Drawercontent = (props) => {
   const navigation = useNavigation<NavigationProfileSignOut>();
   const [emailName, setEmailName] = useState<string>("");
   const { isloggedIn } = useContext(UserContext);
-
 
   // const HomeNavigator = () => {
   //   navigation.navigate("Home");
@@ -82,7 +82,9 @@ export const Drawercontent = (props) => {
           </View>
           <View style={{ marginLeft: 15 }}>{userEmailRender()}</View>
         </View>
+
         <Drawer.Section style={profileStyle.drawerSection}>
+          {isloggedIn ? <ForgotPasswordIcon /> : <SignInIcon />}
           <HomeIconComponent />
           <SignInIcon />
           <DrawerItem
