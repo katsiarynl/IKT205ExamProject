@@ -5,5 +5,5 @@ export type GeneralOrder = {
 };
 
 export interface GeneralProductQ extends GeneralProduct {
-  quantity?: string;
+  quantity?: number;
 }
