@@ -8,7 +8,6 @@ function Dish() {
     <RestaurantProvider>
       <View>
         {state.restraunts.map((item, index) => {
-          // return <Text key={index}>{item["author"]}</Text>;
           return <Text key={index}>{item["name"]}</Text>;
         })}
       </View>
