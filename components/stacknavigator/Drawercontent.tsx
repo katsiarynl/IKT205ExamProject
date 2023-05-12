@@ -21,7 +21,6 @@ export const Drawercontent = (props) => {
   const [emailName, setEmailName] = useState<string>("");
   const { isloggedIn } = useContext(UserContext);
 
-
   // const HomeNavigator = () => {
   //   navigation.navigate("Home");
   // };
@@ -85,14 +84,18 @@ export const Drawercontent = (props) => {
         <Drawer.Section style={profileStyle.drawerSection}>
           <HomeIconComponent />
           <SignInIcon />
-          <DrawerItem
-            icon={() => {
-              return <Feather name="edit" color={"blue"} size={25} />;
-            }}
-            label="Address"
-            onPress={addressHandle}
-          />
-          <HistoryIconComponent />
+          {isloggedIn ? (
+            <>
+              <DrawerItem
+                icon={() => {
+                  return <Feather name="edit" color={"blue"} size={25} />;
+                }}
+                label="Address"
+                onPress={addressHandle}
+              />
+              <HistoryIconComponent />
+            </>
+          ) : null}
         </Drawer.Section>
       </DrawerContentScrollView>
       <Drawer.Section style={profileStyle.signOuBottom}>
