@@ -86,7 +86,7 @@ export const Drawercontent = (props) => {
         <Drawer.Section style={profileStyle.drawerSection}>
           {isloggedIn ? <ForgotPasswordIcon /> : <SignInIcon />}
           <HomeIconComponent />
-          <SignInIcon />
+
           <DrawerItem
             icon={() => {
               return <Feather name="edit" color={"blue"} size={25} />;
