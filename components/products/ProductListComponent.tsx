@@ -16,7 +16,7 @@ export default function ProductListComponent({ route }) {
   //https://blog.logrocket.com/using-react-usestate-object/
 
   const [Category, setCategory] = useState<string[]>(["String1", "all"]);
-  const [refreshing, setRefreshing] = React.useState(false);
+  const [refreshing, setRefreshing] = React.useState<boolean>(false);
 
   //https://reactnative.dev/docs/refreshcontrol
   const onRefresh = React.useCallback(() => {
@@ -57,7 +57,7 @@ export default function ProductListComponent({ route }) {
                       name={product.name}
                       price={product.price}
                       description={product.description}
-                      _id={product["_id"]}
+                      _id={product._id}
                       image={product.image}
                       restaurant={restaurant.name}
                     />
