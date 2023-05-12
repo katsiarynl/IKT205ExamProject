@@ -12,7 +12,7 @@ export default function ForgotPasswordIcon() {
       }}
       testID="OrderHistoryIcon"
       label="Forgot Password?"
-      onPress={() => navigation.navigate("orderHistory")}
+      onPress={() => navigation.navigate("ForgetPass")}
     />
   );
 }
