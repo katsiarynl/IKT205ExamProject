@@ -50,7 +50,7 @@ export default function UpdateAddressForm() {
         headers: { Authorization: `Bearer ${accessToken}` },
       };
 
-      const updatedAddress: newAddressType = {
+      const updatedAddress = {
         addressLine1,
         addressLine2,
         city,

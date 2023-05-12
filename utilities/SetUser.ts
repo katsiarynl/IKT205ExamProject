@@ -11,7 +11,7 @@ async function SetUser(
     await AsyncStorage.setItem("AccessToken", token);
     await AsyncStorage.setItem("userEmail", email);
     await getHistory(email, dispatch);
-  } catch (error) {
+  } catch (error: any) {
     console.error(error);
   }
 }
