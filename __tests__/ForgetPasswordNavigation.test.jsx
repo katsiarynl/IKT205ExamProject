@@ -11,7 +11,7 @@ jest.mock("@react-navigation/native", () => ({
 }));
 
 const tree = create(<ForgetPassowrdButtonComponent />);
-test("snapshot", () => {
+test("Check if the user is navigated to the ForgetPassword screen", () => {
   const button = tree.root.findByProps({
     testID: "ForgetPasswordButton",
   }).props;

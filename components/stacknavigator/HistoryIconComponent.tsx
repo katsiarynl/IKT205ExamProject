@@ -1,11 +1,10 @@
-import { View, Text } from "react-native";
 import React from "react";
 import { DrawerItem } from "@react-navigation/drawer";
 
 import { Feather } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import { NavigationProfileSignOut } from "../../types/navigationTypes";
-import { profileStyle } from "../../styles/profielStyle";
+
 export default function HistoryIconComponent() {
   const navigation = useNavigation<NavigationProfileSignOut>();
   return (

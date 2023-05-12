@@ -22,7 +22,7 @@ jest.mock("react-native-paper", () => {
 });
 
 const tree = create(<SignInIcon />);
-test("snapshot", () => {
+test("Check if the user is navigated to the SignIn screen when the SignIn draw icon is pressed", () => {
   const button = tree.root.findByProps({
     testID: "SignInIcon",
   }).props;

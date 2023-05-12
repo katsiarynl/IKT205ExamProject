@@ -9,7 +9,7 @@ jest.mock("@react-navigation/native", () => ({
 }));
 
 const tree = create(<SignInButtonComponent />);
-test("snapshot", () => {
+test("Check if the user is navigated to sign in after the SignIn button is pressed", () => {
   const button = tree.root.findByProps({
     testID: "SignInButton",
   }).props;
