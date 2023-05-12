@@ -15,7 +15,7 @@ export default function AddToCartButton(props: Product) {
     restaurant: props.restaurant,
     image: props.image,
   };
-  const fundisp = (dispatch, cartitem) => {
+  const fundisp = (dispatch, cartitem: Product) => {
     dispatch(
       (() => {
         return { type: "PLACE_ORDER", payload: cartitem };

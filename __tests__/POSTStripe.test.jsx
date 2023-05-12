@@ -6,7 +6,7 @@ describe("stripe", () => {
     // make sure to add a return statement
     const path = await POSTStripe([
       {
-        cartQuantity: 1,
+        quantity: 1,
         name: "name",
         price: 24,
       },

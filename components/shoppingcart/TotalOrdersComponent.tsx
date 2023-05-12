@@ -7,7 +7,7 @@ export const Total = (products) => {
 
   const total_value = products.reduce(
     (accumulator, currentValue) =>
-      accumulator + currentValue.cartQuantity * currentValue.price,
+      accumulator + currentValue.quantity * currentValue.price,
     initialValue
   );
 
@@ -21,25 +21,25 @@ export default function TotalOrdersComponent() {
   Total(state.cartItems);
   return (
     <View
-    style={{
-      flex: 3,
-      justifyContent: "center",
-      alignItems: "center",
-    }}
+      style={{
+        flex: 3,
+        justifyContent: "center",
+        alignItems: "center",
+      }}
     >
       <Pressable
         style={{ flex: 0.3 }}
         onPress={() => Total(state.cartItems)}
       ></Pressable>
-      <View style={{ flex: 1  }}>
+      <View style={{ flex: 1 }}>
         <Text
           style={{
             fontSize: 28,
             fontWeight: "bold",
             backgroundColor: "transparent",
             textAlign: "center",
-              justifyContent: "center",
-              alignItems: "center",
+            justifyContent: "center",
+            alignItems: "center",
           }}
         >
           Total:{Total(state.cartItems)} NOK

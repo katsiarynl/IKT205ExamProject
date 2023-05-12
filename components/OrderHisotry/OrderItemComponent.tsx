@@ -2,8 +2,9 @@ import { View, Text } from "react-native";
 import React from "react";
 import { orderHistorystyles } from "../../styles/orderstyles";
 import { Total } from "../shoppingcart/TotalOrdersComponent";
+import { GeneralOrder } from "../../types/orderTypes";
 
-export default function OrderItemComponent(props) {
+export default function OrderItemComponent(props: GeneralOrder) {
   const calc = Total(props.orders);
   return (
     <View style={orderHistorystyles.orderitem}>
@@ -17,7 +18,7 @@ export default function OrderItemComponent(props) {
             <Text style={{ fontSize: 20, paddingBottom: 10 }}>
               Restaurant: {order.restaurant} Dish: {order.name} Price:
               {order.price} quanity:
-              {order.cartQuantity}
+              {order.quantity}
             </Text>
           );
         })}

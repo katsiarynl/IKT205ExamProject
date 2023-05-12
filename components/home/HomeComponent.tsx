@@ -25,7 +25,7 @@ import { UserContext } from "../Auth/userContext";
 export default function HomeComponent() {
   const { navigate } = useNavigation<NavigatorProductParam>();
   const { state, dispatch } = useContext(RestaurantContext);
-  const [refreshing, setRefreshing] = React.useState(false);
+  const [refreshing, setRefreshing] = React.useState<boolean>(false);
   const { isLoading } = useContext(UserContext);
 
   const onRefresh = React.useCallback(() => {

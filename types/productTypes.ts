@@ -8,6 +8,7 @@ export type GeneralProduct = {
 
 export interface Product extends GeneralProduct {
   image: string;
+  quantity?: string;
 }
 //https://stackoverflow.com/questions/41385059/possible-to-extend-types-in-typescript
 

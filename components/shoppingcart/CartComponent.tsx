@@ -22,7 +22,7 @@ export default function CartComponent() {
                 image={item.image}
                 description={item.description}
                 price={item.price}
-                quantity={item.cartQuantity}
+                quantity={item.quantity}
               />
             );
           })}

@@ -31,7 +31,7 @@ export const SignIn = () => {
   const { setIsloggedIn, setIsuserEmail, dispatchUser } =
     useContext(UserContext);
 
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
   const [isValidEmail, setisValidEmail] = useState<boolean>(true);

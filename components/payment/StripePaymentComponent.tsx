@@ -46,8 +46,8 @@ export default function StripePaymentComponent({ route }) {
   const { dispatch } = useContext(RestaurantContext);
   const { dispatchUser } = useContext(UserContext);
   const [canGoBack, setCanGoBack] = useState(false);
-  const [canGoForward, setCanGoForward] = useState<boolean>(false);
-  const [currentUrl, setCurrentUrl] = useState("");
+  const [canGoForward, setCanGoForward] = useState<string>(false);
+  const [currentUrl, setCurrentUrl] = useState<string>("");
 
   const { navigate } = useNavigation<NavigatorStripeParam>();
 
@@ -78,15 +78,6 @@ export default function StripePaymentComponent({ route }) {
               dispatchUser,
               POSTMail
             );
-
-            // POSTOrder(
-            //   {
-            //     ordered_dishes,
-            //     email: value,
-            //   },
-            //   "YZU5Go5XQYQV4ZjfJcM4mY8XVFo1"
-            // );
-            // empty_cart(dispatch);
           }
         }}
         style={stripestyle.webviewstyle}

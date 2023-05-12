@@ -47,28 +47,25 @@ const reducer = (state: AppState, action: ActionsType) => {
     case ACTIONS.ADD_CART_ITEM:
       if (
         entry_number != undefined &&
-        state.cartItems[entry_number]["cartQuantity"] !== undefined
+        state.cartItems[entry_number]["quantity"] !== undefined
       ) {
-        state.cartItems[entry_number]["cartQuantity"] =
-          state.cartItems[entry_number]["cartQuantity"] + 1;
+        state.cartItems[entry_number]["quantity"] =
+          state.cartItems[entry_number]["quantity"] + 1;
 
         return { ...state };
       } else {
         return {
           ...state,
-          cartItems: [
-            ...state.cartItems,
-            { ...action.payload, cartQuantity: 1 },
-          ],
+          cartItems: [...state.cartItems, { ...action.payload, quantity: 1 }],
         };
       }
     case ACTIONS.DELETE_CART_ITEM:
       if (entry_number != undefined) {
-        if (state.cartItems[entry_number]["cartQuantity"] == 1) {
+        if (state.cartItems[entry_number]["quantity"] == 1) {
           state.cartItems.splice(entry_number, 1);
         } else {
-          state.cartItems[entry_number]["cartQuantity"] =
-            state.cartItems[entry_number]["cartQuantity"] - 1;
+          state.cartItems[entry_number]["quantity"] =
+            state.cartItems[entry_number]["quantity"] - 1;
         }
 
         return { ...state };

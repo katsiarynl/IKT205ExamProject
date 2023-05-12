@@ -15,9 +15,9 @@ import { NavigationHome } from "../../types/navigationTypes";
 
 export const ForgetPass = () => {
   const navigation = useNavigation<NavigationHome>();
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState<string>("");
 
-  const handleEmailchange = (text) => {
+  const handleEmailchange = (text: string) => {
     setEmail(text);
   };
 
@@ -33,7 +33,7 @@ export const ForgetPass = () => {
         [{ text: "OK", onPress: undefined }]
       );
       navigation.navigate("Home");
-    } catch (error) {
+    } catch (error: any) {
       Alert.alert("Invalid Email ", "Pleas make sure is a valid email! ");
     }
   };
