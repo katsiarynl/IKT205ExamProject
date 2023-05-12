@@ -4,6 +4,7 @@ import products from "../../styles/products";
 import { RestaurantContext } from "../../context";
 import { Product } from "../../types/productTypes";
 import Toast from "react-native-toast-message";
+import { GeneralProductQ } from "../../types/orderTypes";
 export default function AddToCartButton(props: Product) {
   const { dispatch } = useContext(RestaurantContext);
 
@@ -15,7 +16,7 @@ export default function AddToCartButton(props: Product) {
     restaurant: props.restaurant,
     image: props.image,
   };
-  const fundisp = (dispatch, cartitem: Product) => {
+  const fundisp = (dispatch, cartitem: GeneralProductQ) => {
     dispatch(
       (() => {
         return { type: "PLACE_ORDER", payload: cartitem };
