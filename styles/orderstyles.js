@@ -1,5 +1,4 @@
-import { StatusBar, StyleSheet } from "react-native";
-import { windowHeight, windowWidth } from "./dimensions";
+import { StyleSheet } from "react-native";
 
 export const orderHistorystyles = StyleSheet.create({
   container: {
@@ -79,7 +78,3 @@ export const orderHistorystyles = StyleSheet.create({
     marginLeft: "auto",
   },
 });
-
-
-
-

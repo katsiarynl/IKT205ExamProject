@@ -13,7 +13,7 @@ import Icon from "react-native-vector-icons/FontAwesome";
 import { useNavigation } from "@react-navigation/native";
 
 import axios from "axios";
-import { forgetPassStyle } from "../../styles/forgetPasswor";
+
 import { NavigationSignOut } from "../../types/navigationTypes";
 import { ScrollView } from "react-native";
 

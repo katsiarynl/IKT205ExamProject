@@ -19,9 +19,9 @@ export const Drawercontent = (props) => {
   const [emailName, setEmailName] = useState<string>("");
   const { isloggedIn } = useContext(UserContext);
 
-  const ProfileNavigator = () => {
-    navigation.navigate("SignOut");
-  };
+  // const ProfileNavigator = () => {
+  //   navigation.navigate("SignOut");
+  // };
 
   // const HomeNavigator = () => {
   //   navigation.navigate("Home");

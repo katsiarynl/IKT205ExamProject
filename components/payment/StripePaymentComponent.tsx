@@ -32,7 +32,6 @@ async function AddToHistory(
   sendMail: POSTEmailCallback
 ) {
   const credentials = await getCredentials();
-  // console.log(history);
 
   await POSTOrder(
     {
@@ -50,13 +49,12 @@ async function AddToHistory(
 }
 
 export default function StripePaymentComponent({ route }) {
-  const { state } = useContext(RestaurantContext);
   const { link, ordered_dishes } = route.params;
   const { dispatch } = useContext(RestaurantContext);
   const { dispatchUser } = useContext(UserContext);
-  const [canGoBack, setCanGoBack] = useState(false);
-  const [canGoForward, setCanGoForward] = useState<boolean>(false);
-  const [currentUrl, setCurrentUrl] = useState<string>("");
+  const [_canGoBack, setCanGoBack] = useState(false);
+  const [_canGoForward, setCanGoForward] = useState<boolean>(false);
+  const [_currentUrl, setCurrentUrl] = useState<string>("");
 
   const { navigate } = useNavigation<NavigatorStripeParam>();
 
