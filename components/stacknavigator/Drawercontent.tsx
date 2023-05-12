@@ -87,14 +87,18 @@ export const Drawercontent = (props) => {
           {isloggedIn ? <ForgotPasswordIcon /> : <SignInIcon />}
           <HomeIconComponent />
 
-          <DrawerItem
-            icon={() => {
-              return <Feather name="edit" color={"blue"} size={25} />;
-            }}
-            label="Address"
-            onPress={addressHandle}
-          />
-          <HistoryIconComponent />
+          {isloggedIn ? (
+            <>
+              <DrawerItem
+                icon={() => {
+                  return <Feather name="edit" color={"blue"} size={25} />;
+                }}
+                label="Address"
+                onPress={addressHandle}
+              />
+              <HistoryIconComponent />
+            </>
+          ) : null}
         </Drawer.Section>
       </DrawerContentScrollView>
       <Drawer.Section style={profileStyle.signOuBottom}>
