@@ -2,7 +2,7 @@ import POSTStripe from "../utilities/POSTStripe";
 //https://jestjs.io/docs/expect
 
 describe("stripe", () => {
-  test("resolves to lemon", async () => {
+  test("Check if POSTStripe function works properly  ", async () => {
     const path = await POSTStripe([
       {
         quantity: 1,

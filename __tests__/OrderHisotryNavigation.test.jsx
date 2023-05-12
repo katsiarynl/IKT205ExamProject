@@ -20,7 +20,7 @@ jest.mock("react-native-paper", () => {
 });
 
 const tree = create(<HistoryIconComponent />);
-test("snapshot", () => {
+test("Check if the user is navigated to the orderhistory screen whe the Order History draw icon is pressed", () => {
   const button = tree.root.findByProps({
     testID: "OrderHistoryIcon",
   }).props;
