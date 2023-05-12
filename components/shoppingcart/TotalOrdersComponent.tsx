@@ -22,29 +22,23 @@ export default function TotalOrdersComponent() {
   return (
     <View
       style={{
-        flex: 3,
+        flex: 2.8,
         justifyContent: "center",
-        alignItems: "center",
+        paddingLeft: "2%",
       }}
     >
-      <Pressable
-        style={{ flex: 0.3 }}
-        onPress={() => Total(state.cartItems)}
-      ></Pressable>
-      <View style={{ flex: 1 }}>
-        <Text
-          style={{
-            fontSize: 28,
-            fontWeight: "bold",
-            backgroundColor: "transparent",
-            textAlign: "center",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          Total:{Total(state.cartItems)} NOK
-        </Text>
-      </View>
+      <Text
+        style={{
+          fontSize: 28,
+          fontWeight: "bold",
+          backgroundColor: "transparent",
+          textAlign: "center",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        Total:{Total(state.cartItems)} NOK
+      </Text>
     </View>
   );
 }

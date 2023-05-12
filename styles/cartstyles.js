@@ -5,7 +5,7 @@ const cartstyle = StyleSheet.create({
   scrollStyle: {
     backgroundColor: "#E6E6EA",
     paddingTop: "5%",
-    height: windowHeight * 0.73,
+    height: windowHeight * 0.7,
   },
   cartItem: {
     backgroundColor: "#F4F4F8",
