@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot 1`] = `
+<View>
+  <Text>
+    Restaurant Name
+  </Text>
+  <Text>
+     
+    Restaurant Description
+  </Text>
+</View>
+`;

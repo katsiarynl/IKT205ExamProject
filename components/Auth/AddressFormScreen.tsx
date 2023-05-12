@@ -22,7 +22,7 @@ export default function AddressFormScreen() {
         headers: { Authorization: `Bearer ${accessToken}` },
       };
 
-      const newAddress: newAddressType = {
+      const newAddress = {
         addressLine1,
         addressLine2,
         city,
