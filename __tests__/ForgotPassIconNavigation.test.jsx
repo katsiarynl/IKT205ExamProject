@@ -9,8 +9,7 @@ jest.mock("@react-navigation/native", () => ({
 //https://github.com/react-navigation/react-navigation/issues/8207
 jest.mock("@react-navigation/drawer", () => {
   return {
-    addEventListener: jest.fn(),
-    createDrawerNavigator: jest.fn(),
+  
     DrawerItem: jest.fn(),
   };
 });
