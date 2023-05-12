@@ -10,7 +10,7 @@ export default function ForgotPasswordIcon() {
       icon={() => {
         return <Feather name="key" color={"blue"} size={25} />;
       }}
-      testID="OrderHistoryIcon"
+      testID="FogotPasswordIcon"
       label="Forgot Password?"
       onPress={() => navigation.navigate("ForgetPass")}
     />
