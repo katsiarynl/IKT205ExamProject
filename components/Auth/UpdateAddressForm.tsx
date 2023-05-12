@@ -6,11 +6,11 @@ import { useNavigation } from "@react-navigation/native";
 import React, { useState, useEffect } from "react";
 
 export default function UpdateAddressForm() {
-  const [addressLine1, setAddressLine1] = useState("");
-  const [addressLine2, setAddressLine2] = useState("");
-  const [city, setCity] = useState("");
-  const [state, setState] = useState("");
-  const [zipCode, setZipCode] = useState("");
+  const [addressLine1, setAddressLine1] = useState<string>("");
+  const [addressLine2, setAddressLine2] = useState<string>("");
+  const [city, setCity] = useState<string>("");
+  const [state, setState] = useState<string>("");
+  const [zipCode, setZipCode] = useState<string>("");
   const navigation = useNavigation();
 
   useEffect(() => {
@@ -50,7 +50,7 @@ export default function UpdateAddressForm() {
         headers: { Authorization: `Bearer ${accessToken}` },
       };
 
-      const updatedAddress = {
+      const updatedAddress: newAddressType = {
         addressLine1,
         addressLine2,
         city,

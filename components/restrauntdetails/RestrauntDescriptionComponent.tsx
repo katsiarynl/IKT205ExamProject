@@ -1,7 +1,10 @@
 import { View, Text } from "react-native";
 import React from "react";
 import restrauntInfoStyles from "../../styles/restrauntinfostyles";
-export default function RestrauntDescriptionComponent(props) {
+import { GeneralRestaurant } from "../../types/restrauntTypes";
+export default function RestrauntDescriptionComponent(
+  props: GeneralRestaurant
+) {
   return (
     <View style={restrauntInfoStyles.restrauntdescription}>
       <View
