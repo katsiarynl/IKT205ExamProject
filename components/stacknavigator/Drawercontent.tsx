@@ -12,6 +12,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { checkIfAddressExists } from "../../utilities/checkAddress";
 import HistoryIconComponent from "./HistoryIconComponent";
 import SignInIcon from "./SignInIcon";
+import HomeIconComponent from "./HomeIconComponent";
 
 export const Drawercontent = (props) => {
   const navigation = useNavigation<NavigationProfileSignOut>();
@@ -22,9 +23,9 @@ export const Drawercontent = (props) => {
     navigation.navigate("SignOut");
   };
 
-  const HomeNavigator = () => {
-    navigation.navigate("Home");
-  };
+  // const HomeNavigator = () => {
+  //   navigation.navigate("Home");
+  // };
 
   // const SignInNavigator = () => {
   //   navigation.navigate("SignIn");
@@ -83,13 +84,7 @@ export const Drawercontent = (props) => {
           <View style={{ marginLeft: 15 }}>{userEmailRender()}</View>
         </View>
         <Drawer.Section style={profileStyle.drawerSection}>
-          <DrawerItem
-            icon={() => {
-              return <Feather name="home" color={"blue"} size={25} />;
-            }}
-            label="Home"
-            onPress={HomeNavigator}
-          />
+          <HomeIconComponent />
           <SignInIcon />
           <DrawerItem
             icon={() => {
