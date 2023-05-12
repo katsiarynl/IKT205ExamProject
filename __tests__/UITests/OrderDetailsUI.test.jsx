@@ -8,6 +8,6 @@ const tree = create(
   />
 );
 
-test("snapshot", () => {
+test("Snapshot for OrderDetailsItemComponent", () => {
   expect(tree).toMatchSnapshot();
 });

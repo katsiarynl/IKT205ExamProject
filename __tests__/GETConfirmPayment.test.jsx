@@ -3,9 +3,11 @@ import POSTMail from "../utilities/ConfirmPayment";
 
 describe("<App />", () => {
   test("resolves to lemon", async () => {
-    // make sure to add a return statement
-    // const data = await POSTMail({ key: "value" });
-    // return expect(data).toHaveReturned;
-    return expect(true).toBe(true);
+    const data = await POSTMail(
+      [{ quantity: "1", name: "name", price: "33" }],
+      "lobkovskaya@icloud.com"
+    );
+
+    return expect(data).toHaveReturned;
   });
 });

@@ -7,6 +7,6 @@ jest.mock("react-native-paper", () => {
   return { Card: jest.fn() };
 });
 
-test("snapshot", () => {
+test("Snapshot for ProductCategoryComponent", () => {
   expect(tree).toMatchSnapshot();
 });

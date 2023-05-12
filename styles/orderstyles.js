@@ -10,8 +10,8 @@ export const orderHistorystyles = StyleSheet.create({
   header: {
     backgroundColor: "#F2C94C",
     borderRadius: 10,
-    marginTop: 15,
-    marginBottom: 20,
+    marginTop: 20,
+    marginBottom: 10,
     paddingVertical: 10,
     paddingHorizontal: 30,
   },

@@ -24,7 +24,7 @@ import { GeneralProductQ } from "../../types/orderTypes";
 async function AddToHistory(
   getCredentials: CredentilsCallBackType,
   POSTOrder: PostOrderCallback,
-  ordered_dishes: GeneralProductQ,
+  ordered_dishes: GeneralProductQ[],
   empty_cart: EmptyCartCallback,
   dispatch: Dispatch<ActionsType>,
   GETHistory: GetHistoryCallback,

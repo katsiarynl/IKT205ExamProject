@@ -4,6 +4,6 @@ const tree = create(
   <CartItemPreviewComponent name="Name" price="price" quantity="3" _id="id" />
 );
 
-test("snapshot", () => {
+test("Snapshot for CartItemPreviewComponent", () => {
   expect(tree).toMatchSnapshot();
 });

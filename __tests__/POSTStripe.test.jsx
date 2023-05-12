@@ -3,7 +3,6 @@ import POSTStripe from "../utilities/POSTStripe";
 
 describe("stripe", () => {
   test("resolves to lemon", async () => {
-    // make sure to add a return statement
     const path = await POSTStripe([
       {
         quantity: 1,
