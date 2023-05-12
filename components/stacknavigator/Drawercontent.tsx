@@ -14,14 +14,13 @@ import HistoryIconComponent from "./HistoryIconComponent";
 import SignInIcon from "./SignInIcon";
 import HomeIconComponent from "./HomeIconComponent";
 
+import { SignOut } from "../Auth/SignOut";
+
 export const Drawercontent = (props) => {
   const navigation = useNavigation<NavigationProfileSignOut>();
   const [emailName, setEmailName] = useState<string>("");
   const { isloggedIn } = useContext(UserContext);
 
-  // const ProfileNavigator = () => {
-  //   navigation.navigate("SignOut");
-  // };
 
   // const HomeNavigator = () => {
   //   navigation.navigate("Home");
@@ -30,7 +29,7 @@ export const Drawercontent = (props) => {
   // const SignInNavigator = () => {
   //   navigation.navigate("SignIn");
   // };
-  const testhandles = async () => {
+  const addressHandle = async () => {
     const addressExists = await checkIfAddressExists();
     if (addressExists) {
       navigation.navigate("UpdateAddressForm");
@@ -91,11 +90,14 @@ export const Drawercontent = (props) => {
               return <Feather name="edit" color={"blue"} size={25} />;
             }}
             label="Address"
-            onPress={testhandles}
+            onPress={addressHandle}
           />
           <HistoryIconComponent />
         </Drawer.Section>
       </DrawerContentScrollView>
+      <Drawer.Section style={profileStyle.signOuBottom}>
+        {isloggedIn ? <SignOut /> : null}
+      </Drawer.Section>
     </View>
   );
 };

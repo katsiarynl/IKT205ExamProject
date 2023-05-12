@@ -8,6 +8,8 @@ import { NavigationHome } from "../../types/navigationTypes";
 import RemoveHisotry from "../../utilities/RemoveHistory";
 import { RestaurantContext } from "../../context";
 import empty_cart from "../../utilities/Empty_Cart";
+import { DrawerItem } from "@react-navigation/drawer";
+import { Feather } from "@expo/vector-icons";
 export const SignOut = () => {
   const navigator = useNavigation<NavigationHome>();
 
@@ -32,8 +34,12 @@ export const SignOut = () => {
   };
 
   return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Button title="Logout" onPress={handleSignOut}></Button>
-    </View>
+    <DrawerItem
+      icon={() => {
+        return <Feather name="log-out" color={"blue"} size={25} />;
+      }}
+      label="Sign Out"
+      onPress={() => handleSignOut()}
+    />
   );
 };
