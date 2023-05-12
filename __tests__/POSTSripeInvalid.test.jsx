@@ -6,7 +6,7 @@ describe("<App />", () => {
     // make sure to add a return statement
     const path = await POSTStripe([
       {
-        quantity: 1,
+        quantit: 1,
         name: "name",
         price: 24,
       },

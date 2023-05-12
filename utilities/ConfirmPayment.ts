@@ -1,6 +1,7 @@
 import axios from "axios";
+import { GeneralProductQ } from "../types/orderTypes";
 
-async function POSTMail(cartdata: Array<object>, mail: string) {
+async function POSTMail(cartdata: GeneralProductQ, mail: string) {
   const { data } = await axios.post(
     "https://cook2go.herokuapp.com/nodemailer/" + mail + "/",
 

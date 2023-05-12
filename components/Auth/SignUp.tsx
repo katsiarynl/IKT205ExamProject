@@ -15,6 +15,8 @@ import axios from "axios";
 import { NavigationSignOut } from "../../types/navigationTypes";
 import { TextInput } from "react-native-paper";
 import SignInButtonComponent from "./SignInButtonComponent";
+import ValidatePassword from "../../utilities/PasswordValidation";
+import ValidateEmail from "../../utilities/EmailValidation";
 
 // email Validation
 const EmailsValidation = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
@@ -37,12 +39,12 @@ export const SignUp = () => {
   // Handle Email Blur if the Email is Valid.
 
   const handleEmailBlur = () => {
-    setisValidEmail(EmailsValidation.test(email));
+    setisValidEmail(ValidateEmail(email));
   };
   // handle Password Blur if a password not valid
 
   const handlePasswordBlur = () => {
-    setIsValidPassword(PasswordValidation.test(password));
+    setIsValidPassword(ValidatePassword(password));
   };
 
   const handleSignUp = async () => {

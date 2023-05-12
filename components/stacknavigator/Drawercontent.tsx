@@ -9,7 +9,9 @@ import { NavigationProfileSignOut } from "../../types/navigationTypes";
 import { UsersEmail } from "../userInfo/getUserInfo";
 import { UserContext } from "../Auth/userContext";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { checkIfAddressExists } from '../../utilities/checkAddress';
+import { checkIfAddressExists } from "../../utilities/checkAddress";
+import HistoryIconComponent from "./HistoryIconComponent";
+import SignInIcon from "./SignInIcon";
 
 export const Drawercontent = (props) => {
   const navigation = useNavigation<NavigationProfileSignOut>();
@@ -24,18 +26,16 @@ export const Drawercontent = (props) => {
     navigation.navigate("Home");
   };
 
-  const SignInNavigator = () => {
-    navigation.navigate("SignIn");
-  };
+  // const SignInNavigator = () => {
+  //   navigation.navigate("SignIn");
+  // };
   const testhandles = async () => {
     const addressExists = await checkIfAddressExists();
     if (addressExists) {
       navigation.navigate("UpdateAddressForm");
-    } 
-    else if (!isloggedIn) {
+    } else if (!isloggedIn) {
       navigation.navigate("SignIn");
-    }
-    else {
+    } else {
       navigation.navigate("AddressForm");
     }
   };
@@ -90,13 +90,7 @@ export const Drawercontent = (props) => {
             label="Home"
             onPress={HomeNavigator}
           />
-          <DrawerItem
-            icon={() => {
-              return <Feather name="log-in" color={"blue"} size={25} />;
-            }}
-            label="Sign In "
-            onPress={SignInNavigator}
-          />
+          <SignInIcon />
           <DrawerItem
             icon={() => {
               return <Feather name="edit" color={"blue"} size={25} />;
@@ -104,24 +98,9 @@ export const Drawercontent = (props) => {
             label="Address"
             onPress={testhandles}
           />
-          <DrawerItem
-            icon={() => {
-              return <Feather name="shopping-bag" color={"blue"} size={25} />;
-            }}
-            label="Order History"
-            onPress={() => navigation.navigate("orderHistory")}
-          />
+          <HistoryIconComponent />
         </Drawer.Section>
       </DrawerContentScrollView>
-      <Drawer.Section style={profileStyle.signOuBottom}>
-        <DrawerItem
-          icon={() => {
-            return <Feather name="log-out" color={"blue"} size={25} />;
-          }}
-          label="Sign Out"
-          onPress={ProfileNavigator}
-        />
-      </Drawer.Section>
     </View>
   );
 };

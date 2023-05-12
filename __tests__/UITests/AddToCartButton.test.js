@@ -1,7 +1,7 @@
 import React from "react";
 import { create } from "react-test-renderer";
-import AddToCartButtonComponent from "../components/products/AddToCartButton";
-const tree = create(<AddToCartButtonComponent />);
+import AddToCartButton from "../../components/products/AddToCartButton";
+const tree = create(<AddToCartButton />);
 
 test("snapshot", () => {
   expect(tree).toMatchSnapshot();

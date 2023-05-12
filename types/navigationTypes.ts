@@ -16,6 +16,7 @@ export type RootStackParamList = {
   orderHistory: undefined;
   ItemProfile: undefined;
   AddressForm: undefined;
+  UpdateAddressForm: undefined;
 };
 
 export type NavigatorStripeParam = NativeStackNavigationProp<

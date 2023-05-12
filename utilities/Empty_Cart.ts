@@ -1,8 +1,5 @@
-const empty_cart = (dispatch) => {
-  dispatch(
-    (() => {
-      return { type: "REMOVE_ITEMS" };
-    })()
-  );
+import { ActionsType } from "../context";
+const empty_cart = (dispatch: React.Dispatch<ActionsType>) => {
+  return dispatch({ type: "REMOVE_ITEMS" });
 };
 export default empty_cart;

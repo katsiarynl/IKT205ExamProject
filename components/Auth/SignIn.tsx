@@ -21,10 +21,11 @@ import { UserContext } from "./userContext";
 
 import GETOrderHistoryById from "../../utilities/GETOrderHistoryById";
 import SetUser from "../../utilities/SetUser";
-// email Validation
-const EmailsValidation = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
-// password validation
-const PasswordValidation = /^(?=.*[a-zA-Z]?\d?[a-zA-Z]?).{6,}$/;
+import ValidateEmail from "../../utilities/EmailValidation";
+import ForgetPassowrdButtonComponent from "./ForgetPassowrdButtonComponent";
+import SignUpButtonComponent from "./SignUpButtonComponent";
+import ValidatePassword from "../../utilities/PasswordValidation";
+
 export const SignIn = () => {
   const navigation = useNavigation<NavigationSignOut>();
 
@@ -43,13 +44,13 @@ export const SignIn = () => {
   };
 
   const handleEmailBlur = () => {
-    setisValidEmail(EmailsValidation.test(email));
+    setisValidEmail(ValidateEmail(email));
   };
   const handlePasswordBlur = () => {
     if (password.length >= 6) {
       setIsValidPassword(true);
     }
-    setIsValidPassword(PasswordValidation.test(password));
+    setIsValidPassword(ValidatePassword(password));
   };
 
   const handleSignIn = async () => {
@@ -145,15 +146,7 @@ export const SignIn = () => {
               Login{" "}
             </Text>
           </TouchableOpacity>
-          <View style={forgetPassStyle.container}>
-            <TouchableOpacity onPress={() => navigation.navigate("ForgetPass")}>
-              <Text
-                style={{ fontWeight: "bold", color: "#7E3B14", fontSize: 19 }}
-              >
-                Forget Password?{" "}
-              </Text>
-            </TouchableOpacity>
-          </View>
+          <ForgetPassowrdButtonComponent />
 
           <Text style={signInStyle.orTextStyle}>………………………or………………………</Text>
           <View style={signInStyle.buttonSocial}>
@@ -174,16 +167,7 @@ export const SignIn = () => {
               Login with Facebook
             </Icon.Button>
           </View>
-          <View style={signInStyle.singUpContainer}>
-            <Text style={signInStyle.textSingUp}>Don't have an account? </Text>
-            <TouchableOpacity onPress={() => navigation.navigate("SignUp")}>
-              <Text
-                style={{ fontWeight: "bold", color: "#7E3B14", fontSize: 19 }}
-              >
-                Sing Up{" "}
-              </Text>
-            </TouchableOpacity>
-          </View>
+          <SignUpButtonComponent />
         </ScrollView>
       </SafeAreaView>
     </View>
