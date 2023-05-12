@@ -1,6 +1,7 @@
 import axios from "axios";
+import { GeneralProductQ } from "../types/orderTypes";
 
-async function POSTOrder(order, id: string) {
+async function POSTOrder(order: GeneralProductQ, id: string) {
   const { data } = await axios.put(
     "https://cook2go.herokuapp.com/users/" + id,
 

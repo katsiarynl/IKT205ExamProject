@@ -1,4 +1,4 @@
-type newAddressType = {
+export type newAddressType = {
   addressLine1: string;
   addressLine2: string;
   city: string;

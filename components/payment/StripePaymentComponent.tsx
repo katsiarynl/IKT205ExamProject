@@ -8,19 +8,28 @@ import { RestaurantContext } from "../../context";
 import stripestyle from "../../styles/stripestyles";
 import POSTOrder from "../../utilities/POSTOrder";
 import { UserContext } from "../Auth/userContext";
-
+import { ActionsType } from "../../context";
+import { Dispatch } from "react";
 import GetTokenAndId from "../../utilities/GetTokenAndId";
 import GETOrderHistoryById from "../../utilities/GETOrderHistoryById";
 import empty_cart from "../../utilities/Empty_Cart";
+import {
+  CredentilsCallBackType,
+  EmptyCartCallback,
+  GetHistoryCallback,
+  POSTEmailCallback,
+  PostOrderCallback,
+} from "../../types/callbackTypes";
+import { GeneralProductQ } from "../../types/orderTypes";
 async function AddToHistory(
-  getCredentials,
-  POSTOrder,
-  ordered_dishes,
-  empty_cart,
-  dispatch,
-  GETHistory,
-  dispatchUser,
-  sendMail
+  getCredentials: CredentilsCallBackType,
+  POSTOrder: PostOrderCallback,
+  ordered_dishes: GeneralProductQ,
+  empty_cart: EmptyCartCallback,
+  dispatch: Dispatch<ActionsType>,
+  GETHistory: GetHistoryCallback,
+  dispatchUser: Dispatch<ActionsType>,
+  sendMail: POSTEmailCallback
 ) {
   const credentials = await getCredentials();
   // console.log(history);
@@ -46,7 +55,7 @@ export default function StripePaymentComponent({ route }) {
   const { dispatch } = useContext(RestaurantContext);
   const { dispatchUser } = useContext(UserContext);
   const [canGoBack, setCanGoBack] = useState(false);
-  const [canGoForward, setCanGoForward] = useState<string>(false);
+  const [canGoForward, setCanGoForward] = useState<boolean>(false);
   const [currentUrl, setCurrentUrl] = useState<string>("");
 
   const { navigate } = useNavigation<NavigatorStripeParam>();

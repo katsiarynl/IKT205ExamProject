@@ -2,8 +2,8 @@ import React, { createContext, useState, useEffect, useReducer } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import GETOrderHistoryById from "../../utilities/GETOrderHistoryById";
 import { Product } from "../../types/productTypes";
-export type ActionsType = { type: string; payload: any };
 
+import { ActionsType } from "../../context";
 type AppState = typeof initialStateHistory;
 const ACTIONS = {
   ADD_HISTORY: "ADD",
