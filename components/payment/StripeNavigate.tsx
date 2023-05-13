@@ -6,6 +6,7 @@ import POSTStripe from "../../utilities/POSTStripe";
 import { RestaurantContext } from "../../context";
 
 import { Product } from "../../types/productTypes";
+//getting stripe link
 async function NavigateToStripeWebView(
   callback: Promise<string>,
   callback2: React.Dispatch<React.SetStateAction<string>>,

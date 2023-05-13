@@ -85,6 +85,7 @@ export default function StripePaymentComponent({ route }) {
           setCanGoForward(navState.canGoForward);
           setCurrentUrl(navState.url);
 
+          //if payment is successful
           if (navState.url == "http://localhost:5000/success") {
             navigate("navbar");
 
