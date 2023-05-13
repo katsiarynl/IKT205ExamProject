@@ -8,7 +8,7 @@ import { Feather } from "@expo/vector-icons";
 import HomeComponent from "../home/HomeComponent";
 import CartComponent from "../shoppingcart/CartComponent";
 
-import { SignIn } from "../Auth/SignIn";
+import { FavoriteComponent } from "../Favorite/FavoriteComponent";
 
 import ProfileComponent from "../profile/ProfileComponent";
 import React from "react";
@@ -30,7 +30,7 @@ export default function NavigatorBarComponent() {
       />
       <Tab.Screen
         name="Favorites"
-        component={SignIn}
+        component={FavoriteComponent}
         options={{
           tabBarLabel: "Favorites",
           tabBarIcon: ({ color }) => (
@@ -47,7 +47,6 @@ export default function NavigatorBarComponent() {
             <AntDesign name="shoppingcart" size={24} color={color} />
           ),
         }}
-        
       />
       <Tab.Screen
         name="Profile"
