@@ -48,6 +48,17 @@ async function AddToHistory(
   await GETHistory(credentials.email, dispatchUser);
   return empty_cart(dispatch);
 }
+const paymentSuccess = () => {
+  Toast.show({
+    type: "success",
+    text1: `Your Payment has been success `,
+    text2: `Welcome back! `,
+    position: "top",
+    autoHide: true,
+    topOffset: 40,
+    bottomOffset: 90,
+  });
+};
 
 export default function StripePaymentComponent({ route }) {
   const { link, ordered_dishes } = route.params;
@@ -59,25 +70,14 @@ export default function StripePaymentComponent({ route }) {
 
   const { navigate } = useNavigation<NavigatorStripeParam>();
 
-  const paymentSuccess = () => {
-    Toast.show({
-      type: "success",
-      text1: `Your Payment has been success `,
-      text2: `Welcome back! `,
-      position: "top",
-      autoHide: true,
-      topOffset: 40,
-      bottomOffset: 90,
-    });
-  };
-
   return (
     <View style={stripestyle.screen_webviewstyle}>
       <WebView
         source={{
           uri: link,
         }}
-        onError={() => setCurrentUrl("http://localhost:5000/success")} // when payment complites - url will become undefined -> error == good
+        onError={() => setCurrentUrl("http://localhost:5000/success")}
+        // when payment complites - url will become undefined -> error == good
         onNavigationStateChange={(navState) => {
           setCanGoBack(navState.canGoBack);
           setCanGoForward(navState.canGoForward);
@@ -99,7 +99,9 @@ export default function StripePaymentComponent({ route }) {
               POSTMail
             );
           }
-          paymentSuccess();
+          if (navState.url.includes("success")) {
+            paymentSuccess();
+          }
         }}
         style={stripestyle.webviewstyle}
       />
