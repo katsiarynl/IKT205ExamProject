@@ -1,6 +1,6 @@
 import { useNavigation } from "@react-navigation/native";
 import React, { useState, useContext } from "react";
-import { View } from "react-native";
+import { View, Text } from "react-native";
 import { WebView } from "react-native-webview";
 import { NavigatorStripeParam } from "../../types/navigationTypes";
 import POSTMail from "../../utilities/ConfirmPayment";
@@ -13,6 +13,7 @@ import { Dispatch } from "react";
 import GetTokenAndId from "../../utilities/GetTokenAndId";
 import GETOrderHistoryById from "../../utilities/GETOrderHistoryById";
 import empty_cart from "../../utilities/Empty_Cart";
+import Toast from "react-native-toast-message";
 import {
   CredentilsCallBackType,
   EmptyCartCallback,
@@ -58,6 +59,18 @@ export default function StripePaymentComponent({ route }) {
 
   const { navigate } = useNavigation<NavigatorStripeParam>();
 
+  const paymentSuccess = () => {
+    Toast.show({
+      type: "success",
+      text1: `Your Payment has been success `,
+      text2: `Welcome back! `,
+      position: "top",
+      autoHide: true,
+      topOffset: 40,
+      bottomOffset: 90,
+    });
+  };
+
   return (
     <View style={stripestyle.screen_webviewstyle}>
       <WebView
@@ -86,6 +99,7 @@ export default function StripePaymentComponent({ route }) {
               POSTMail
             );
           }
+          paymentSuccess();
         }}
         style={stripestyle.webviewstyle}
       />
