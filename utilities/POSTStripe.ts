@@ -1,9 +1,11 @@
 import axios from "axios";
 import { GeneralProductQ } from "../types/orderTypes";
+import GetTokenAndId from "./GetTokenAndId";
 
 async function POSTStripe(cartdata: GeneralProductQ[]) {
+  const { email } = await GetTokenAndId();
   const { data } = await axios.post(
-    "https://cook2go.herokuapp.com/create-checkout-session",
+    "https://cook2go.herokuapp.com/create-checkout-session/" + email + "/",
     cartdata,
     {
       headers: {
