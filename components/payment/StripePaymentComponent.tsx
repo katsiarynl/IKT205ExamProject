@@ -34,7 +34,7 @@ async function AddToHistory(
 ) {
   const credentials = await getCredentials();
 
-  await POSTOrder(
+  POSTOrder(
     {
       ordered_dishes,
       email: credentials.email,
@@ -78,17 +78,18 @@ export default function StripePaymentComponent({ route }) {
         source={{
           uri: link,
         }}
-        onError={() => setCurrentUrl("https://cook2go.herokuapp.com/cancel")}
+        onError={() => setCurrentUrl("http://localhost:5000/success")}
         // when payment is successfull - url will become undefined -> error == good
         onNavigationStateChange={(navState) => {
           setCanGoBack(navState.canGoBack);
           setCanGoForward(navState.canGoForward);
           setCurrentUrl(navState.url);
 
-          if (navState.url == "https://cook2go.herokuapp.com/success") {
+          //if payment is successful
+          if (navState.url == "http://localhost:5000/success") {
             navigate("navbar");
 
-            navState.url = "https://cook2go.herokuapp.com/success";
+            navState.url = "http://localhost:5000/success";
 
             AddToHistory(
               GetTokenAndId,
@@ -100,8 +101,11 @@ export default function StripePaymentComponent({ route }) {
               dispatchUser,
               POSTMail
             );
-            paymentSuccess();
-          } else if (navState.url == "https://cook2go.herokuapp.com/cancel") {
+            //toast message
+            if (navState.url.includes("success")) {
+              paymentSuccess();
+            }
+          } else if (navState.url == "http://localhost:5000/cancel") {
             navigate("navbar");
           }
         }}
