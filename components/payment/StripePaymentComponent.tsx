@@ -100,6 +100,7 @@ export default function StripePaymentComponent({ route }) {
               dispatchUser,
               POSTMail
             );
+            //toast message
             if (navState.url.includes("success")) {
               paymentSuccess();
             }
