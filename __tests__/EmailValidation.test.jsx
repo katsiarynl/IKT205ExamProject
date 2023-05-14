@@ -1,5 +1,5 @@
 //https://jestjs.io/docs/expect
-import ValidateEmail, { EmailsValidation } from "../utilities/EmailValidation";
+import ValidateEmail from "../utilities/EmailValidation";
 
 describe("<App />", () => {
   test("resolves to lemon", async () => {
