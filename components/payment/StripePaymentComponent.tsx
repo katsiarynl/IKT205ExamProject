@@ -1,5 +1,5 @@
 import { useNavigation } from "@react-navigation/native";
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import { View } from "react-native";
 import { WebView } from "react-native-webview";
 import { NavigatorStripeParam } from "../../types/navigationTypes";
@@ -46,6 +46,7 @@ async function AddToHistory(
 
   // GETHistory(credentials.token, dispatch);
   await GETHistory(credentials.email, dispatchUser);
+
   return empty_cart(dispatch);
 }
 
@@ -66,9 +67,8 @@ export default function StripePaymentComponent({ route }) {
   const { dispatch } = useContext(RestaurantContext);
   const { dispatchUser } = useContext(UserContext);
   //https://andrewnbishop.com/working-with-web-views-in-react-native
-  const [_canGoBack, setCanGoBack] = useState(false);
-  const [_canGoForward, setCanGoForward] = useState<boolean>(false);
-  const [_currentUrl, setCurrentUrl] = useState<string>("");
+
+  const { render, setRender } = useContext(UserContext);
 
   const { navigate } = useNavigation<NavigatorStripeParam>();
 
@@ -78,34 +78,34 @@ export default function StripePaymentComponent({ route }) {
         source={{
           uri: link,
         }}
-        onError={() => setCurrentUrl("http://localhost:5000/success")}
         // when payment is successfull - url will become undefined -> error == good
         onNavigationStateChange={(navState) => {
-          setCanGoBack(navState.canGoBack);
-          setCanGoForward(navState.canGoForward);
-          setCurrentUrl(navState.url);
-
           //if payment is successful
-          if (navState.url == "http://localhost:5000/success") {
+          if (navState.url == "https://cook2go.herokuapp.com/success") {
             navigate("navbar");
 
-            navState.url = "http://localhost:5000/success";
+            if (render == 0) {
+              AddToHistory(
+                GetTokenAndId,
+                POSTOrder,
+                ordered_dishes,
+                empty_cart,
+                dispatch,
+                GETOrderHistoryById,
+                dispatchUser,
+                POSTMail
+              );
+              setRender(1);
+            } else {
+              setRender(0);
+            }
 
-            AddToHistory(
-              GetTokenAndId,
-              POSTOrder,
-              ordered_dishes,
-              empty_cart,
-              dispatch,
-              GETOrderHistoryById,
-              dispatchUser,
-              POSTMail
-            );
             //toast message
             if (navState.url.includes("success")) {
               paymentSuccess();
             }
-          } else if (navState.url == "http://localhost:5000/cancel") {
+            return;
+          } else if (navState.url == "https://cook2go.herokuapp.com/cancel") {
             navigate("navbar");
           }
         }}
