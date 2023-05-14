@@ -23,8 +23,6 @@ export type CategorizedProducts = {
 export type ProductCategoryComponentType = {
   category: string;
   setCategory: React.Dispatch<any>;
-  // products: string;
-  // allmeals: CategorizedProducts[];
 };
 
 export type ScrollCategoriesComponentType = {

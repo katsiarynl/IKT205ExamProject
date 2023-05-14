@@ -1,9 +1,5 @@
-import { GeneralProduct } from "./productTypes";
+import { Product } from "./../types/productTypes";
 export type GeneralOrder = {
   order_date: string;
-  orders: GeneralProductQ[];
+  orders: Product[];
 };
-
-export interface GeneralProductQ extends GeneralProduct {
-  quantity?: number;
-}

@@ -1,8 +1,8 @@
 import axios from "axios";
-import { GeneralProductQ } from "../types/orderTypes";
+import { Product } from "./../types/productTypes";
 import GetTokenAndId from "./GetTokenAndId";
 
-async function POSTStripe(cartdata: GeneralProductQ[]) {
+async function POSTStripe(cartdata: Product[]) {
   const { email } = await GetTokenAndId();
   const { data } = await axios.post(
     "https://cook2go.herokuapp.com/create-checkout-session/" + email + "/",

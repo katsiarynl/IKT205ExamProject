@@ -1,4 +1,4 @@
-import { GeneralProductQ } from "./orderTypes";
+import { Product } from "./../types/productTypes";
 import { ActionsType } from "../context";
 export interface PostOrderCallback {
   (order: any, id: string): object;
@@ -17,5 +17,5 @@ export interface GetHistoryCallback {
 }
 
 export interface POSTEmailCallback {
-  (cartdata: GeneralProductQ[], mail: string): any;
+  (cartdata: Product[], mail: string): any;
 }

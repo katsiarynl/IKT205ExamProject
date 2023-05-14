@@ -2,9 +2,9 @@ import { View, Text } from "react-native";
 import React from "react";
 import QuantityComponent from "./QuantityComponent";
 
-import { GeneralProductQ } from "../../types/orderTypes";
+import { Product } from "../../types/orderTypes";
 
-export default function CartItemPreviewComponent(props: GeneralProductQ) {
+export default function CartItemPreviewComponent(props: Product) {
   return (
     <View style={{ flex: 1, flexDirection: "column" }}>
       <View style={{ flexDirection: "row", flex: 1 }}>

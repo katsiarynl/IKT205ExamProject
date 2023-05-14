@@ -21,11 +21,11 @@ import {
   POSTEmailCallback,
   PostOrderCallback,
 } from "../../types/callbackTypes";
-import { GeneralProductQ } from "../../types/orderTypes";
+import { Product } from "../../types/productTypes";
 async function AddToHistory(
   getCredentials: CredentilsCallBackType,
   POSTOrder: PostOrderCallback,
-  ordered_dishes: GeneralProductQ[],
+  ordered_dishes: Product[],
   empty_cart: EmptyCartCallback,
   dispatch: Dispatch<ActionsType>,
   GETHistory: GetHistoryCallback,
