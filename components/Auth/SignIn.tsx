@@ -8,7 +8,6 @@ import {
   Text,
   SafeAreaView,
 } from "react-native";
-import { onGoogleSignIn } from "../External/googleLogin";
 import { TextInput } from "react-native-paper";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { useNavigation } from "@react-navigation/native";
@@ -22,6 +21,7 @@ import { UserContext } from "./userContext";
 import ValidateEmail from "../../utilities/EmailValidation";
 import GETOrderHistoryById from "../../utilities/GETOrderHistoryById";
 import SetUser from "../../utilities/SetUser";
+import { GoogleComponent } from "../External/googleLogin";
 // email Validation
 const EmailsValidation = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
 // password validation
@@ -51,10 +51,6 @@ export const SignIn = () => {
       setIsValidPassword(true);
     }
     setIsValidPassword(PasswordValidation.test(password));
-  };
-
-  const handleGoogleSign = async () => {
-    await onGoogleSignIn();
   };
 
   const handleSignIn = async () => {
@@ -170,15 +166,7 @@ export const SignIn = () => {
               Login with Facebook
             </Icon.Button>
           </View>
-          <View style={signInStyle.googleStyle}>
-            <Icon.Button
-              name="google"
-              backgroundColor="#900603"
-              onPress={handleGoogleSign}
-            >
-              Login with Google
-            </Icon.Button>
-          </View>
+          <GoogleComponent />
           <View style={signInStyle.singUpContainer}>
             <Text style={signInStyle.textSingUp}>Don't have an account? </Text>
             <TouchableOpacity onPress={() => navigation.navigate("SignUp")}>
