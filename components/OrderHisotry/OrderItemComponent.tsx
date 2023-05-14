@@ -16,9 +16,9 @@ export default function OrderItemComponent(props: GeneralOrder) {
         {props.orders.map((order) => {
           return (
             <Text style={{ fontSize: 20, paddingBottom: 10 }}>
-              Restaurant: {order.restaurant} Dish: {order.name} Price:
-              {order.price} quanity:
-              {order.quantity}
+              Restaurant: {order.restaurant}; Dish: {order.name} Price:
+              {order.price}; Quantity:
+              {order.quantity}.
             </Text>
           );
         })}

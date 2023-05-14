@@ -6,6 +6,7 @@ import POSTStripe from "../../utilities/POSTStripe";
 import { RestaurantContext } from "../../context";
 
 import { Product } from "../../types/productTypes";
+import { UserContext } from "../Auth/userContext";
 //getting stripe link
 async function NavigateToStripeWebView(
   callback: Promise<string>,
@@ -23,6 +24,7 @@ export default function StripeNavigate() {
   const { state } = useContext(RestaurantContext);
   const navigator = useNavigation();
   const [_, setLink] = useState("");
+  const { setRender } = useContext(UserContext);
   useEffect(() => {
     NavigateToStripeWebView(
       POSTStripe(state.cartItems),
@@ -30,6 +32,7 @@ export default function StripeNavigate() {
       navigator.navigate,
       state.cartItems
     );
+    setRender(0);
   }, []);
 
   return (

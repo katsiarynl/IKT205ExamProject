@@ -1,6 +1,4 @@
 import Toast from "react-native-toast-message";
-import { View } from "react-native";
-import React from "react";
 
 export const paymentSeccess = () => {
   const payemDone = () => {
