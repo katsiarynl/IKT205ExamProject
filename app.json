@@ -1,6 +1,7 @@
 {
   "expo": {
     "name": "IKT205FinalProject",
+    "plugins": ["@react-native-google-signin/google-signin"],
     "slug": "IKT205FinalProject",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -11,9 +12,7 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     },
@@ -21,10 +20,17 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "googleServicesFile": "./google-services.json",
+      "package": "com.cookTogo.IKT205FinalProject"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "db45fd3d-e573-45b0-ae51-b2fcc7f3bba1"
+      }
     }
   }
 }

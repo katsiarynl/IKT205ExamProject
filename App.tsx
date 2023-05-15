@@ -1,20 +1,23 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import RestaurantProvider from "./context";
+import { UserProvider } from "./components/Auth/userContext";
+import "react-native-gesture-handler";
+import Toast from "react-native-toast-message";
+
+import { NavigationContainer } from "@react-navigation/native";
+import StackNavigatorComponent from "./components/stacknavigator/StackNavigatorComponent";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <>
+      <NavigationContainer>
+        <RestaurantProvider>
+          <UserProvider>
+            <StackNavigatorComponent />
+          </UserProvider>
+        </RestaurantProvider>
+      </NavigationContainer>
+      <Toast />
+    </>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

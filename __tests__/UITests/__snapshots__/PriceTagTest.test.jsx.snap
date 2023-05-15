@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot 1`] = `
+<View
+  style={
+    {
+      "alignItems": "center",
+      "backgroundColor": "#FFA500",
+      "borderRadius": 8,
+      "flexDirection": "row",
+      "paddingHorizontal": 8,
+      "paddingVertical": 5,
+    }
+  }
+>
+  <Text
+    style={
+      {
+        "color": "#FFFFFF",
+        "fontSize": 16,
+        "fontWeight": "bold",
+      }
+    }
+  >
+    55
+  </Text>
+  <Text
+    style={
+      {
+        "color": "#FFFFFF",
+        "fontSize": 12,
+        "marginLeft": 5,
+      }
+    }
+  >
+    NOK
+  </Text>
+</View>
+`;

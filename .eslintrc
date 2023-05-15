@@ -1,0 +1,53 @@
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "overrides": [
+    {
+      "files": [
+        "**/*.spec.js",
+        "./**/__mocks__/**",
+        "**/__tests__/**",
+        "**/*.test.js",
+        "**/*.spec.ts",
+        "**/*.test.ts",
+        "**/*.test.jsx",
+        "**/*.test.tsx",
+        "./jest.setup.js"
+      ],
+      "env": {
+        "jest": true,
+        "browser": true,
+        "node": true
+      }
+    }
+  ],
+  "rules": {
+    "no-console": [
+      "error",
+      {
+        "allow": ["warn", "dir", "timeLog", "table", "error", "context"]
+      }
+    ],
+    "@typescript-eslint/no-unused-vars": [
+      //https://stackoverflow.com/questions/64052318/how-to-disable-warn-about-some-unused-params-but-keep-typescript-eslint-no-un
+      "warn", // or "error"
+      {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_",
+        "caughtErrorsIgnorePattern": "^_"
+      }
+    ],
+
+    "@typescript-eslint/ban-ts-comment": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "react/react-in-jsx-scope": "off",
+
+    "react/jsx-filename-extension": "off"
+  }
+}
