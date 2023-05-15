@@ -8,10 +8,7 @@ export interface RestrauntComponentType extends GeneralRestaurant {
   image: string;
 }
 
-export interface RestrauntItemComponentType extends GeneralRestaurant {
-  key: number;
-
+export interface RestrauntItemComponentType extends RestrauntComponentType {
   address: string;
   rating: number;
-  image: string;
 }
