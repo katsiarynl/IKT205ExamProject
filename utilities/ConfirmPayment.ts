@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Product } from "../types/orderTypes";
+import { Product } from "./../types/productTypes";
 
 async function POSTMail(cartdata: Product[], mail: string) {
   const { data } = await axios.post(
