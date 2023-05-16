@@ -1,8 +1,7 @@
 import { View, Text } from "react-native";
 import React from "react";
 import QuantityComponent from "./QuantityComponent";
-
-import { Product } from "../../types/orderTypes";
+import { Product } from "../../types/productTypes";
 
 export default function CartItemPreviewComponent(props: Product) {
   return (

@@ -4,7 +4,7 @@ import products from "../../styles/products";
 import { RestaurantContext } from "../../context";
 import { GeneralProductImage } from "../../types/productTypes";
 import Toast from "react-native-toast-message";
-import { Product } from "../../types/orderTypes";
+import { Product } from "../../types/productTypes";
 export default function AddToCartButton(props: GeneralProductImage) {
   const { dispatch } = useContext(RestaurantContext);
 
@@ -17,14 +17,12 @@ export default function AddToCartButton(props: GeneralProductImage) {
     image: props.image,
   };
   const fundisp = (dispatch, cartitem: Product) => {
-    dispatch(
-      (() => {
-        return { type: "PLACE_ORDER", payload: cartitem };
-      })()
-    );
+    return dispatch({ type: "PLACE_ORDER", payload: cartitem });
   };
 
   const alertAddedToCart = () => {
+    // @ts-ignore
+    //quantity will be added in the restaurant context
     fundisp(dispatch, new_product);
 
     Toast.show({
