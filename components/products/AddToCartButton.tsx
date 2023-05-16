@@ -17,11 +17,7 @@ export default function AddToCartButton(props: GeneralProductImage) {
     image: props.image,
   };
   const fundisp = (dispatch, cartitem: Product) => {
-    dispatch(
-      (() => {
-        return { type: "PLACE_ORDER", payload: cartitem };
-      })()
-    );
+    return dispatch({ type: "PLACE_ORDER", payload: cartitem });
   };
 
   const alertAddedToCart = () => {
