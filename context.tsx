@@ -1,15 +1,14 @@
 import React, { useEffect, useReducer } from "react";
 import { createContext } from "react";
 import { Product } from "./types/productTypes";
-import { RestrauntItemComponentType } from "./types/restrauntTypes";
+import { RestaurantItemComponentType } from "./types/restrauntTypes";
 import GETRestaurants from "./utilities/GETRestaurants";
 
 export type ActionsType = { type: string; payload?: any };
 
 type AppState = typeof initialState;
 
-//we were struggling to create a good context. therefore we asked the assistant for help during one of the ikt205 labs
-//
+//reused context from the student assignment
 //Extra resources: https://refine.dev/blog/usecontext-and-react-context/
 //https://www.youtube.com/watch?v=5LrDIWkK_Bc&t=489s
 
@@ -79,7 +78,7 @@ const reducer = (state: AppState, action: ActionsType) => {
 };
 
 type InitialStateType = {
-  restraunts: RestrauntItemComponentType[];
+  restraunts: RestaurantItemComponentType[];
   cartItems: Product[];
 };
 const initialState: InitialStateType = {

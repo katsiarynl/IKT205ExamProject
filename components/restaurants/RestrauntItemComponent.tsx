@@ -5,12 +5,12 @@ import { SvgXml } from "react-native-svg";
 import star from "../../assets/star";
 
 import { restaurantStyle } from "../../styles/restaurantsStyle";
-import { RestrauntItemComponentType } from "../../types/restrauntTypes";
+import { RestaurantItemComponentType } from "../../types/restrauntTypes";
 import GETPath from "../../utilities/GETPath";
 import fetchImage from "../../utilities/FetchImage";
 
 export default function RestrauntItemComponent(
-  props: RestrauntItemComponentType
+  props: RestaurantItemComponentType
 ) {
   const ratingArray = Array.from({ length: Math.floor(props["rating"]) });
   const [avatare, setAvatar] = useState("");
