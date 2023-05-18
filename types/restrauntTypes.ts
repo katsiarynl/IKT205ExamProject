@@ -3,6 +3,7 @@ export type GeneralRestaurant = {
   name: string;
   // products: Product[];
 };
+//types
 
 export interface RestaurantComponentType extends GeneralRestaurant {
   image: string;
