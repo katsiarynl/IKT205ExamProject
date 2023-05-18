@@ -6,8 +6,8 @@ import RestrauntDescriptionComponent from "./RestrauntDescriptionComponent";
 
 import fetchImage from "../../utilities/FetchImage";
 import GETPath from "../../utilities/GETPath";
-import { RestrauntComponentType } from "../../types/restrauntTypes";
-export default function RestrauntComponent(props: RestrauntComponentType) {
+import { RestaurantComponentType } from "../../types/restrauntTypes";
+export default function RestrauntComponent(props: RestaurantComponentType) {
   const [avatare, setAvatar] = useState("");
   fetchImage(GETPath, setAvatar, props.image);
   return (

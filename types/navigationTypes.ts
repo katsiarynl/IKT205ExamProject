@@ -1,10 +1,10 @@
 import type { NativeStackNavigationProp } from "@react-navigation/native-stack";
 
-import type { RestrauntItemComponentType } from "./restrauntTypes";
+import type { RestaurantItemComponentType } from "./restrauntTypes";
 export type RootStackParamList = {
   navbar: undefined;
   products: {
-    restaurant: RestrauntItemComponentType;
+    restaurant: RestaurantItemComponentType;
   };
   test: undefined;
   stripe: undefined;

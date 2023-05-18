@@ -3,12 +3,13 @@ export type GeneralRestaurant = {
   name: string;
   // products: Product[];
 };
+//types
 
-export interface RestrauntComponentType extends GeneralRestaurant {
+export interface RestaurantComponentType extends GeneralRestaurant {
   image: string;
 }
 
-export interface RestrauntItemComponentType extends RestrauntComponentType {
+export interface RestaurantItemComponentType extends RestaurantComponentType {
   address: string;
   rating: number;
 }

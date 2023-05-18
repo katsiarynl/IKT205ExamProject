@@ -15,7 +15,7 @@ import { Search } from "../search/Search";
 import { RestaurantContext } from "../../context";
 import { ActivityIndicator } from "react-native-paper";
 
-import { RestrauntItemComponentType } from "../../types/restrauntTypes";
+import { RestaurantItemComponentType } from "../../types/restrauntTypes";
 import { NavigatorProductParam } from "../../types/navigationTypes";
 import GETRestaurants from "../../utilities/GETRestaurants";
 import { activeStyle } from "../../styles/activeStyle";
@@ -57,7 +57,7 @@ export default function HomeComponent() {
             }
           >
             {state.restraunts.map(
-              (restaurant: RestrauntItemComponentType, id) => {
+              (restaurant: RestaurantItemComponentType, id) => {
                 return (
                   <Pressable
                     onPress={() => navigate("products", { restaurant })}
