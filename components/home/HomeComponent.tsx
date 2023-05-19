@@ -42,7 +42,7 @@ export default function HomeComponent() {
     <>
       <SafeAreaView style={homesStyle.container}>
         <View style={homesStyle.search}>
-          <Search />
+          <Search  />
         </View>
         {isLoading ? (
           <View style={activeStyle.constiner}>

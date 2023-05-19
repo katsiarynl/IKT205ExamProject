@@ -12,6 +12,7 @@ export const profileStyle = StyleSheet.create({
     fontSize: 16,
     marginTop: 3,
     fontWeight: "bold",
+    color: "blue",
   },
 
   section: {

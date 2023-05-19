@@ -11,6 +11,7 @@ import {
 import { TextInput } from "react-native-paper";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { useNavigation } from "@react-navigation/native";
+import { GoogleComponent } from "../Externallogins/GoogleLoginComponent";
 
 import axios from "axios";
 
@@ -158,15 +159,7 @@ export const SignIn = () => {
               Login with Facebook
             </Icon.Button>
           </View>
-          <View style={signInStyle.googleStyle}>
-            <Icon.Button
-              name="google"
-              backgroundColor="#900603"
-              onPress={() => alert("Login with Google!")}
-            >
-              Login with Facebook
-            </Icon.Button>
-          </View>
+          <GoogleComponent />
           <SignUpButtonComponent />
         </ScrollView>
       </SafeAreaView>

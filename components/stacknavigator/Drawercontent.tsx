@@ -72,12 +72,16 @@ export const Drawercontent = (props) => {
         <View style={profileStyle.ItemContent}>
           <View style={profileStyle.userInfo}>
             <View style={{ flexDirection: "row", marginTop: 20 }}>
-              <Avatar.Image
-                source={{
-                  uri: uri,
-                }}
-                size={80}
-              />
+              {isloggedIn ? (
+                <Avatar.Image
+                  source={{
+                    uri: uri,
+                  }}
+                  size={90}
+                />
+              ) : (
+                <Avatar.Image size={100} source={require("../user/user.png")} />
+              )}
             </View>
           </View>
           <View style={{ marginLeft: 15 }}>{userEmailRender()}</View>
