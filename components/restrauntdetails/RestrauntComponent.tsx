@@ -20,7 +20,7 @@ export default function RestrauntComponent(props: RestrauntComponentType) {
           flex: 2,
         }}
         source={{
-          uri: avatare,
+          uri: avatare
         }}
       />
       <RestrauntDescriptionComponent

@@ -10,6 +10,7 @@ import { RestaurantContext } from "../../context";
 import empty_cart from "../../utilities/Empty_Cart";
 import { DrawerItem } from "@react-navigation/drawer";
 import { Feather } from "@expo/vector-icons";
+import { GoogleSignin } from "@react-native-google-signin/google-signin";
 export const SignOut = () => {
   const navigator = useNavigation<NavigationHome>();
 
@@ -22,6 +23,12 @@ export const SignOut = () => {
       await axios.post("https://cook2go.herokuapp.com/singOut");
       await AsyncStorage.removeItem("AccessToken");
       await AsyncStorage.removeItem("userEmail");
+
+      const isSignedIn = await GoogleSignin.isSignedIn();
+      if (isSignedIn) {
+        await GoogleSignin.signOut();
+      }
+
       RemoveHisotry(dispatchUser);
       empty_cart(dispatch);
 
